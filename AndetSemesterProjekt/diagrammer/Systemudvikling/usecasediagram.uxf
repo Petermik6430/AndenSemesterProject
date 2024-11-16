@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <help_text>// Uncomment the following line to change the fontsize and font:
+fontsize=10
+// fontfamily=SansSerif //possible: SansSerif,Serif,Monospaced
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+// Welcome to UMLet!
+//
+// Double-click on elements to add them to the diagram, or to copy them
+// Edit elements by modifying the text in this panel
+// Hold Ctrl to select multiple elements
+// Use Ctrl+mouse to select via lasso
+//
+// Use +/- or Ctrl+mouse wheel to zoom
+// Drag a whole relation at its central square icon
+//
+// Press Ctrl+C to copy the whole diagram to the system clipboard (then just paste it to, eg, Word)
+// Edit the files in the "palettes" directory to create your own element palettes
+//
+// Select "Custom Elements &gt; New..." to create new element types
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+
+// This text will be stored with each diagram;  use it for notes.</help_text>
+  <zoom_level>17</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>544</x>
+      <y>119</y>
+      <w>680</w>
+      <h>850</h>
+    </coordinates>
+    <panel_attributes>halign=left
+Barbershop bookingsystem
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>238</x>
+      <y>170</y>
+      <w>102</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>Leder</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>255</x>
+      <y>51</y>
+      <w>102</w>
+      <h>51</h>
+    </coordinates>
+    <panel_attributes>Aktør
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>238</x>
+      <y>408</y>
+      <w>102</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>Barber</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>221</x>
+      <y>663</y>
+      <w>136</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>Receptionist</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>782</x>
+      <y>442</y>
+      <w>204</w>
+      <h>68</h>
+    </coordinates>
+    <panel_attributes>Opret booking</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>782</x>
+      <y>527</y>
+      <w>204</w>
+      <h>68</h>
+    </coordinates>
+    <panel_attributes>RUD Booking</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>782</x>
+      <y>187</y>
+      <w>204</w>
+      <h>68</h>
+    </coordinates>
+    <panel_attributes>Accounting</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>1326</x>
+      <y>68</y>
+      <w>204</w>
+      <h>51</h>
+    </coordinates>
+    <panel_attributes>Supporting aktør
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>782</x>
+      <y>612</y>
+      <w>204</w>
+      <h>68</h>
+    </coordinates>
+    <panel_attributes>CRUD ordre</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>782</x>
+      <y>697</y>
+      <w>204</w>
+      <h>68</h>
+    </coordinates>
+    <panel_attributes>Find medarbejder</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>782</x>
+      <y>272</y>
+      <w>204</w>
+      <h>68</h>
+    </coordinates>
+    <panel_attributes>CUD medarbejder</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>782</x>
+      <y>357</y>
+      <w>204</w>
+      <h>68</h>
+    </coordinates>
+    <panel_attributes>Log-in</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>272</x>
+      <y>204</y>
+      <w>544</w>
+      <h>68</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;20.0;300.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>272</x>
+      <y>221</y>
+      <w>544</w>
+      <h>119</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;10.0;300.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>272</x>
+      <y>221</y>
+      <w>544</w>
+      <h>204</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;10.0;300.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>272</x>
+      <y>221</y>
+      <w>544</w>
+      <h>289</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;10.0;300.0;150.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>272</x>
+      <y>221</y>
+      <w>544</w>
+      <h>374</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;10.0;300.0;200.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>272</x>
+      <y>221</y>
+      <w>544</w>
+      <h>459</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;10.0;300.0;250.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>272</x>
+      <y>221</y>
+      <w>544</w>
+      <h>544</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;10.0;300.0;300.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>272</x>
+      <y>374</y>
+      <w>544</w>
+      <h>136</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;60.0;300.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>272</x>
+      <y>442</y>
+      <w>544</w>
+      <h>68</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;20.0;300.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>272</x>
+      <y>459</y>
+      <w>544</w>
+      <h>136</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;10.0;300.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>272</x>
+      <y>459</y>
+      <w>544</w>
+      <h>221</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;10.0;300.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>272</x>
+      <y>459</y>
+      <w>544</w>
+      <h>306</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;10.0;300.0;160.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>272</x>
+      <y>697</y>
+      <w>544</w>
+      <h>68</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;20.0;300.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>272</x>
+      <y>629</y>
+      <w>544</w>
+      <h>136</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;60.0;300.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>272</x>
+      <y>544</y>
+      <w>544</w>
+      <h>221</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;110.0;300.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>272</x>
+      <y>459</y>
+      <w>544</w>
+      <h>306</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;160.0;300.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>272</x>
+      <y>374</y>
+      <w>544</w>
+      <h>391</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;210.0;300.0;10.0</additional_attributes>
+  </element>
+</diagram>
