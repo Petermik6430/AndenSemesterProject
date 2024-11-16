@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<diagram program="umlet" version="15.1">
+<diagram program="umlet" version="15.0.0">
   <zoom_level>8</zoom_level>
   <element>
     <id>UMLClass</id>
@@ -273,7 +273,7 @@
       <w>80</w>
       <h>24</h>
     </coordinates>
-    <panel_attributes>stock</panel_attributes>
+    <panel_attributes>fk_stockId</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -2227,5 +2227,18 @@ eller en til mange
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>30.0;10.0;30.0;40.0;10.0;40.0;10.0;1200.0;670.0;1200.0;670.0;1330.0;570.0;1330.0;570.0;1370.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>1616</x>
+      <y>336</y>
+      <w>208</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>bg=blue
+burde vi have en som hedder barcode?
+når vi har item id?</panel_attributes>
+    <additional_attributes/>
   </element>
 </diagram>
