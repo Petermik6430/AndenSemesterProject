@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.0.0">
+  <zoom_level>8</zoom_level>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>1368</x>
+      <y>416</y>
+      <w>592</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>optional</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1816</x>
+      <y>264</y>
+      <w>80</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>_:Instance_</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1496</x>
+      <y>280</y>
+      <w>24</w>
+      <h>384</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;460.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>640</x>
+      <y>224</y>
+      <w>328</w>
+      <h>176</h>
+    </coordinates>
+    <panel_attributes>Operation: createBooking
+Cross references: Opret booking
+-
+Precondition:
+
+
+Postcondition:
+- En ny booking er oprettet i systemet
+- Booking ID genereres og gemmes i systemet
+
+skal skrives som:
+instanser og objekter oprettet osv.
+associeseringer og tilkoblinger</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>640</x>
+      <y>408</y>
+      <w>328</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>Operation: select(Date, Time, Barber)
+Cross references: Opret booking
+-
+Precondition:
+- Operation createBooking er udført
+
+Postcondition:
+- Dato, tid og frisør vælges og tilknyttes den midlertidige booking</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>976</x>
+      <y>272</y>
+      <w>328</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>Operation: createCustomer
+Cross references: Opret booking
+-
+Precondition:
+- Receptionisten ønsker at tilføje en ny kunde
+
+Postcondition:
+- En ny kunde er oprettet i systemet
+- Kunde ID genereres og gemmes i systemet</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>976</x>
+      <y>408</y>
+      <w>328</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>Operation: selectCustomer
+Cross references: Opret booking
+-
+Precondition:
+- KundeID er oprettet i systemet
+
+Postcondition:
+- Kunden vælges og tilknyttes booking</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>640</x>
+      <y>544</y>
+      <w>328</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>Operation: selectService(s)
+Cross references: Opret booking
+-
+Precondition:
+- Operation selectCustomer er udført
+
+Postcondition:
+- De valgte services tilknyttes booking </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>976</x>
+      <y>544</y>
+      <w>328</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>Operation: completeBooking
+Cross references: Opret booking
+-
+Precondition:
+- operation selectCustomer 
+
+Postcondition:
+- Booking tilstand opdateres til fuldført
+- Booking gemmes i systemet</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>1464</x>
+      <y>208</y>
+      <w>80</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>Receptionist</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1624</x>
+      <y>200</y>
+      <w>96</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>Opret booking
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1848</x>
+      <y>280</y>
+      <w>24</w>
+      <h>384</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;460.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1496</x>
+      <y>336</y>
+      <w>376</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;450.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1496</x>
+      <y>304</y>
+      <w>376</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+createBooking</panel_attributes>
+    <additional_attributes>10.0;20.0;450.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1496</x>
+      <y>360</y>
+      <w>376</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+select(Date, Time, Barber)</panel_attributes>
+    <additional_attributes>10.0;20.0;450.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1496</x>
+      <y>384</y>
+      <w>376</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+recervationsConfirmed</panel_attributes>
+    <additional_attributes>10.0;20.0;450.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1496</x>
+      <y>416</y>
+      <w>376</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+createCustomer</panel_attributes>
+    <additional_attributes>10.0;20.0;450.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1496</x>
+      <y>440</y>
+      <w>376</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+recervationsConfirmed</panel_attributes>
+    <additional_attributes>10.0;20.0;450.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1496</x>
+      <y>472</y>
+      <w>376</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+selectCustomer(phoneNo)</panel_attributes>
+    <additional_attributes>10.0;20.0;450.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1496</x>
+      <y>496</y>
+      <w>376</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+customerConfirmed</panel_attributes>
+    <additional_attributes>10.0;20.0;450.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1496</x>
+      <y>528</y>
+      <w>376</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+selectService(serviceType)</panel_attributes>
+    <additional_attributes>10.0;20.0;450.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1496</x>
+      <y>552</y>
+      <w>376</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+serviceConfirmed
+</panel_attributes>
+    <additional_attributes>10.0;20.0;450.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1496</x>
+      <y>584</y>
+      <w>376</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+completeBooking</panel_attributes>
+    <additional_attributes>10.0;20.0;450.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1496</x>
+      <y>608</y>
+      <w>376</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+bookingConfirmed
+</panel_attributes>
+    <additional_attributes>10.0;20.0;450.0;20.0</additional_attributes>
+  </element>
+</diagram>
