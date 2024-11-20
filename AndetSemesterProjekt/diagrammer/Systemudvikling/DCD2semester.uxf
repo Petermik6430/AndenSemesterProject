@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="15.1">
-  <zoom_level>7</zoom_level>
+  <zoom_level>9</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>714</x>
-      <y>168</y>
-      <w>217</w>
-      <h>126</h>
+      <x>855</x>
+      <y>216</y>
+      <w>279</w>
+      <h>162</h>
     </coordinates>
     <panel_attributes>BookingUI
 --
@@ -21,10 +21,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1407</x>
-      <y>392</y>
-      <w>322</w>
-      <h>126</h>
+      <x>1746</x>
+      <y>504</y>
+      <w>414</w>
+      <h>162</h>
     </coordinates>
     <panel_attributes>BookingController
 --
@@ -39,10 +39,10 @@ barber: String:):
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1911</x>
-      <y>392</y>
-      <w>329</w>
-      <h>126</h>
+      <x>2394</x>
+      <y>504</y>
+      <w>423</w>
+      <h>162</h>
     </coordinates>
     <panel_attributes>CustomerController
 --
@@ -57,10 +57,10 @@ PhoneNo: String, mail: String):
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>721</x>
-      <y>385</y>
-      <w>217</w>
-      <h>126</h>
+      <x>864</x>
+      <y>495</y>
+      <w>279</w>
+      <h>162</h>
     </coordinates>
     <panel_attributes>SalesController
 --
@@ -76,10 +76,10 @@ PhoneNo: String, mail: String):
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>231</x>
-      <y>392</y>
-      <w>252</w>
-      <h>126</h>
+      <x>234</x>
+      <y>504</y>
+      <w>324</w>
+      <h>162</h>
     </coordinates>
     <panel_attributes>ProductController
 --
@@ -93,10 +93,10 @@ PhoneNo: String, mail: String):
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>896</x>
-      <y>602</y>
-      <w>217</w>
-      <h>126</h>
+      <x>1089</x>
+      <y>774</y>
+      <w>279</w>
+      <h>162</h>
     </coordinates>
     <panel_attributes>&lt;&lt;interface&gt;&gt;
 SaleDBIF
@@ -111,10 +111,10 @@ SaleDBIF
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>903</x>
-      <y>777</y>
-      <w>217</w>
-      <h>126</h>
+      <x>1098</x>
+      <y>999</y>
+      <w>279</w>
+      <h>162</h>
     </coordinates>
     <panel_attributes>SaleDB
 --
@@ -124,10 +124,10 @@ SaleDBIF
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>637</x>
-      <y>777</y>
-      <w>217</w>
-      <h>126</h>
+      <x>756</x>
+      <y>999</y>
+      <w>279</w>
+      <h>162</h>
     </coordinates>
     <panel_attributes>SaleOrderLine
 --
@@ -137,10 +137,10 @@ SaleDBIF
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>637</x>
-      <y>602</y>
-      <w>217</w>
-      <h>126</h>
+      <x>756</x>
+      <y>774</y>
+      <w>279</w>
+      <h>162</h>
     </coordinates>
     <panel_attributes>Sale
 --
@@ -150,10 +150,10 @@ SaleDBIF
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>336</x>
-      <y>770</y>
-      <w>217</w>
-      <h>126</h>
+      <x>369</x>
+      <y>990</y>
+      <w>279</w>
+      <h>162</h>
     </coordinates>
     <panel_attributes>ProductDB
 --
@@ -163,10 +163,10 @@ SaleDBIF
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>336</x>
-      <y>602</y>
-      <w>245</w>
-      <h>126</h>
+      <x>369</x>
+      <y>774</y>
+      <w>315</w>
+      <h>162</h>
     </coordinates>
     <panel_attributes>&lt;&lt;interface&gt;&gt;
 ProductDBIF
@@ -179,10 +179,10 @@ ProductDBIF
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>56</x>
-      <y>602</y>
-      <w>217</w>
-      <h>126</h>
+      <x>9</x>
+      <y>774</y>
+      <w>279</w>
+      <h>162</h>
     </coordinates>
     <panel_attributes>Product
 --
@@ -192,10 +192,10 @@ ProductDBIF
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>49</x>
-      <y>770</y>
-      <w>217</w>
-      <h>126</h>
+      <x>0</x>
+      <y>990</y>
+      <w>279</w>
+      <h>162</h>
     </coordinates>
     <panel_attributes>ProductType
 --
@@ -205,10 +205,10 @@ ProductDBIF
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2023</x>
-      <y>595</y>
-      <w>294</w>
-      <h>126</h>
+      <x>2538</x>
+      <y>765</y>
+      <w>378</w>
+      <h>162</h>
     </coordinates>
     <panel_attributes>&lt;&lt;interface&gt;&gt;
 CustomerDBIF
@@ -222,10 +222,10 @@ PhoneNo: String, mail: String):
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2051</x>
-      <y>742</y>
-      <w>217</w>
-      <h>126</h>
+      <x>2574</x>
+      <y>954</y>
+      <w>279</w>
+      <h>162</h>
     </coordinates>
     <panel_attributes>CustomerDB
 --
@@ -235,10 +235,10 @@ PhoneNo: String, mail: String):
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1792</x>
-      <y>602</y>
-      <w>217</w>
-      <h>126</h>
+      <x>2241</x>
+      <y>774</y>
+      <w>279</w>
+      <h>162</h>
     </coordinates>
     <panel_attributes>Customer
 --
@@ -249,10 +249,10 @@ PhoneNo: String, mail: String):
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2765</x>
+      <x>3492</x>
       <y>0</y>
-      <w>217</w>
-      <h>126</h>
+      <w>279</w>
+      <h>162</h>
     </coordinates>
     <panel_attributes>Person?!
 --
@@ -262,10 +262,10 @@ PhoneNo: String, mail: String):
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1456</x>
-      <y>595</y>
-      <w>322</w>
-      <h>126</h>
+      <x>1809</x>
+      <y>765</y>
+      <w>414</w>
+      <h>162</h>
     </coordinates>
     <panel_attributes> &lt;&lt;interface&gt;&gt;
  BookingDBIF
@@ -281,10 +281,10 @@ barber: String:):
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1456</x>
-      <y>763</y>
-      <w>217</w>
-      <h>126</h>
+      <x>1809</x>
+      <y>981</y>
+      <w>279</w>
+      <h>162</h>
     </coordinates>
     <panel_attributes> BookingDB
 --
@@ -294,10 +294,10 @@ barber: String:):
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1344</x>
-      <y>910</y>
-      <w>217</w>
-      <h>126</h>
+      <x>1665</x>
+      <y>1170</y>
+      <w>279</w>
+      <h>162</h>
     </coordinates>
     <panel_attributes> Booking
 --
@@ -307,10 +307,10 @@ barber: String:):
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1169</x>
-      <y>595</y>
-      <w>217</w>
-      <h>126</h>
+      <x>1440</x>
+      <y>765</y>
+      <w>279</w>
+      <h>162</h>
     </coordinates>
     <panel_attributes>DBConnection
 --
@@ -320,10 +320,10 @@ barber: String:):
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>147</x>
-      <y>70</y>
-      <w>336</w>
-      <h>154</h>
+      <x>126</x>
+      <y>90</y>
+      <w>432</w>
+      <h>198</h>
     </coordinates>
     <panel_attributes>halign=left
 bg=blue
@@ -345,10 +345,10 @@ Fælger vi DAO pattern hvis vi tilslutter model laget til controller
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2415</x>
-      <y>385</y>
-      <w>329</w>
-      <h>126</h>
+      <x>3042</x>
+      <y>495</y>
+      <w>423</w>
+      <h>162</h>
     </coordinates>
     <panel_attributes>EmpolyeeController
 --
@@ -364,10 +364,10 @@ adress: String, contactPersonPhoneNo):
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2583</x>
-      <y>595</y>
-      <w>329</w>
-      <h>126</h>
+      <x>3258</x>
+      <y>765</y>
+      <w>423</w>
+      <h>162</h>
     </coordinates>
     <panel_attributes>&lt;&lt;interface&gt;&gt;
 EmployeeDBIF
@@ -383,10 +383,10 @@ adress: String, contactPersonPhoneNo):
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2667</x>
-      <y>756</y>
-      <w>217</w>
-      <h>126</h>
+      <x>3366</x>
+      <y>972</y>
+      <w>279</w>
+      <h>162</h>
     </coordinates>
     <panel_attributes>EmployeeDB
 --
@@ -396,10 +396,10 @@ adress: String, contactPersonPhoneNo):
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2352</x>
-      <y>595</y>
-      <w>217</w>
-      <h>126</h>
+      <x>2961</x>
+      <y>765</y>
+      <w>279</w>
+      <h>162</h>
     </coordinates>
     <panel_attributes>Employee
 --
@@ -410,10 +410,10 @@ adress: String, contactPersonPhoneNo):
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1260</x>
-      <y>28</y>
-      <w>336</w>
-      <h>147</h>
+      <x>1557</x>
+      <y>36</y>
+      <w>432</w>
+      <h>189</h>
     </coordinates>
     <panel_attributes>halign=left
 bg=blue
