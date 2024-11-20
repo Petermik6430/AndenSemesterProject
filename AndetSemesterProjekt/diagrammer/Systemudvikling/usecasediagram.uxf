@@ -94,7 +94,7 @@ bg=blue</panel_attributes>
       <w>204</w>
       <h>68</h>
     </coordinates>
-    <panel_attributes>Opret booking</panel_attributes>
+    <panel_attributes>Opret Booking</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -139,7 +139,7 @@ bg=blue</panel_attributes>
       <w>204</w>
       <h>68</h>
     </coordinates>
-    <panel_attributes>CRUD ordre</panel_attributes>
+    <panel_attributes>CRUD Sale</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -150,7 +150,7 @@ bg=blue</panel_attributes>
       <w>204</w>
       <h>68</h>
     </coordinates>
-    <panel_attributes>Find medarbejder</panel_attributes>
+    <panel_attributes>Find Employee</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -161,7 +161,7 @@ bg=blue</panel_attributes>
       <w>204</w>
       <h>68</h>
     </coordinates>
-    <panel_attributes>CUD medarbejder</panel_attributes>
+    <panel_attributes>CUD Employee</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
