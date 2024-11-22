@@ -265,7 +265,7 @@ PhoneNo: String, mail: String):
     <id>UMLClass</id>
     <coordinates>
       <x>4584</x>
-      <y>1272</y>
+      <y>1260</y>
       <w>372</w>
       <h>216</h>
     </coordinates>
@@ -428,7 +428,7 @@ adress: String, contactPersonPhoneNo):
     </coordinates>
     <panel_attributes>EmployeeDB
 --
-</panel_attributes>
++ findCustomerByPhonenNo(phoneNo: String) Employee:</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -481,7 +481,7 @@ Burde BookingControlleren være informaations experten.
     <coordinates>
       <x>4824</x>
       <y>444</y>
-      <w>168</w>
+      <w>264</w>
       <h>84</h>
     </coordinates>
     <panel_attributes>bg=blue
@@ -515,8 +515,8 @@ completeBooking():</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>3192</x>
-      <y>1548</y>
+      <x>3204</x>
+      <y>1524</y>
       <w>372</w>
       <h>216</h>
     </coordinates>
@@ -528,8 +528,8 @@ completeBooking():</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>3024</x>
-      <y>1788</y>
+      <x>3000</x>
+      <y>1776</y>
       <w>372</w>
       <h>216</h>
     </coordinates>

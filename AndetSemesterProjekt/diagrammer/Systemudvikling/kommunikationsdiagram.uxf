@@ -29,7 +29,7 @@ fontsize=10
     <id>UMLClass</id>
     <coordinates>
       <x>2310</x>
-      <y>126</y>
+      <y>140</y>
       <w>140</w>
       <h>42</h>
     </coordinates>
@@ -40,7 +40,7 @@ fontsize=10
     <id>UMLClass</id>
     <coordinates>
       <x>2296</x>
-      <y>350</y>
+      <y>364</y>
       <w>182</w>
       <h>42</h>
     </coordinates>
@@ -51,7 +51,7 @@ fontsize=10
     <id>UMLClass</id>
     <coordinates>
       <x>238</x>
-      <y>322</y>
+      <y>336</y>
       <w>182</w>
       <h>42</h>
     </coordinates>
@@ -62,7 +62,7 @@ fontsize=10
     <id>UMLClass</id>
     <coordinates>
       <x>238</x>
-      <y>476</y>
+      <y>490</y>
       <w>182</w>
       <h>42</h>
     </coordinates>
@@ -72,8 +72,8 @@ fontsize=10
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2296</x>
-      <y>784</y>
+      <x>2254</x>
+      <y>924</y>
       <w>182</w>
       <h>42</h>
     </coordinates>
@@ -84,7 +84,7 @@ fontsize=10
     <id>UMLClass</id>
     <coordinates>
       <x>224</x>
-      <y>588</y>
+      <y>602</y>
       <w>182</w>
       <h>42</h>
     </coordinates>
@@ -94,8 +94,8 @@ fontsize=10
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>3206</x>
-      <y>938</y>
+      <x>3150</x>
+      <y>952</y>
       <w>182</w>
       <h>42</h>
     </coordinates>
@@ -106,7 +106,7 @@ fontsize=10
     <id>UMLClass</id>
     <coordinates>
       <x>3206</x>
-      <y>378</y>
+      <y>392</y>
       <w>182</w>
       <h>42</h>
     </coordinates>
@@ -116,7 +116,7 @@ fontsize=10
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>3206</x>
+      <x>3262</x>
       <y>588</y>
       <w>182</w>
       <h>42</h>
@@ -128,7 +128,7 @@ fontsize=10
     <id>UMLClass</id>
     <coordinates>
       <x>0</x>
-      <y>322</y>
+      <y>336</y>
       <w>182</w>
       <h>42</h>
     </coordinates>
@@ -139,7 +139,7 @@ fontsize=10
     <id>UMLClass</id>
     <coordinates>
       <x>0</x>
-      <y>476</y>
+      <y>490</y>
       <w>182</w>
       <h>42</h>
     </coordinates>
@@ -150,7 +150,7 @@ fontsize=10
     <id>UMLClass</id>
     <coordinates>
       <x>0</x>
-      <y>588</y>
+      <y>602</y>
       <w>182</w>
       <h>42</h>
     </coordinates>
@@ -161,7 +161,7 @@ fontsize=10
     <id>Relation</id>
     <coordinates>
       <x>2366</x>
-      <y>154</y>
+      <y>168</y>
       <w>392</w>
       <h>224</h>
     </coordinates>
@@ -179,7 +179,7 @@ fontsize=10
     <id>Relation</id>
     <coordinates>
       <x>2016</x>
-      <y>112</y>
+      <y>126</y>
       <w>322</w>
       <h>140</h>
     </coordinates>
@@ -196,10 +196,10 @@ completeBooking():</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2366</x>
-      <y>378</y>
+      <x>2450</x>
+      <y>392</y>
       <w>266</w>
-      <h>238</h>
+      <h>252</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 1.1.1&lt;&lt;create&gt;&gt; Booking():
@@ -209,13 +209,13 @@ completeBooking():</panel_attributes>
 4.1.2 selectTime(time: LocalTime):
 5.1.1 &lt;&lt;create&gt;&gt; Customer():
 6.1.1 selectCustomer (cp: Customer):</panel_attributes>
-    <additional_attributes>10.0;150.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;160.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2296</x>
-      <y>588</y>
+      <x>2380</x>
+      <y>616</y>
       <w>182</w>
       <h>42</h>
     </coordinates>
@@ -225,20 +225,20 @@ completeBooking():</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2366</x>
-      <y>616</y>
+      <x>2324</x>
+      <y>392</y>
       <w>350</w>
-      <h>196</h>
+      <h>560</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 7.1.1.1 completeBooking(BookingId: int): Booking:</panel_attributes>
-    <additional_attributes>10.0;120.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;380.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>2464</x>
-      <y>364</y>
+      <y>378</y>
       <w>770</w>
       <h>56</h>
     </coordinates>
@@ -251,9 +251,9 @@ completeBooking():</panel_attributes>
     <id>UMLNote</id>
     <coordinates>
       <x>2590</x>
-      <y>70</y>
-      <w>224</w>
-      <h>98</h>
+      <y>84</y>
+      <w>266</w>
+      <h>112</h>
     </coordinates>
     <panel_attributes>bg=blue
 Er der et andet ord end 
@@ -267,7 +267,7 @@ CreateCustomer. Det samme gælder </panel_attributes>
     <id>UMLNote</id>
     <coordinates>
       <x>476</x>
-      <y>392</y>
+      <y>406</y>
       <w>252</w>
       <h>112</h>
     </coordinates>
@@ -277,23 +277,10 @@ stadig skrive &lt;&lt;create&gt;&gt; createBooking</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <id>UMLNote</id>
-    <coordinates>
-      <x>2870</x>
-      <y>266</y>
-      <w>252</w>
-      <h>56</h>
-    </coordinates>
-    <panel_attributes>bg=blue
-Skal vi have id som parameter når 
-SQL laver dem selv.</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>Relation</id>
     <coordinates>
       <x>406</x>
-      <y>308</y>
+      <y>322</y>
       <w>350</w>
       <h>56</h>
     </coordinates>
@@ -305,7 +292,7 @@ SQL laver dem selv.</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>308</x>
-      <y>350</y>
+      <y>364</y>
       <w>126</w>
       <h>154</h>
     </coordinates>
@@ -317,7 +304,7 @@ SQL laver dem selv.</panel_attributes>
     <id>UMLNote</id>
     <coordinates>
       <x>420</x>
-      <y>182</y>
+      <y>196</y>
       <w>280</w>
       <h>112</h>
     </coordinates>
@@ -330,7 +317,7 @@ hvordan skal vi håndtere saleController
     <id>UMLClass</id>
     <coordinates>
       <x>3486</x>
-      <y>336</y>
+      <y>350</y>
       <w>182</w>
       <h>42</h>
     </coordinates>
@@ -340,8 +327,8 @@ hvordan skal vi håndtere saleController
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>3486</x>
-      <y>532</y>
+      <x>3542</x>
+      <y>546</y>
       <w>182</w>
       <h>42</h>
     </coordinates>
@@ -351,8 +338,8 @@ hvordan skal vi håndtere saleController
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>3486</x>
-      <y>714</y>
+      <x>3430</x>
+      <y>812</y>
       <w>182</w>
       <h>42</h>
     </coordinates>
@@ -363,7 +350,7 @@ hvordan skal vi håndtere saleController
     <id>Relation</id>
     <coordinates>
       <x>2464</x>
-      <y>322</y>
+      <y>336</y>
       <w>1050</w>
       <h>56</h>
     </coordinates>
@@ -374,8 +361,8 @@ hvordan skal vi håndtere saleController
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>3556</x>
-      <y>364</y>
+      <x>3612</x>
+      <y>378</y>
       <w>392</w>
       <h>196</h>
     </coordinates>
@@ -386,46 +373,46 @@ hvordan skal vi håndtere saleController
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>3556</x>
-      <y>560</y>
+      <x>3500</x>
+      <y>378</y>
       <w>490</w>
-      <h>182</h>
+      <h>462</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 3.1.2.1 1 * [i = 1..n]: eid = getEmployeeById(EmployeeId: Int) : Employee</panel_attributes>
-    <additional_attributes>10.0;110.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;310.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>3276</x>
-      <y>406</y>
+      <x>3332</x>
+      <y>420</y>
       <w>700</w>
-      <h>210</h>
+      <h>196</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 5.1.2 c = &lt;&lt;create&gt;&gt; Customer(CustomerId: int, fName: String, lName: String, phoneNo: String, mail: String)
 6.1.2 cp = findCustomerByPhoneNo(phoneNo: String): Customer</panel_attributes>
-    <additional_attributes>10.0;130.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;120.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>3276</x>
-      <y>616</y>
+      <x>3220</x>
+      <y>420</y>
       <w>700</w>
-      <h>350</h>
+      <h>560</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 5.1.2.1 c = &lt;&lt;create&gt;&gt; Customer(CustomerId: int, fName: String, lName: String, phoneNo: String, mail: String)
 6.1.2.1 1 * [i = 1..n]: cp = getCustomerByPhoneNo(phoneNo: String): Customer</panel_attributes>
-    <additional_attributes>10.0;230.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;380.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLNote</id>
     <coordinates>
       <x>3178</x>
-      <y>126</y>
+      <y>140</y>
       <w>252</w>
       <h>56</h>
     </coordinates>
@@ -438,7 +425,7 @@ fordeles</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>1722</x>
-      <y>350</y>
+      <y>364</y>
       <w>182</w>
       <h>42</h>
     </coordinates>
@@ -449,7 +436,7 @@ fordeles</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1890</x>
-      <y>336</y>
+      <y>350</y>
       <w>434</w>
       <h>56</h>
     </coordinates>
@@ -460,7 +447,7 @@ fordeles</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1736</x>
+      <x>1792</x>
       <y>588</y>
       <w>182</w>
       <h>42</h>
@@ -471,8 +458,8 @@ fordeles</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1736</x>
-      <y>784</y>
+      <x>1680</x>
+      <y>896</y>
       <w>182</w>
       <h>42</h>
     </coordinates>
@@ -482,25 +469,50 @@ fordeles</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1806</x>
-      <y>378</y>
+      <x>1862</x>
+      <y>392</y>
       <w>364</w>
-      <h>238</h>
+      <h>224</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 2.1.2 s = selectService(s: serviceType): ServiceType</panel_attributes>
-    <additional_attributes>10.0;150.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;140.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1806</x>
-      <y>616</y>
+      <x>1750</x>
+      <y>392</y>
       <w>406</w>
-      <h>196</h>
+      <h>532</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 2.1.2.1 1 * [i = 1..n]: s = getService(s: ServiceType): Service</panel_attributes>
-    <additional_attributes>10.0;120.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;360.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>1736</x>
+      <y>0</y>
+      <w>252</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>bg=blue
+Db skal snakke sammen med Controller</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>2870</x>
+      <y>280</y>
+      <w>252</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>bg=blue
+Skal vi have id som parameter når 
+SQL laver dem selv.</panel_attributes>
+    <additional_attributes/>
   </element>
 </diagram>
