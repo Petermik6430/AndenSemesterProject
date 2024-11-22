@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="15.1">
-  <zoom_level>12</zoom_level>
+  <zoom_level>18</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1848</x>
-      <y>96</y>
-      <w>228</w>
-      <h>156</h>
+      <x>2772</x>
+      <y>144</y>
+      <w>342</w>
+      <h>234</h>
     </coordinates>
     <panel_attributes>Person
 --
@@ -21,10 +21,10 @@ mail
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1692</x>
-      <y>348</y>
-      <w>228</w>
-      <h>156</h>
+      <x>2538</x>
+      <y>522</y>
+      <w>342</w>
+      <h>234</h>
     </coordinates>
     <panel_attributes>Employee
 --
@@ -39,10 +39,10 @@ contactPerson
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1992</x>
-      <y>348</y>
-      <w>228</w>
-      <h>156</h>
+      <x>2988</x>
+      <y>522</y>
+      <w>342</w>
+      <h>234</h>
     </coordinates>
     <panel_attributes>Customer
 --
@@ -55,10 +55,10 @@ customerId
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2016</x>
-      <y>696</y>
-      <w>228</w>
-      <h>156</h>
+      <x>3024</x>
+      <y>1044</y>
+      <w>342</w>
+      <h>234</h>
     </coordinates>
     <panel_attributes>BookingUnit
 --
@@ -69,10 +69,10 @@ type</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>648</x>
-      <y>528</y>
-      <w>228</w>
-      <h>156</h>
+      <x>972</x>
+      <y>792</y>
+      <w>342</w>
+      <h>234</h>
     </coordinates>
     <panel_attributes>Saleline
 --
@@ -83,10 +83,10 @@ quantity
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1032</x>
-      <y>528</y>
-      <w>228</w>
-      <h>156</h>
+      <x>1548</x>
+      <y>792</y>
+      <w>342</w>
+      <h>234</h>
     </coordinates>
     <panel_attributes>Sale
 --
@@ -99,10 +99,10 @@ saleNo
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1824</x>
-      <y>240</y>
-      <w>120</w>
-      <h>132</h>
+      <x>2736</x>
+      <y>360</y>
+      <w>180</w>
+      <h>198</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>80.0;10.0;80.0;50.0;10.0;50.0;10.0;90.0</additional_attributes>
@@ -110,10 +110,10 @@ saleNo
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1992</x>
-      <y>240</y>
-      <w>144</w>
-      <h>132</h>
+      <x>2988</x>
+      <y>360</y>
+      <w>216</w>
+      <h>198</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;50.0;100.0;50.0;100.0;90.0</additional_attributes>
@@ -121,10 +121,10 @@ saleNo
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2100</x>
-      <y>492</y>
-      <w>60</w>
-      <h>228</h>
+      <x>3150</x>
+      <y>738</y>
+      <w>90</w>
+      <h>342</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
@@ -135,10 +135,10 @@ m2=1..*
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>744</x>
-      <y>672</y>
-      <w>108</w>
-      <h>456</h>
+      <x>1116</x>
+      <y>1008</y>
+      <w>162</w>
+      <h>684</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=*
@@ -149,10 +149,10 @@ contain v</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>168</x>
-      <y>804</y>
-      <w>240</w>
-      <h>156</h>
+      <x>252</x>
+      <y>1206</y>
+      <w>360</w>
+      <h>234</h>
     </coordinates>
     <panel_attributes>Price
 --
@@ -165,10 +165,10 @@ discount *klasse for sig selv?*</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>396</x>
-      <y>852</y>
-      <w>360</w>
-      <h>276</h>
+      <x>594</x>
+      <y>1278</y>
+      <w>540</w>
+      <h>414</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1..*
@@ -182,10 +182,10 @@ temporel pattern &gt;
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>864</x>
-      <y>588</y>
-      <w>192</w>
-      <h>48</h>
+      <x>1296</x>
+      <y>882</y>
+      <w>288</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
 m1=1
@@ -195,12 +195,12 @@ m2=1..*</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1668</x>
-      <y>612</y>
-      <w>372</w>
-      <h>204</h>
+      <x>2502</x>
+      <y>918</y>
+      <w>558</w>
+      <h>306</h>
     </coordinates>
-    <panel_attributes>lt=-
+    <panel_attributes>lt=-&gt;&gt;&gt;&gt;
 m1=*
 m2=1
 &lt; makes</panel_attributes>
@@ -209,10 +209,10 @@ m2=1
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>648</x>
-      <y>1104</y>
-      <w>240</w>
-      <h>144</h>
+      <x>972</x>
+      <y>1656</y>
+      <w>360</w>
+      <h>216</h>
     </coordinates>
     <panel_attributes>Item
 --
@@ -226,10 +226,10 @@ stock
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>972</x>
-      <y>204</y>
-      <w>228</w>
-      <h>156</h>
+      <x>1458</x>
+      <y>306</y>
+      <w>342</w>
+      <h>234</h>
     </coordinates>
     <panel_attributes>Payment
 --
@@ -242,10 +242,10 @@ paymentId</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1080</x>
-      <y>348</y>
-      <w>48</w>
-      <h>204</h>
+      <x>1620</x>
+      <y>522</y>
+      <w>72</w>
+      <h>306</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
@@ -256,10 +256,10 @@ m2=1
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>924</x>
-      <y>1104</y>
-      <w>240</w>
-      <h>144</h>
+      <x>1386</x>
+      <y>1656</y>
+      <w>360</w>
+      <h>216</h>
     </coordinates>
     <panel_attributes>Service
 --
@@ -269,10 +269,10 @@ trimType</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1164</x>
-      <y>1308</y>
-      <w>252</w>
-      <h>180</h>
+      <x>1746</x>
+      <y>1962</y>
+      <w>378</w>
+      <h>270</h>
     </coordinates>
     <panel_attributes>Supplier
 --
@@ -288,10 +288,10 @@ email</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>840</x>
-      <y>1236</y>
-      <w>348</w>
-      <h>180</h>
+      <x>1260</x>
+      <y>1854</y>
+      <w>522</w>
+      <h>270</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1..*
@@ -302,10 +302,10 @@ m2=1..*
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>288</x>
-      <y>1104</y>
-      <w>240</w>
-      <h>144</h>
+      <x>432</x>
+      <y>1656</y>
+      <w>360</w>
+      <h>216</h>
     </coordinates>
     <panel_attributes>Stock
 --
@@ -320,10 +320,10 @@ currentStock
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>288</x>
-      <y>1356</y>
-      <w>240</w>
-      <h>144</h>
+      <x>432</x>
+      <y>2034</y>
+      <w>360</w>
+      <h>216</h>
     </coordinates>
     <panel_attributes>Shop
 --
@@ -338,10 +338,10 @@ zipCode
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>516</x>
-      <y>1164</y>
-      <w>156</w>
-      <h>48</h>
+      <x>774</x>
+      <y>1746</y>
+      <w>234</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
 m1=1
@@ -351,10 +351,10 @@ m2=*</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>384</x>
-      <y>1236</y>
-      <w>48</w>
-      <h>144</h>
+      <x>576</x>
+      <y>1854</y>
+      <w>72</w>
+      <h>216</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-
 m1=1
@@ -364,10 +364,10 @@ m2=*</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>648</x>
-      <y>1356</y>
-      <w>240</w>
-      <h>144</h>
+      <x>972</x>
+      <y>2034</y>
+      <w>360</w>
+      <h>216</h>
     </coordinates>
     <panel_attributes>ItemType
 --
@@ -377,10 +377,10 @@ name</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>744</x>
-      <y>1236</y>
-      <w>108</w>
-      <h>144</h>
+      <x>1116</x>
+      <y>1854</y>
+      <w>162</w>
+      <h>216</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=*
@@ -393,8 +393,8 @@ contain ^</panel_attributes>
     <coordinates>
       <x>0</x>
       <y>0</y>
-      <w>552</w>
-      <h>444</h>
+      <w>828</w>
+      <h>666</h>
     </coordinates>
     <panel_attributes>fixit
 --
@@ -422,10 +422,10 @@ service har ingen supplier, </panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1788</x>
-      <y>492</y>
-      <w>264</w>
-      <h>228</h>
+      <x>2682</x>
+      <y>738</y>
+      <w>396</w>
+      <h>342</h>
     </coordinates>
     <panel_attributes>
 m1=*
@@ -436,10 +436,10 @@ m2=*
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1152</x>
-      <y>684</y>
-      <w>468</w>
-      <h>528</h>
+      <x>1728</x>
+      <y>1026</y>
+      <w>702</w>
+      <h>792</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
@@ -451,9 +451,9 @@ m2=1..*
     <id>UMLNote</id>
     <coordinates>
       <x>0</x>
-      <y>480</y>
-      <w>480</w>
-      <h>144</h>
+      <y>720</y>
+      <w>720</w>
+      <h>216</h>
     </coordinates>
     <panel_attributes>
 Vi skal gøre brug af 
@@ -469,10 +469,10 @@ https://martinfowler.com/eaaDev/TemporalProperty.html</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1176</x>
-      <y>396</y>
-      <w>540</w>
-      <h>156</h>
+      <x>1764</x>
+      <y>594</y>
+      <w>810</w>
+      <h>234</h>
     </coordinates>
     <panel_attributes>&lt; makes
 m1=0..1
@@ -483,10 +483,10 @@ m2=0..*
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1452</x>
-      <y>540</y>
-      <w>228</w>
-      <h>156</h>
+      <x>2178</x>
+      <y>810</y>
+      <w>342</w>
+      <h>234</h>
     </coordinates>
     <panel_attributes>BookingDate
 --
@@ -498,10 +498,10 @@ note</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1536</x>
-      <y>432</y>
-      <w>180</w>
-      <h>132</h>
+      <x>2304</x>
+      <y>648</y>
+      <w>270</w>
+      <h>198</h>
     </coordinates>
     <panel_attributes>
 m1=1
@@ -512,10 +512,10 @@ m2=*
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>2220</x>
-      <y>516</y>
-      <w>444</w>
-      <h>120</h>
+      <x>3330</x>
+      <y>774</y>
+      <w>666</w>
+      <h>180</h>
     </coordinates>
     <panel_attributes>I bookingunit er typen en enum hvor vi vil have avabile
 booked, orther.</panel_attributes>
@@ -524,10 +524,10 @@ booked, orther.</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>1740</x>
-      <y>804</y>
-      <w>168</w>
-      <h>84</h>
+      <x>2610</x>
+      <y>1206</y>
+      <w>252</w>
+      <h>126</h>
     </coordinates>
     <panel_attributes>bg=blue
 Skal det være en til 
@@ -539,10 +539,10 @@ til mange
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>396</x>
-      <y>816</y>
-      <w>588</w>
-      <h>312</h>
+      <x>594</x>
+      <y>1224</y>
+      <w>882</w>
+      <h>468</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1..*
@@ -556,10 +556,10 @@ temporel pattern &gt;
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>828</x>
-      <y>672</y>
-      <w>300</w>
-      <h>456</h>
+      <x>1242</x>
+      <y>1008</y>
+      <w>450</w>
+      <h>684</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=*
@@ -570,10 +570,10 @@ contain v</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>2268</x>
-      <y>708</y>
-      <w>168</w>
-      <h>84</h>
+      <x>3402</x>
+      <y>1062</y>
+      <w>252</w>
+      <h>126</h>
     </coordinates>
     <panel_attributes>bg=blue
 Kan vi kombinere
