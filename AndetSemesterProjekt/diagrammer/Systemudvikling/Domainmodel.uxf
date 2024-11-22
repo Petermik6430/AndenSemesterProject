@@ -62,7 +62,6 @@ customerId
     </coordinates>
     <panel_attributes>BookingUnit
 --
-date
 timeSlot
 type</panel_attributes>
     <additional_attributes/>
@@ -202,8 +201,8 @@ m2=1..*</panel_attributes>
       <h>204</h>
     </coordinates>
     <panel_attributes>lt=-
-m1=0..*
-m2=1..*
+m1=*
+m2=1
 &lt; makes</panel_attributes>
     <additional_attributes>290.0;140.0;130.0;140.0;130.0;10.0;10.0;10.0</additional_attributes>
   </element>
@@ -489,10 +488,10 @@ m2=0..*
       <w>228</w>
       <h>156</h>
     </coordinates>
-    <panel_attributes>Booking
+    <panel_attributes>BookingDate
 --
+date
 service
-bookingDate
 note</panel_attributes>
     <additional_attributes/>
   </element>

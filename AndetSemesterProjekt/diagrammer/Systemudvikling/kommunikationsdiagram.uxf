@@ -339,7 +339,7 @@ hvordan skal vi håndtere saleController
     <id>UMLClass</id>
     <coordinates>
       <x>3430</x>
-      <y>812</y>
+      <y>882</y>
       <w>182</w>
       <h>42</h>
     </coordinates>
@@ -376,11 +376,11 @@ hvordan skal vi håndtere saleController
       <x>3500</x>
       <y>378</y>
       <w>490</w>
-      <h>462</h>
+      <h>532</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 3.1.2.1 1 * [i = 1..n]: eid = getEmployeeById(EmployeeId: Int) : Employee</panel_attributes>
-    <additional_attributes>10.0;310.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;360.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>

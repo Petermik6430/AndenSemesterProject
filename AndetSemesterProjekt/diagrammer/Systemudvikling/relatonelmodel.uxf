@@ -2490,7 +2490,7 @@ fk_saleId</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1770</x>
+      <x>1670</x>
       <y>1160</y>
       <w>100</w>
       <h>30</h>
@@ -2501,7 +2501,7 @@ fk_saleId</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1870</x>
+      <x>1770</x>
       <y>1160</y>
       <w>100</w>
       <h>30</h>
@@ -2512,18 +2512,7 @@ fk_saleId</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1670</x>
-      <y>1160</y>
-      <w>100</w>
-      <h>30</h>
-    </coordinates>
-    <panel_attributes>date</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>1970</x>
+      <x>1870</x>
       <y>1160</y>
       <w>100</w>
       <h>30</h>
@@ -2535,7 +2524,7 @@ fk_employeeId</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2070</x>
+      <x>1970</x>
       <y>1160</y>
       <w>100</w>
       <h>30</h>
@@ -2563,18 +2552,7 @@ fk_customerId</panel_attributes>
       <w>120</w>
       <h>30</h>
     </coordinates>
-    <panel_attributes>Booking</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>1770</x>
-      <y>940</y>
-      <w>100</w>
-      <h>30</h>
-    </coordinates>
-    <panel_attributes>bookingDate</panel_attributes>
+    <panel_attributes>BookingDate</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -2591,24 +2569,12 @@ fk_customerId</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1670</x>
+      <x>1770</x>
       <y>940</y>
       <w>100</w>
       <h>30</h>
     </coordinates>
     <panel_attributes>service</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>1970</x>
-      <y>940</y>
-      <w>100</w>
-      <h>30</h>
-    </coordinates>
-    <panel_attributes>bg=red
-????</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -2957,7 +2923,7 @@ fk_serviceId</panel_attributes>
       <h>30</h>
     </coordinates>
     <panel_attributes>bg=gray
-fk_saleId</panel_attributes>
+fk_saleNo</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -3014,7 +2980,7 @@ fk_itemId</panel_attributes>
       <w>100</w>
       <h>30</h>
     </coordinates>
-    <panel_attributes>_Id_</panel_attributes>
+    <panel_attributes>_saleNo_</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -3043,17 +3009,6 @@ fk_itemId</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>1770</x>
-      <y>460</y>
-      <w>100</w>
-      <h>30</h>
-    </coordinates>
-    <panel_attributes>saleNo</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>1870</x>
       <y>460</y>
       <w>100</w>
       <h>30</h>
@@ -3425,22 +3380,22 @@ fk_shopId</panel_attributes>
     <coordinates>
       <x>1550</x>
       <y>1180</y>
-      <w>480</w>
+      <w>380</w>
       <h>140</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>40.0;110.0;40.0;120.0;10.0;120.0;10.0;40.0;460.0;40.0;460.0;10.0</additional_attributes>
+    <additional_attributes>40.0;110.0;40.0;120.0;10.0;120.0;10.0;40.0;360.0;40.0;360.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>1610</x>
       <y>1070</y>
-      <w>540</w>
+      <w>440</w>
       <h>110</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;40.0;520.0;40.0;520.0;90.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0;420.0;40.0;420.0;90.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -3513,11 +3468,11 @@ fk_shopId</panel_attributes>
     <coordinates>
       <x>1610</x>
       <y>370</y>
-      <w>340</w>
+      <w>240</w>
       <h>110</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;30.0;320.0;30.0;320.0;90.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;30.0;220.0;30.0;220.0;90.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -3649,7 +3604,7 @@ til mange
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2170</x>
+      <x>2070</x>
       <y>1160</y>
       <w>100</w>
       <h>30</h>
@@ -3663,11 +3618,11 @@ fk_booking</panel_attributes>
     <coordinates>
       <x>1580</x>
       <y>960</y>
-      <w>660</w>
+      <w>560</w>
       <h>220</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;50.0;640.0;50.0;640.0;200.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0;540.0;50.0;540.0;200.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -3693,6 +3648,17 @@ Kan vi opdele paymant
 Kan vi dele dreditinfo og
 customerinfo op i en tabel 
 for sig selv</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1670</x>
+      <y>940</y>
+      <w>100</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>date</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>
