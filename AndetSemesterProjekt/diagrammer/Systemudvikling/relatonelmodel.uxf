@@ -2418,7 +2418,7 @@ fk_zipcode</panel_attributes>
       <h>30</h>
     </coordinates>
     <panel_attributes>bg=gray
-fk_saleId</panel_attributes>
+fk_saleNo</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -2615,11 +2615,11 @@ fk_customerId</panel_attributes>
     <coordinates>
       <x>1770</x>
       <y>820</y>
-      <w>100</w>
+      <w>120</w>
       <h>30</h>
     </coordinates>
     <panel_attributes>bg=gray
-fk_bookingId</panel_attributes>
+fk_bookingDateId</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -3606,11 +3606,11 @@ til mange
     <coordinates>
       <x>2070</x>
       <y>1160</y>
-      <w>100</w>
+      <w>120</w>
       <h>30</h>
     </coordinates>
     <panel_attributes>bg=gray
-fk_booking</panel_attributes>
+fk_bookingDateId</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -3659,6 +3659,21 @@ for sig selv</panel_attributes>
       <h>30</h>
     </coordinates>
     <panel_attributes>date</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>2000</x>
+      <y>910</y>
+      <w>120</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>bg=blue
+Skal dette opdeles 
+til en ny tabel
+service 
+</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>
