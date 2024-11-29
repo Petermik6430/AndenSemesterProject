@@ -8,6 +8,18 @@ public class Service {
 	private String trim;
 	private int duration;
 	
+	// i ServiceDB fungere instansen new ServiceDB ikke når der bliver dannet en constructor i Service
+	/*
+	public Service(int serviceId, String trim, int duration) {
+		this.serviceId = serviceId;
+		this.trim = trim;
+		this.duration = duration;
+	}
+	*/
+
+	public Service() {
+	}
+
 
 	public int getServiceId() {
 		return serviceId;
@@ -28,10 +40,12 @@ public class Service {
 		this.duration = duration;
 	}
 
+	/*
 	@Override
 	public int hashCode() {
 		return Objects.hash(duration, serviceId, trim);
 	}
+	*/
  // TODO muligvis for komplekst men får vores buildObject til at fungere. i serviceDB
 	/*
 	@Override

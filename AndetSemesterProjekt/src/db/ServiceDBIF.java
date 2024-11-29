@@ -1,6 +1,5 @@
 package db;
 
-import controller.DataAccessException;
 import model.Service;
 
 public interface ServiceDBIF {
