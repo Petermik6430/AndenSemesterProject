@@ -2586,7 +2586,7 @@ fk_customerId</panel_attributes>
       <h>42</h>
     </coordinates>
     <panel_attributes>bg=gray
-fk_trimId</panel_attributes>
+fk_trimTypeId</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -3582,7 +3582,7 @@ dette giver ingen mening</panel_attributes>
       <w>168</w>
       <h>42</h>
     </coordinates>
-    <panel_attributes>Trim</panel_attributes>
+    <panel_attributes>TrimType</panel_attributes>
     <additional_attributes/>
   </element>
   <element>

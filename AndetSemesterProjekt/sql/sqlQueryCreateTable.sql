@@ -3,6 +3,7 @@ go
 --dropper tabel hvis den eksistere
 drop table if exists Price;
 drop table if exists SaleLine;
+drop table if exists TrimType;
 drop table if exists [Service];
 drop table if exists BookingUnit;
 drop table if exists BookingDate;
@@ -166,7 +167,7 @@ create table Employee(
 
 create table BookingDate(
 	id int identity(1,1),
-	[service] varchar(50), --skal denne være en fk til service?
+	[service] varchar(50), --skal denne vï¿½re en fk til service?
 	bookingDate date,
 	note varchar(300),
 	constraint pk_BookingDate_id Primary key(id)
@@ -192,10 +193,17 @@ create table BookingUnit(
 
 create table [Service](
 	id int identity(1,1),
-	trimType varchar(50),
+	trimTypeId varchar(50),
 	bookingId int,
 	constraint pk_Service_id Primary key(id),
 	constraint fk_Service_bookingId Foreign key (bookingId) references BookingDate(id),
+	constraint fk_Service_trimId Foreign key (trimTypeId) references TrimType(id)
+)
+
+create table TrimType(
+	id int identity(1,1),
+	trim varchar(50),
+	constraint pk_TrimType_id Primary key(id),
 )
 
 
@@ -219,7 +227,7 @@ create table Price(
 	id int identity(1,1),
 	[date] dateTime,
 	price money,
-	discount money, -- hvilken data type skal det være når vi skal beregne discount
+	discount money, -- hvilken data type skal det vï¿½re nï¿½r vi skal beregne discount
 	serviceId int,
 	itemId int,
 	constraint pk_Price_id Primary key(id),
