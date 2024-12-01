@@ -22,8 +22,8 @@ public class EmployeeController {
 	public void deleteEmployee(int employeeId) {
 		employeeDB.deleteEmployee(employeeId);
 	}
-
-	public Employee findEmployeeByPhoneNo(String phoneNo) {
-		return null;
+	
+	public Employee findEmployeeByPhoneNo(String phoneNo) { 
+		return employeeDB.findEmployeeByPhoneNo(phoneNo);
 	}
 }

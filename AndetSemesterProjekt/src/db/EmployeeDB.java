@@ -65,8 +65,15 @@ public class EmployeeDB implements EmployeeDBIF {
 	private List<Employee> buildObjects(ResultSet rs) {
 		return null;
 	}
+
+
+	@Override
+	public Employee findEmployeeByPhoneNo(String phoneNo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
 
-}
+
 
 
