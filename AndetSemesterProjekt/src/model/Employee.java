@@ -7,14 +7,22 @@ public class Employee {
 	    private String lName;
 	    private String phoneNo;
 	    private String mail;
+	    private String cprNo;
+	    private double salary;
+	    private String address;
+		
 
 	    //constructor
-	    public Employee(int employeeId, String fName, String lName, String phoneNo, String mail) {
+	    public Employee(int employeeId, String fName, String lName, String phoneNo, String mail, 
+	    				String cprNo, double salary, String address) {
 	        this.employeeId = employeeId;
 	        this.fName = fName;
 	        this.lName = lName;
 	        this.phoneNo = phoneNo;
 	        this.mail = mail;
+	        this.cprNo = cprNo;
+	        this.salary = salary;
+	        this.address = address;
 	    }
 
 	    //get methods
@@ -37,6 +45,18 @@ public class Employee {
 	    public String getMail() {
 	        return mail;
 	    }
+	    
+	    public String getCprNo() {
+	        return cprNo;
+	    }
+	    
+	    public double getSalary() {
+	        return salary;
+	    }
+	    
+	    public String getAddress() {
+	        return address;
+	    }
 
 	  //set methods
 	    public void setEmployeeId(int employeeId) {
@@ -58,6 +78,21 @@ public class Employee {
 	    public void setMail(String mail) {
 	        this.mail = mail;
 	    }
+	    
+	    public void setCprNo(String cprNo) {
+	        this.cprNo = cprNo;
+	    }
+	    
+	    public void setSalary(double salary) {
+	        this.salary = salary;
+	    }
+	    
+	    public void setAddress(String address) {
+	        this.address = address;
+	    }
+
+		
+		
 	}
 
 	
