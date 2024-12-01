@@ -24,7 +24,7 @@ public class EmployeeDB implements EmployeeDBIF {
 	}
 
 	@Override
-	public void updateEmployee(Employee employee) {
+	public void updateEmployee(Employee employee) throws DataAccessException {
 		try (Connection c = dbc.getConnection()) {
 			String sql = "UPDATE Employees SET fName = ?, lName = ?, phoneNo = ?, mail = ?, cprNo = ?, salary = ?, address = ? WHERE employeeId = ?";
 			PreparedStatement ps = c.prepareStatement(sql);
@@ -37,20 +37,20 @@ public class EmployeeDB implements EmployeeDBIF {
 			ps.setString(7, employee.getAddress());
 			ps.setInt(8, employee.getEmployeeId());
 			ps.executeUpdate();
-		} catch (SQLDataException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
 
 	@Override
-	public void deleteEmployee(int employeeId) {
+	public void deleteEmployee(int employeeId) throws DataAccessException {
 		try (Connection c = dbc.getConnection()) {
 			String sql = "DELETE FROM Employees WHERE employeeId = ?";
 			PreparedStatement ps = c.prepareStatement(sql);
 			ps.setInt(1, employeeId);
 			ps.executeUpdate();
-		} catch (SQLDataException e) {
-			e.printStackTrace();
+		} catch (SQLException e) {
+			throw new DataAccessException("",e);
 		}
 	}
 
