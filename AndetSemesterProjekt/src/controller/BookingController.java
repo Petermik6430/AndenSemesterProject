@@ -5,6 +5,7 @@ import java.time.LocalTime;
 import java.util.List;
 import db.BookingDBIF;
 import model.Employee;
+import model.Service;
 
 public class BookingController {
 	private CustomerController cc;
@@ -24,7 +25,7 @@ public class BookingController {
 	public void createBookingDate() {
 	}
 
-	public void setService(ServiceType serviceType) {
+	public void setService(Service service) {
 	}
 
 	public Employee findEmployeeById(int employeeId) {
