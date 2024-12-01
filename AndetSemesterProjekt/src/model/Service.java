@@ -5,7 +5,7 @@ import java.util.Objects;
 public class Service {
 
 	private int serviceId;
-	private String trim;
+	private String name;
 	private int duration;
 	
 	// i ServiceDB fungere instansen new ServiceDB ikke når der bliver dannet en constructor i Service
@@ -24,21 +24,25 @@ public class Service {
 	public int getServiceId() {
 		return serviceId;
 	}
-	public String getTrim() {
-		return trim;
+	public String getName() {
+		return name;
 	}
 	public void setServiceId(int serviceId) {
 		this.serviceId = serviceId;
 	}
-	public void setTrim(String trim) {
-		this.trim = trim;
+	
+	public void setName(String name) {
+		this.name = name;
+		
 	}
+	
 	public int getDuration() {
 		return duration;
 	}
 	public void setDuration(int duration) {
 		this.duration = duration;
 	}
+
 
 	/*
 	@Override

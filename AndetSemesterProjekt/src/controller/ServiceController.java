@@ -1,17 +1,29 @@
 package controller;
 
+import java.util.List;
+
+import db.DataAccessException;
+import db.ServiceDB;
 import db.ServiceDBIF;
+import model.Service;
 
 public class ServiceController {
 
 	private ServiceDBIF serviceDB;
 	
-	public ServiceController(ServiceDBIF serviceDB) {
-		this.serviceDB = serviceDB;
+	public ServiceController() throws DataAccessException {
+		serviceDB = new ServiceDB();
 	}
 	
+	public Service findServiceById(int serviceId) throws DataAccessException {
+		Service ser = serviceDB.findServiceById(serviceId);
+		return ser;
+	}
+	
+	public List<Service> findAllService() throws DataAccessException {
+		return serviceDB.findAllService();
+	}
 	// TODO create Service <<create>> serviceType(String )
-	// TODO findService findService(int serviceId): Service
 	// TODO updateService updateService(Service service): void
 	// TODO deleteService deleteService(int serviceId): void
 }
