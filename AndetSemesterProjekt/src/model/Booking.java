@@ -1,5 +1,6 @@
 package model;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 
@@ -51,10 +52,12 @@ public class Booking {
 		this.serviceType = service.getServiceId();
 	}
 
-	public void setStartTime(LocalTime startTime) {
+	public void setStartTime(LocalTime Bookingdate) {
+		LocalDate start = this.bookingDate.toLocalDate();
+		this.bookingDate = LocalDateTime.of(start, Bookingdate);
 	}
 
-	public void setEndTime(LocalTime endTime) {
+	public void setEndTime(LocalTime endTime) { // TODO ved ikke om denne kode er relevant
 	}
 
 	public void setBookingDate(LocalDateTime bookingDate) {
@@ -71,4 +74,5 @@ public class Booking {
 
 	public void setNote(String note) {
 	}
+	
 }

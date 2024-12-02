@@ -1,18 +1,17 @@
 package db;
 
-import java.time.LocalDateTime;
+import java.sql.SQLException;
+
 import model.Booking;
 
 public interface BookingDBIF {
-	void createBooking(String trimType, String bookingDate, LocalDateTime localDateTime, String barber);
+	
+	public void createBooking(Booking booking) throws  DataAccessException;
 
-	Booking findBookingByCustomerPhoneNo(String phoneNo);
+	public Booking findBookingByCustomerPhoneNo(String phoneNo) throws DataAccessException;
 
-	void updateBooking(Booking booking);
+	public void updateBooking(Booking booking) throws DataAccessException;
 
-	void deleteBooking(int bookingId);
-
-	void createBooking(int bookingId, String serviceType, String bookingDate, LocalDateTime localDateTime,
-			String barber);
+	public void deleteBooking(int bookingId) throws DataAccessException;
 
 }

@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
 import db.BookingDBIF;
+import model.Customer;
 import model.Employee;
 import model.Service;
 
