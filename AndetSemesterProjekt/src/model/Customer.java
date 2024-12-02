@@ -11,15 +11,19 @@ public class Customer {
 	
 		
 		// constructor 
+	
+		public Customer() {
+			
+		}
 		
-		 public Customer(int customerId, String fName, String lName, String phoneNo, String mail) {
+		/* public Customer(int customerId, String fName, String lName, String phoneNo, String mail) {
 		        this.customerId = customerId;
 		        this.fName = fName;
 		        this.lName = lName;
 		        this.phoneNo = phoneNo;
 		        this.mail = mail;
 		 }
-
+*/
 		public int getCustomerid() {
 			return customerId;
 		}
