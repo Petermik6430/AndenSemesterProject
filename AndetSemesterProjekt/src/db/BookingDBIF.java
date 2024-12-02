@@ -12,4 +12,7 @@ public interface BookingDBIF {
 
 	void deleteBooking(int bookingId);
 
+	void createBooking(int bookingId, String serviceType, String bookingDate, LocalDateTime localDateTime,
+			String barber);
+
 }

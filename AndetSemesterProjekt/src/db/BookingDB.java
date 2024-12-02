@@ -41,9 +41,5 @@ public class BookingDB implements BookingDBIF {
 
 	}
 
-	@Override
-	public void updateBooking(Booking booking) {
-		// TODO Auto-generated method stub
 
-	}
 }

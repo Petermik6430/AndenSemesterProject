@@ -1,5 +1,6 @@
 package controller;
 
+import db.DataAccessException;
 import db.EmployeeDBIF;
 import model.Employee;
 
@@ -11,19 +12,19 @@ public class EmployeeController {
 	}
 
 	public void createEmployee(int employeeId, String fName, String lName, String phoneNo, String mail, String cprNo,
-			double salary, String address) {
+			double salary, String address) throws DataAccessException {
 		employeeDB.createEmployee(employeeId, fName, lName, phoneNo, mail, cprNo, salary, address);
 	}
 
-	public void updateEmployee(Employee employee) {
+	public void updateEmployee(Employee employee) throws DataAccessException {
 		employeeDB.updateEmployee(employee);
 	}
 
-	public void deleteEmployee(int employeeId) {
+	public void deleteEmployee(int employeeId) throws DataAccessException {
 		employeeDB.deleteEmployee(employeeId);
 	}
 	
-	public Employee findEmployeeByPhoneNo(String phoneNo) { 
+	public Employee findEmployeeByPhoneNo(String phoneNo) throws DataAccessException { 
 		return employeeDB.findEmployeeByPhoneNo(phoneNo);
 	}
 }

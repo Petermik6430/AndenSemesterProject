@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,24 +12,30 @@ import model.Service;
 
 public class ServiceDB implements ServiceDBIF {
 	
+
+	
 	private final String FIND_BY_SERVICE_ID = "select * from serviceId, name where serviceId = ?";
 	private final String FIND_ALL_SERVICE = "select * from Service";
+	private final String CREATE_SERVICE = "insert into service(serviceId, name, duration) values (?,?,?)";
 	
 	//private final String FIND_BY_SERVICE_ID = 'select s.serviceId, s.trimType, bd.id, from Service s, BookingDate db' +
 	//		"where "; // burde dette være name i steden 
 	
 	private PreparedStatement ps_findByServiceId;
 	private PreparedStatement ps_findAllService;
+	private PreparedStatement ps_createService;
 	
 	public ServiceDB() throws DataAccessException {
 		init();
 	}
 
 	private void init() throws DataAccessException {
-		Connection con = DBConnection.getInstance().getConnection();
 	try {
+		Connection con = DBConnection.getInstance().getConnection();
+		
 		ps_findByServiceId = con.prepareStatement(FIND_BY_SERVICE_ID);
 		ps_findAllService = con.prepareStatement(FIND_ALL_SERVICE);
+		ps_createService = con.prepareStatement(CREATE_SERVICE, Statement.RETURN_GENERATED_KEYS);
 		
 		}catch (SQLException e) {
 			throw new DataAccessException( "fejl ved oprettelse til database", e);
@@ -91,6 +98,15 @@ public class ServiceDB implements ServiceDBIF {
 					throw new DataAccessException("fejl",e);
 				}
 		return res;
+	}
+	
+	// hvordan skal denne håndteres?
+	@Override
+	public void createService(Service service) {
+		Service ser = null;
+	
+		
+		
 	}
 	
 	// TODO createService(Service service): void
