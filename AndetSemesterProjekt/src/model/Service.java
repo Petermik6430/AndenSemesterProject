@@ -17,7 +17,14 @@ public class Service {
 	}
 	*/
 
+	public Service(int serviceId, String name) {
+	this.serviceId = serviceId;
+	this.name = name;
+	}
+
+
 	public Service() {
+		// TODO Auto-generated constructor stub
 	}
 
 
