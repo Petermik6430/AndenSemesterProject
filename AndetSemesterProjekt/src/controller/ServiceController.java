@@ -24,6 +24,6 @@ public class ServiceController {
 		return serviceDB.findAllService();
 	}
 	// TODO create Service <<create>> serviceType(String )
-	// TODO updateService updateService(Service service): void
+	// TODO updateService updateService(Service service):  void
 	// TODO deleteService deleteService(int serviceId): void
 }

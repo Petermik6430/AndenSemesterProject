@@ -18,8 +18,6 @@ public class ServiceDB implements ServiceDBIF {
 	private final String FIND_ALL_SERVICE = "select * from Service";
 	private final String CREATE_SERVICE = "insert into service(serviceId, name, duration) values (?,?,?)";
 	
-	//private final String FIND_BY_SERVICE_ID = 'select s.serviceId, s.trimType, bd.id, from Service s, BookingDate db' +
-	//		"where "; // burde dette være name i steden 
 	
 	private PreparedStatement ps_findByServiceId;
 	private PreparedStatement ps_findAllService;

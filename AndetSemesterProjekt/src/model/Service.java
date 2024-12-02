@@ -32,13 +32,13 @@ public class Service {
 	}
 	
 	public void setName(String name) {
-		this.name = name;
-		
+		this.name = name;	
 	}
 	
 	public int getDuration() {
 		return duration;
 	}
+	
 	public void setDuration(int duration) {
 		this.duration = duration;
 	}
