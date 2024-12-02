@@ -15,8 +15,7 @@ public class EmployeeDB implements EmployeeDBIF {
 	private String FIND_BY_ID_SQL = "SELECT * FROM Employee WHERE employeeId=?";
 	private PreparedStatement ps_findById;
 
-	public EmployeeDB(DBConnection dbc) {
-		this.dbc = dbc;
+	public EmployeeDB() {
 	}
 
 	public void createEmployee(int employeeId, String fName, String lName, String phoneNo, String mail, String cprNo,
