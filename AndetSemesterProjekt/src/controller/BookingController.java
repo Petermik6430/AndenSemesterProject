@@ -3,7 +3,9 @@ package controller;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
+
 import db.BookingDBIF;
+import db.DataAccessException;
 import model.Customer;
 import model.Employee;
 import model.Service;
@@ -14,7 +16,7 @@ public class BookingController {
 	private ServiceController sc;
 	private BookingDBIF bookingDB;
 
-	public BookingController() {
+	public BookingController() throws DataAccessException {
 	}
 
 	public void createBooking(String serviceType, String date, LocalDateTime localDateTime, Employee e) {

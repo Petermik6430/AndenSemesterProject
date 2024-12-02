@@ -6,7 +6,8 @@ import java.time.LocalTime;
 
 public class Booking {
 	private int bookingId;
-	private int serviceType;
+	private Service service;
+	private BookingType type;
 	private LocalDateTime bookingDate;
 	private String barber;
 	private Customer customer;
@@ -16,8 +17,8 @@ public class Booking {
 		return bookingId;
 	}
 
-	public int getService() {
-		return serviceType;
+	public Service getService() {
+		return service;
 	}
 
 	public LocalDateTime getBookingDate() {
@@ -43,13 +44,18 @@ public class Booking {
 	public String getNote() {
 		return null;
 	}
+	
+	public BookingType getType() {
+		return type;
+	}
+	
 
 	public void setBookingId(int bookingId) {
 		this.bookingId = bookingId;
 	}
 
 	public void setService(Service service) {
-		this.serviceType = service.getServiceId();
+		this.service = service;
 	}
 
 	public void setStartTime(LocalTime Bookingdate) {
@@ -57,7 +63,7 @@ public class Booking {
 		this.bookingDate = LocalDateTime.of(start, Bookingdate);
 	}
 
-	public void setEndTime(LocalTime endTime) { // TODO ved ikke om denne kode er relevant
+	public void setEndTime(LocalTime endTime) { // TODO ved ikke om denne kode er 
 	}
 
 	public void setBookingDate(LocalDateTime bookingDate) {
@@ -73,6 +79,17 @@ public class Booking {
 	}
 
 	public void setNote(String note) {
+	}
+
+
+	public void setBookingType(BookingType type) {
+		this.type = type;
+	}
+	
+	@Override
+	public String toString() {
+		return "booking{" + "time=" + bookingDate + ", Status" + type + "}";
+		
 	}
 	
 }
