@@ -6,7 +6,7 @@ public class Employee {
 	    private String fName;
 	    private String lName;
 	    private String phoneNo;
-	    private String mail;
+	    private String email;
 	    private String cprNo;
 	    private double salary;
 	    private String address;
@@ -19,7 +19,7 @@ public class Employee {
 	        this.fName = fName;
 	        this.lName = lName;
 	        this.phoneNo = phoneNo;
-	        this.mail = mail;
+	        this.email = mail;
 	        this.cprNo = cprNo;
 	        this.salary = salary;
 	        this.address = address;
@@ -43,7 +43,7 @@ public class Employee {
 	    }
 
 	    public String getMail() {
-	        return mail;
+	        return email;
 	    }
 	    
 	    public String getCprNo() {
@@ -76,7 +76,7 @@ public class Employee {
 	    }
 
 	    public void setMail(String mail) {
-	        this.mail = mail;
+	        this.email = mail;
 	    }
 	    
 	    public void setCprNo(String cprNo) {

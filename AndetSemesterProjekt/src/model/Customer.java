@@ -6,7 +6,7 @@ public class Customer {
 		private String fName; 
 		private String lName; 
 		private String phoneNo; 
-		private String mail; 
+		private String email; 
 		
 	
 		
@@ -16,6 +16,14 @@ public class Customer {
 			
 		}
 		
+		public Customer(int customerId, String fName, String lName, String phoneNo, String email) {
+			this.customerId = customerId;
+			this.fName = fName;
+			this.lName = lName;
+			this.phoneNo = phoneNo;
+			this.email = email;
+		}
+
 		/* public Customer(int customerId, String fName, String lName, String phoneNo, String mail) {
 		        this.customerId = customerId;
 		        this.fName = fName;
@@ -57,11 +65,11 @@ public class Customer {
 		}
 
 		public String getMail() {
-			return mail;
+			return email;
 		}
 
 		public void setMail(String mail) {
-			this.mail = mail;
+			this.email = mail;
 		}  
 	
 }
