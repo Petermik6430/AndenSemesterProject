@@ -28,7 +28,7 @@ public class CustomerDB implements CustomerDBIF {
 		ps_findCustomerByPhoneNo = con.prepareStatement(FIND_CUSTOMER_BY_PHONENO);
 		ps_saveCustomer = con.prepareStatement(SAVE_CUSTOMER);
 		} catch (SQLException e) {
-			throw new DataAccessException("", e);
+			throw new DataAccessException("", e); //TODO skriv en beskrivende fejlbesked
 		}
 	}
 
@@ -44,7 +44,7 @@ public class CustomerDB implements CustomerDBIF {
 			cus = buildObject(rs);
 		} catch (SQLException e) {
 			dbc.rollbackTransaction();
-			throw new DataAccessException("fejl", e);
+			throw new DataAccessException("fejl", e); //TODO skriv en beskrivende fejlbesked
 		}
 		dbc.commitTransaction();
 		return cus;
@@ -59,11 +59,10 @@ public class CustomerDB implements CustomerDBIF {
 			customer.setPhoneNo(rs.getString(4));
 			customer.setMail(rs.getString(5));
 		}catch(SQLException e) {
-			throw new DataAccessException("fejl",e);
+			throw new DataAccessException("fejl",e); //TODO skriv en beskrivende fejlbesked
 		}
 		
-		// TODO Auto-generated method stub
-		return null;
+		return customer;
 	}
 
 	@Override
@@ -80,10 +79,10 @@ public class CustomerDB implements CustomerDBIF {
 			if(generatedKeys.next()) customerId = generatedKeys.getInt(1);
 			
 		  } catch (SQLException e) {
-			throw new DataAccessException("", e);
+			throw new DataAccessException("", e); //TODO skriv en beskrivende fejlbesked
 		}
-		return 0;
-		// TODO Auto-generated method stub
+		return customerId;
+
 		
 	} 
 	

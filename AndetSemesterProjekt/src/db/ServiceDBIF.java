@@ -12,9 +12,6 @@ public interface ServiceDBIF {
 	
 	
 	
-	
-	
-		// TODO createService(Service service): void
 	public void createService(Service service);
 	
 		// TODO updateService(Service service): void
