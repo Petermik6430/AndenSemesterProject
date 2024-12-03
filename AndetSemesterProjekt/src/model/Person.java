@@ -13,7 +13,11 @@ public class Person {
      this.email = email;
  }
 
- public String getFirstName() {
+ public Person() {
+	 
+}
+
+public String getFirstName() {
      return fName;
  }
 
