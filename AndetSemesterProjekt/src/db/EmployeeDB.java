@@ -49,12 +49,8 @@ public class EmployeeDB implements EmployeeDBIF {
 			ps.setInt(1, employeeId);
 			ps.executeUpdate();
 		} catch (SQLException e) {
-			throw new DataAccessException("",e);
+			throw new DataAccessException("", e);
 		}
-	}
-
-	public Employee findEmployeeByEmployee(int employeeId) {
-		return null;
 	}
 
 	private Employee buildObject(ResultSet rs) {
@@ -65,14 +61,8 @@ public class EmployeeDB implements EmployeeDBIF {
 		return null;
 	}
 
-
 	@Override
 	public Employee findEmployeeByPhoneNo(String phoneNo) {
-		// TODO Auto-generated method stub
-		return null;
+		return null; // TODO
 	}
 }
-
-
-
-

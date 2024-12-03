@@ -37,7 +37,7 @@ public class BookingController {
 	}
 
 	public Employee findEmployeeById(int employeeId) {
-		return null;
+		return null; //TODO skal returnere Employee
 	}
 
 	public void setDateTime(LocalDateTime date, LocalTime time) {
@@ -47,13 +47,13 @@ public class BookingController {
 	}
 
 	public Customer selectCustomer(String phoneNo) {
-		return null;
+		return null; //TODO skal returnere Customer
 	}
 
 	public void cancelBooking(int bookingId) {
 	}
 
 	public List<LocalTime> findAvailableTimes() {
-		return null;
+		return null; //TODO skal returnere List<LocalTime>
 	}
 }
