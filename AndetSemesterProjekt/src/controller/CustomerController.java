@@ -27,14 +27,16 @@ public class CustomerController {
 	// fortæller hvad vi skal kunne gøre med databasen gemme kunde og finde en kunde baseret på telefonnumnmer
 	public interface CustomerDBIF {
 	    void saveCustomer(Customer customer);
-	    Customer getCustomerByPhone(String phoneNo);
+	    
+		Customer findCustomerByPhoneNo(String phoneNo);
 	}
 	
-	public Customer findCustomerByPhoneNo(String phoneNo) throws DataAccessExeption {
-		Customer customer = customerDB.findCustomerByPhoneNo(CustomerPhoneNo); 
-		return CustomerDB.findCustomerByPhoneNo(phoneNo); 
+	public Customer findCustomerByPhoneNo(String phoneNo) throws DataAccessException {
+		Customer cus = customerDB.findCustomerByPhoneNo(phoneNo); 
+		
+		return cus; 
+	
+	
+	
 	}
-	
-	
-	
-}
+} 
