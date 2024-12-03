@@ -40,7 +40,6 @@ public class customerController {
 	public customerController(customerDBIF customerDB) { 
 		this.customerDB = customerDB; 
 		}
-		*/
 
 	 
 	
@@ -58,9 +57,9 @@ public class customerController {
 	            System.out.println("Kunde fundet: " + customer.getfName() + " " + customer.getlName());
 	        } else {
 	            System.out.println("Ingen kunde fundet med telefonnummeret: " + phoneNo);
-	        }
+	       
 	        return customer;
 	    }
-	    */
+	
 	}
 		
