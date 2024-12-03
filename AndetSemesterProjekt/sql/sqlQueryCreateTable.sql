@@ -168,7 +168,7 @@ create table Employee(
 create table BookingDate(
 	id int identity(1,1),
 	[service] varchar(50), --skal denne v�re en fk til service?
-	bookingDate date,
+	bookingDate dateTime,
 	note varchar(300),
 	constraint pk_BookingDate_id Primary key(id)
 )

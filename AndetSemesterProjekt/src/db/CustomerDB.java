@@ -11,7 +11,7 @@ public class CustomerDB implements CustomerDBIF {
 	private DBConnection dbc;
 	private Connection con;
 	
-	private static final String FIND_CUSTOMER_BY_PHONENO = "select Customer where phoneNo = ?";
+	private static final String FIND_CUSTOMER_BY_PHONENO = "select * from Customer where phoneNo = ?";
 	private static final String SAVE_CUSTOMER = "insert into Customer (id, fName, lName, phoneNo, email) values(?,?,?,?,?)";
 	
 	private PreparedStatement ps_findCustomerByPhoneNo;
