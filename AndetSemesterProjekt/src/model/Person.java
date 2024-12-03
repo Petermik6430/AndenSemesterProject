@@ -4,13 +4,13 @@ public class Person {
  private String fName;
  private String lName;
  private String phoneNo;
- private String mail;
+ private String email;
 
- public Person(String fName, String lName, String phoneNo, String mail) {
+ public Person(String fName, String lName, String phoneNo, String email) {
      this.fName = fName;
      this.lName = lName;
      this.phoneNo = phoneNo;
-     this.mail = mail;
+     this.email = email;
  }
 
  public String getFirstName() {
@@ -25,8 +25,25 @@ public class Person {
      return phoneNo;
  }
 
- public String getMail() {
-     return mail;
+ public String getEmail() {
+     return email;
  }
+ 
+ public void setFirstName (String fName) { 
+	 this.fName = fName;
+ }
+ 
+ public void setLastName (String lName) {
+	 this.lName = lName;
+ }
+ 
+ public void setPhoneNo (String phoneNo) {
+	 this.phoneNo = phoneNo; 
+ }
+ 
+ public void setEmail (String email) {
+	 this.email = email;
+ }
+ 
 }
 

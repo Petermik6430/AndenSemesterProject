@@ -52,7 +52,7 @@ public class BookingDB implements BookingDBIF {
 	    dbc.startTransaction();
 	    //try {
 	        int customerId = customerDB.createCustomer(booking.getCustomer());
-	        booking.getCustomer().setCustomerid(customerId);
+	        booking.getCustomer().setCustomerId(customerId);
 	    //} //catch (DataAccessException e) {
 	        //dbc.rollbackTransaction();
 	        //throw new DataAccessException("fejl", e);
@@ -64,7 +64,7 @@ public class BookingDB implements BookingDBIF {
 	        ps_saveBooking.setString(2, booking.getType().name());
 	        ps_saveBooking.setString(3, booking.getNote());
 	        ps_saveBooking.setInt(4, booking.getEmployee().getEmployeeId());
-	        ps_saveBooking.setInt(5, booking.getCustomer().getCustomerid());
+	        ps_saveBooking.setInt(5, booking.getCustomer().getCustomerId());
 	        ps_saveBooking.setInt(6, booking.getService().getServiceId()); 
 	        ps_saveBooking.executeUpdate(); // Make sure to execute the update
 

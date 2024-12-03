@@ -53,9 +53,9 @@ public class CustomerDB implements CustomerDBIF {
 	private Customer buildObject(ResultSet rs) throws DataAccessException {
 		Customer customer = new Customer();
 		try {
-			customer.setCustomerid(rs.getInt(1));
-			customer.setfName(rs.getString(2));
-			customer.setlName(rs.getString(3));
+			customer.setCustomerId(rs.getInt(1));
+			customer.setFirstName(rs.getString(2));
+			customer.setLastName(rs.getString(3));
 			customer.setPhoneNo(rs.getString(4));
 			customer.setEmail(rs.getString(5));
 		}catch(SQLException e) {
@@ -69,9 +69,9 @@ public class CustomerDB implements CustomerDBIF {
 	public int createCustomer(Customer customer) throws DataAccessException {
 		int customerId = -1;
 		try {
-			ps_saveCustomer.setString(2, customer.getfName());
-			ps_saveCustomer.setString(3, customer.getlName());
-			ps_saveCustomer.setString(4,customer.getPhoneNo());
+			ps_saveCustomer.setString(2, customer.getFirstName());
+			ps_saveCustomer.setString(3, customer.getLastName());
+			ps_saveCustomer.setString(4, customer.getPhoneNo());
 			ps_saveCustomer.setString(5, customer.getEmail());
 			ps_saveCustomer.executeUpdate();
 			
