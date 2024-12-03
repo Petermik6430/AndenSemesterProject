@@ -54,7 +54,7 @@ public class ServiceDB implements ServiceDBIF {
 	}
 
 
-	// TODO der er noget galt med den relationelle model hvorfor skal service direkte tilkopples BookingDate
+	//TODO Rette reltonelmodel
 	
 	private Service buildObject(ResultSet rs) throws DataAccessException {
 		
@@ -98,16 +98,15 @@ public class ServiceDB implements ServiceDBIF {
 		return res;
 	}
 	
-	// hvordan skal denne håndteres?
+
 	@Override
 	public void createService(Service service) {
 		Service ser = null;
-	
+		// TODO createService(Service service): void
 		
 		
 	}
 	
-	// TODO createService(Service service): void
 	// TODO updateService(Service service): void
 	// TODO deleteService(int serviceId): void
 

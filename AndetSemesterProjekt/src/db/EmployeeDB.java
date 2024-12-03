@@ -18,19 +18,19 @@ public class EmployeeDB implements EmployeeDBIF {
 	public EmployeeDB() {
 	}
 
-	public void createEmployee(int employeeId, String fName, String lName, String phoneNo, String mail, String cprNo,
+	public void createEmployee(int employeeId, String fName, String lName, String phoneNo, String email, String cprNo,
 			double salary, String address) {
 	}
 
 	@Override
 	public void updateEmployee(Employee employee) throws DataAccessException {
 		try (Connection c = dbc.getConnection()) {
-			String sql = "UPDATE Employees SET fName = ?, lName = ?, phoneNo = ?, mail = ?, cprNo = ?, salary = ?, address = ? WHERE employeeId = ?";
+			String sql = "UPDATE Employees SET fName = ?, lName = ?, phoneNo = ?, email = ?, cprNo = ?, salary = ?, address = ? WHERE employeeId = ?";
 			PreparedStatement ps = c.prepareStatement(sql);
 			ps.setString(1, employee.getFirstName());
 			ps.setString(2, employee.getLastName());
 			ps.setString(3, employee.getPhoneNo());
-			ps.setString(4, employee.getMail());
+			ps.setString(4, employee.getEmail());
 			ps.setString(5, employee.getCprNo());
 			ps.setDouble(6, employee.getSalary());
 			ps.setString(7, employee.getAddress());

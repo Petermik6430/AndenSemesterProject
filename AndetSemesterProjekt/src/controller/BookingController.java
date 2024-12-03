@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
 
+import db.BookingDB;
 import db.BookingDBIF;
 import db.DataAccessException;
 import model.Customer;
@@ -17,9 +18,13 @@ public class BookingController {
 	private BookingDBIF bookingDB;
 
 	public BookingController() throws DataAccessException {
+		cc = new CustomerController();
+		ec = new EmployeeController();
+		sc = new ServiceController();
+		bookingDB = new BookingDB();
 	}
 
-	public void createBooking(String serviceType, String date, LocalDateTime localDateTime, Employee e) {
+	public void createBooking(String service, String date, LocalDateTime localDateTime, Employee e) {
 	}
 
 	public void createBookingUnit() {

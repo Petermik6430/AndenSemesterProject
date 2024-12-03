@@ -57,7 +57,7 @@ public class CustomerDB implements CustomerDBIF {
 			customer.setfName(rs.getString(2));
 			customer.setlName(rs.getString(3));
 			customer.setPhoneNo(rs.getString(4));
-			customer.setMail(rs.getString(5));
+			customer.setEmail(rs.getString(5));
 		}catch(SQLException e) {
 			throw new DataAccessException("fejl",e); //TODO skriv en beskrivende fejlbesked
 		}
@@ -72,7 +72,7 @@ public class CustomerDB implements CustomerDBIF {
 			ps_saveCustomer.setString(2, customer.getfName());
 			ps_saveCustomer.setString(3, customer.getlName());
 			ps_saveCustomer.setString(4,customer.getPhoneNo());
-			ps_saveCustomer.setString(5, customer.getMail());
+			ps_saveCustomer.setString(5, customer.getEmail());
 			ps_saveCustomer.executeUpdate();
 			
 			ResultSet generatedKeys = ps_saveCustomer.getGeneratedKeys();

@@ -1,14 +1,15 @@
 package controller;
 
 import db.DataAccessException;
+import db.EmployeeDB;
 import db.EmployeeDBIF;
 import model.Employee;
 
 public class EmployeeController {
 	private EmployeeDBIF employeeDB;
 
-	public EmployeeController(EmployeeDBIF employeeDB) {
-		this.employeeDB = employeeDB;
+	public EmployeeController() {
+		employeeDB = new EmployeeDB();
 	}
 
 	public void createEmployee(int employeeId, String fName, String lName, String phoneNo, String mail, String cprNo,

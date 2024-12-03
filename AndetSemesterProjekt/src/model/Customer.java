@@ -64,12 +64,12 @@ public class Customer {
 			this.phoneNo = phoneNo;
 		}
 
-		public String getMail() {
+		public String getEmail() {
 			return email;
 		}
 
-		public void setMail(String mail) {
-			this.email = mail;
+		public void setEmail(String email) {
+			this.email = email;
 		}  
 	
 }

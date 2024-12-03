@@ -13,13 +13,13 @@ public class Employee {
 		
 
 	    //constructor
-	    public Employee(int employeeId, String fName, String lName, String phoneNo, String mail, 
+	    public Employee(int employeeId, String fName, String lName, String phoneNo, String email, 
 	    				String cprNo, double salary, String address) {
 	        this.employeeId = employeeId;
 	        this.fName = fName;
 	        this.lName = lName;
 	        this.phoneNo = phoneNo;
-	        this.email = mail;
+	        this.email = email;
 	        this.cprNo = cprNo;
 	        this.salary = salary;
 	        this.address = address;
@@ -42,7 +42,7 @@ public class Employee {
 	        return phoneNo;
 	    }
 
-	    public String getMail() {
+	    public String getEmail() {
 	        return email;
 	    }
 	    
@@ -75,8 +75,8 @@ public class Employee {
 	        this.phoneNo = phoneNo;
 	    }
 
-	    public void setMail(String mail) {
-	        this.email = mail;
+	    public void setEmail(String email) {
+	        this.email = email;
 	    }
 	    
 	    public void setCprNo(String cprNo) {
