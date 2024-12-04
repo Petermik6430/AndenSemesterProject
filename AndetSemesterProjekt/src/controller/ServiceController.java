@@ -24,6 +24,12 @@ public class ServiceController {
 		return serviceDB.findAllService();
 	}
 	// TODO create Service <<create>> serviceType(String )
+	
+	public Service createService(int serviceId, String name, int duration) throws DataAccessException {
+		Service service = new Service(serviceId, name, duration );
+		
+		return service;
+	}
 	// TODO updateService updateService(Service service):  void
 	// TODO deleteService deleteService(int serviceId): void
 }

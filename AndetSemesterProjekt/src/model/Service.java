@@ -17,15 +17,17 @@ public class Service {
 	}
 	*/
 
-	public Service(int serviceId, String name) {
+	public Service(int serviceId, String name, int duration) {
 	this.serviceId = serviceId;
 	this.name = name;
+	this.duration = duration;
 	}
 
 
 	public Service() {
 		// TODO Auto-generated constructor stub
 	}
+
 
 
 	public int getServiceId() {
