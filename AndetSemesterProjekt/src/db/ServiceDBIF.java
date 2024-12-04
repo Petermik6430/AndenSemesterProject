@@ -12,7 +12,7 @@ public interface ServiceDBIF {
 	
 	
 	
-	public void createService(Service service);
+	public int createService(Service service) throws DataAccessException;  
 	
 		// TODO updateService(Service service): void
 		// TODO deleteService(int serviceId): void

@@ -100,12 +100,28 @@ public class ServiceDB implements ServiceDBIF {
 	
 
 	@Override
-	public void createService(Service service) {
-		Service ser = null;
-		// TODO createService(Service service): void
+    public int createService(Service service) throws DataAccessException {
+        int serviceId = -1;
+        try {
+        ps_createService.setString(2, service.getName());
+        ps_createService.setInt(3, service.getDuration());
+        ps_createService.executeUpdate();
+
+        ResultSet generatedKeys = ps_createService.getGeneratedKeys();
+        if(generatedKeys.next()) serviceId = generatedKeys.getInt(1);
+        } catch (SQLException e) {
+            throw new DataAccessException("", e); // TODO lav en beskrivende fejl besked.
+        }
+        // TODO createService(Service service): void
+
+        return serviceId;
+    }
 		
 		
-	}
+	
+	
+	
+	
 	
 	// TODO updateService(Service service): void
 	// TODO deleteService(int serviceId): void

@@ -1,15 +1,13 @@
 package controller;
 
 import db.CustomerDB;
-import db.CustomerDBIF;
 import db.DataAccessException;
 import model.Customer;
-import model.Employee;
+
 
 public class CustomerController {
 
 	private CustomerDB customerDB;
-	private Customer customer;
 
 	public CustomerController() throws DataAccessException {
 		customerDB = new CustomerDB();
@@ -17,17 +15,8 @@ public class CustomerController {
 
 	public Customer createCustomer(int customerId, String fName, String lName, String phoneNo, String email) {
 		Customer customer = new Customer(customerId, fName, lName, phoneNo, email);
-		return customer;
+		return customer; 
 	}
-
-	// tror ikke dette skal være der.
-	// fortæller hvad vi skal kunne gøre med databasen gemme kunde og finde en kunde baseret på telefonnumnmer
-	/*public interface CustomerDBIF {
-	    void saveCustomer(Customer customer);
-	    
-		Customer findCustomerByPhoneNo(String phoneNo);
-	}
-	*/
 
 	public Customer findCustomerByPhoneNo(String phoneNo) throws DataAccessException {
 		Customer cus = customerDB.findCustomerByPhoneNo(phoneNo);
@@ -36,3 +25,12 @@ public class CustomerController {
 
 	}
 }
+
+//tror ikke dette skal være der.
+	// fortæller hvad vi skal kunne gøre med databasen gemme kunde og finde en kunde baseret på telefonnumnmer
+	/*public interface CustomerDBIF {
+	    void saveCustomer(Customer customer);
+	    
+		Customer findCustomerByPhoneNo(String phoneNo);
+	}
+	*/
