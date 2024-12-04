@@ -69,14 +69,14 @@ public class BookingController {
 	public List<LocalTime> findAvailableTimes(LocalDate date, Service duration ) throws DataAccessException {
 		List<LocalTime> avaliableTimesList = null;
 		//tjekker om datoen er søndag
-		if (date.getDayOfWeek() == DayOfWeek.SUNDAY) {
-			System.out.println("Ikke muligt at book en søndag" + date);
-		} 
+		//if (date.getDayOfWeek() == DayOfWeek.SUNDAY) {
+		//	System.out.println("Ikke muligt at book en søndag" + date);
+		//} 
 		
 		List<Booking> boo = bookingDB.findBookingByDate(bookingInSystem.getBookingDate().toLocalDate());
 		return avaliableTimesList;
 	
 
 	}
-}
+}// map til hver employee og tilknytte en liste af booking.
 

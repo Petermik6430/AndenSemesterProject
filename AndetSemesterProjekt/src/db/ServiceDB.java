@@ -14,7 +14,7 @@ public class ServiceDB implements ServiceDBIF {
 	
 
 	
-	private final String FIND_BY_SERVICE_ID = "select * from serviceId, name where serviceId = ?";
+	private final String FIND_BY_SERVICE_ID = "select * from Service, name where serviceId = ?";
 	private final String FIND_ALL_SERVICE = "select * from Service";
 	private final String CREATE_SERVICE = "insert into service(serviceId, name, duration) values (?,?,?)";
 	
@@ -112,7 +112,7 @@ public class ServiceDB implements ServiceDBIF {
         } catch (SQLException e) {
             throw new DataAccessException("", e); // TODO lav en beskrivende fejl besked.
         }
-        // TODO createService(Service service): void
+    
 
         return serviceId;
     }
