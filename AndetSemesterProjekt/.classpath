@@ -7,6 +7,7 @@
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="test"/>
+	<classpathentry kind="src" path="img"/>
 	<classpathentry kind="lib" path="lib/LGoodDatePicker-11.2.1.jar"/>
 	<classpathentry kind="lib" path="lib/mssql-jdbc-12.8.1.jre11.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5">
