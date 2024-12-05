@@ -36,37 +36,62 @@ public class BookingController {
 
 	public Booking createBooking() {
 		Booking boo = new Booking();
-		return null;
+		
+		bookingInSystem = boo;
+		return boo;
 	}
 
-	public void createBookingUnit() {
-	}
+//	public void createBookingUnit() {
+//	}
 
-	public void createBookingDate() {
-	}
+//	public void createBookingDate() {
+//	}
 
 	public void setService(Service service) {
+		bookingInSystem.setService(service);
+		
+	}
+	public void setNote(String note) {
+		bookingInSystem.setNote(note);
+	}
+	
+	public void setEmployee(Employee employee) {
+		bookingInSystem.setEmployee(employee);
+		
+		 //TODO skal returnere Employee
 	}
 
-	public Employee findEmployeeById(int employeeId) {
-		return null; //TODO skal returnere Employee
+	public List<LocalDateTime> setDateTime(LocalDate date) {
+		List<LocalDateTime> boo = new ArrayList<>();
+		
+		bookingInSystem.setBookingDate(LocalDateTime.of(date, LocalTime.MIN));
+	
+		
+		
+		return boo;
 	}
 
-	public void setDateTime(LocalDateTime date, LocalTime time) {
+//	public int createCustomer() {
+//		return 1;
+//	}
+
+	public Customer selectCustomer(String phoneNo) throws DataAccessException {
+		Customer customer = cc.findCustomerByPhoneNo(phoneNo);
+		
+		// håndtering hvis kunden ikke er i systemet.
+		/* if(customer == null) {
+			cc.createCustomer(0, phoneNo, phoneNo, phoneNo, phoneNo);
+		}
+	*/	
+		bookingInSystem.setCustomer(customer);
+		return customer; //TODO skal returnere Customer
 	}
 
-	public void createCustomer() {
-	}
-
-	public Customer selectCustomer(String phoneNo) {
-		return null; //TODO skal returnere Customer
-	}
-
-	public void cancelBooking(int bookingId) {
-	}
+	//public void cancelBooking(int bookingId) {
+//	}
 
 
-	public List<LocalTime> findAvailableTimes(LocalDate date, Service duration ) throws DataAccessException {
+	public List<LocalTime> findAvailableTimes() throws DataAccessException {
 		List<LocalTime> avaliableTimesList = null;
 		//tjekker om datoen er søndag
 		//if (date.getDayOfWeek() == DayOfWeek.SUNDAY) {
