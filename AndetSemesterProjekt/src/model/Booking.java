@@ -8,7 +8,7 @@ import java.util.Objects;
 public class Booking {
 	private int bookingId;
 	private Service service;
-//	private BookingType type;
+	private BookingType type;
 	private LocalDateTime bookingDate;
 	private String barber;
 	private Customer customer;
@@ -46,9 +46,9 @@ public class Booking {
 		return null;
 	}
 	
-//	public BookingType getType() {
-//		return type;
-	//}
+	public BookingType getType() {
+		return type;
+	}
 	
 
 	public void setBookingId(int bookingId) {
@@ -81,6 +81,10 @@ public class Booking {
 
 	public void setNote(String note) {
 	}
+	
+	public void setBookingType(BookingType type) {
+		this.type = type;
+	}
 
 	@Override 
 	public boolean equals(Object o) {
@@ -100,15 +104,12 @@ public class Booking {
 		return Objects.hash(bookingId, service, bookingDate, barber, customer, employee);
 		}
 
-//	public void setBookingType(BookingType type) {
-//	this.type = type;
-//	}
-	
-//	@Override
-//	public String toString() {
-//		return "booking{" + "time=" + bookingDate + ", Status" + type + "}";
-//		
-//	}
+
+	@Override
+	public String toString() {
+		return "booking{" + "time=" + bookingDate + ", Status" + type + "}";
+		
+	}
 
 	
 	

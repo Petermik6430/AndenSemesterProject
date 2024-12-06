@@ -7,6 +7,9 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import db.DataAccessException;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -41,7 +44,12 @@ public class JDialogBooking extends JDialog {
 			JButton okButton = new JButton("Lav Booking");
 			okButton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					openCreateBooking();
+					try {
+						openCreateBooking();
+					} catch (DataAccessException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 				}
 
 			});
@@ -63,7 +71,7 @@ public class JDialogBooking extends JDialog {
 		}
 	}
 
-	private void openCreateBooking() {
+	private void openCreateBooking() throws DataAccessException {
 		JDialogCreateBooking jdcb= new JDialogCreateBooking();
 		jdcb.setDefaultCloseOperation(jdcb.DISPOSE_ON_CLOSE);
 		jdcb.setVisible(true);

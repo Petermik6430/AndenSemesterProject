@@ -1,6 +1,7 @@
 package db;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import model.Employee;
 
@@ -12,7 +13,11 @@ public interface EmployeeDBIF {
 
 	public void deleteEmployee(int employeeId) throws DataAccessException;
 
-	Employee findEmployeeByPhoneNo(String phoneNo) throws DataAccessException;
+	public Employee findEmployeeByPhoneNo(String phoneNo) throws DataAccessException;
+	
+	public Employee findEmployeeById(int id) throws DataAccessException;
+	
+	public List<Employee> findAllEmployees() throws DataAccessException;
 
 
 }

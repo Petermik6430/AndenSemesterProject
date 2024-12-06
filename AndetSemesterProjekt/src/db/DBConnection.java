@@ -27,7 +27,7 @@ public class DBConnection {
 	private static final String userName = "sa";
 	private static final String password = "secret2024";
 
-	private DBConnection() throws DataAccessException {
+	private  DBConnection() throws DataAccessException {
 		// Cheat sheet for the printf() method, the format is also used in the
 		// String.format() method
 		// http://alvinalexander.com/programming/printf-format-cheat-sheet

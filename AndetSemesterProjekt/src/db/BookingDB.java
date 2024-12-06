@@ -12,6 +12,7 @@ import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 import model.Booking;
 import model.Customer;
@@ -24,8 +25,8 @@ public class BookingDB implements BookingDBIF {
 	private CustomerDBIF customerDB;
 	private EmployeeDBIF employeeDB;
 	
-	private static final String FIND_BY_BOOKING_ID_SQL = "FIND_BY_BOOKING_ID_SQL";
-	private static final String FIND_BOOKING_BY_DATE_SQL = "select * from Booking where bookingDate <=cast (? as datetime) and bookingdate < cast(? as datetime)";
+	private static final String FIND_BY_BOOKING_ID_SQL = "select * from Booking where id = ?";
+	private static final String FIND_BOOKING_BY_DATE_SQL ="SELECT * FROM BookingDate WHERE bookingDate >= ? AND bookingDate < ?"; //"SELECT * FROM Booking WHERE bookingDate >= ? AND bookingDate < ?"; // "SELECT * FROM Booking WHERE bookingDate >= ? AND bookingDate < ?"; // "select * from Booking where bookingDate <=cast (? as datetime) and bookingdate < cast(? as datetime)";
 	private static final String SAVE_BOOKING = "insert into Booking (date, type, note, employeeId, customerId, serviceId) values(?,?,?,?,?,?)";
 	private PreparedStatement ps_findByBookingId;
 	private PreparedStatement ps_findBookingByDate;
@@ -88,7 +89,7 @@ public class BookingDB implements BookingDBIF {
 	}
 	
 	public List<Booking> findBookingByDate(LocalDate date) throws DataAccessException {
-		List<Booking> res;
+		List<Booking> res = new ArrayList<>();
 		LocalDate nextDay = date.plus(1, ChronoUnit.DAYS);
 		try {
 			ps_findBookingByDate.setDate(1, Date.valueOf(date));
@@ -96,15 +97,77 @@ public class BookingDB implements BookingDBIF {
 			ResultSet rs = ps_findBookingByDate.executeQuery();
 		res = buildObjects(rs); 
 		} catch(SQLException e) {
-			throw new DataAccessException("", e);
+			throw new DataAccessException("fejl ved at finde bookinger på dato" + date, e);
 		}
 		
 		return res;
 	}
 
 	
+	private List<Booking> buildObjects(ResultSet rs) throws DataAccessException {
+	    List<Booking> res = new ArrayList<>();
+	    try {
+	        while (rs.next()) {
+	            Booking booking = buildObject(rs);
+	            res.add(booking);
+	        }
+	    } catch (SQLException e) {
+	        throw new DataAccessException("Fejl ved opbygning af booking-objekter", e);
+	    }
+	    return res;
+	}
+	
+	private Booking buildObject(ResultSet rs) throws DataAccessException {
+	    Booking booking = new Booking();
+	    try {
+	        int Id = rs.getInt("Id");
+	        booking.setBookingId(Id);
 
+	        // Log output
+	        System.out.println("Setting bookingId: " + Id);
 
+	        LocalDateTime bookingDate = rs.getTimestamp("bookingDate").toLocalDateTime();
+	        booking.setBookingDate(bookingDate);
+
+	        // Log output
+	        System.out.println("Setting bookingDate: " + bookingDate);
+
+	        int customerId = rs.getInt("Id");
+	        Customer customer = customerDB.findCustomerById(rs.getInt("Id"));
+	        booking.setCustomer(customer);
+
+	        // Log output
+	        System.out.println("Setting customerId: " + "phoneNo" + ", Customer: " + customer);
+	    } catch (SQLException e) {
+	        System.err.println("SQLException ved opbygning af booking-objekt: " + e.getMessage());
+	        throw new DataAccessException("Fejl ved opbygning af booking-objekt", e);
+	    } catch (NullPointerException e) {
+	        System.err.println("NullPointerException ved opbygning af booking-objekt: " + e.getMessage());
+	        throw new DataAccessException("Fejl ved opbygning af booking-objekt", e);
+	    }
+	    return booking;
+	}
+
+/*
+	private Booking buildObject(ResultSet rs) throws DataAccessException {
+	    Booking booking = new Booking();
+	    try {
+	        booking.setBookingId(rs.getInt("bookingId"));
+	        LocalDateTime bookingDate = rs.getTimestamp("bookingDate").toLocalDateTime();
+	        booking.setBookingDate(bookingDate);
+	        
+	        Customer customer = customerDB.findCustomerByPhoneNo(rs.getString("phoneNo"));
+	        booking.setCustomer(customer);
+	    } catch (SQLException e) {
+	        throw new DataAccessException("Fejl ved opbygning af booking-objekt rs", e);
+	    }
+	    return booking;
+	}
+*/
+	
+
+	
+/*
 	private List<Booking> buildObjects(ResultSet rs) throws DataAccessException {
 		List<Booking> res = new ArrayList<>();
 		try {
@@ -118,6 +181,7 @@ public class BookingDB implements BookingDBIF {
 		}
 		return res;
 	}
+	
 	
 	private Booking buildObject(ResultSet rs) throws DataAccessException {
 		Booking boo = new Booking();
@@ -133,6 +197,7 @@ public class BookingDB implements BookingDBIF {
 		}
 	return boo;
 	}
+	*/
 
 	@Override
 	public Booking findBookingByCustomerPhoneNo(String phoneNo) {

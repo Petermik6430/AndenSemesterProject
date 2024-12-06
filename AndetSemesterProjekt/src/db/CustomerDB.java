@@ -12,10 +12,12 @@ public class CustomerDB implements CustomerDBIF {
 	private Connection con;
 	
 	private static final String FIND_CUSTOMER_BY_PHONENO = "select * from Customer where phoneNo = ?";
+	private static final String FIND_CUSTOMER_BY_ID = "select * from Customer where Id = ?";
 	private static final String SAVE_CUSTOMER = "insert into Customer (id, fName, lName, phoneNo, email) values(?,?,?,?,?)";
 	
 	private PreparedStatement ps_findCustomerByPhoneNo;
 	private PreparedStatement ps_saveCustomer;
+	private PreparedStatement ps_findCustomerById;
 	
 	public CustomerDB() throws DataAccessException {
 		init();
@@ -25,6 +27,7 @@ public class CustomerDB implements CustomerDBIF {
 		dbc = DBConnection.getInstance();
 		con = DBConnection.getInstance().getConnection();
 		try {
+		ps_findCustomerById = con.prepareStatement(FIND_CUSTOMER_BY_ID);
 		ps_findCustomerByPhoneNo = con.prepareStatement(FIND_CUSTOMER_BY_PHONENO);
 		ps_saveCustomer = con.prepareStatement(SAVE_CUSTOMER);
 		} catch (SQLException e) {
@@ -62,6 +65,38 @@ public class CustomerDB implements CustomerDBIF {
 			throw new DataAccessException("fejl",e); //TODO skriv en beskrivende fejlbesked
 		}
 		
+		return customer;
+	}
+	
+	public Customer findCustomerById(int id) throws DataAccessException {
+		Customer cus = null;
+		dbc.startTransaction();
+		
+		try {
+			ps_findCustomerById.setInt(1, id);
+			ResultSet rs = ps_findCustomerById.executeQuery();
+			rs.next();
+			cus = buildObjectId(rs);
+		} catch (SQLException e) {
+			dbc.rollbackTransaction();
+			throw new DataAccessException("", e);
+		}
+		dbc.commitTransaction();
+		return cus;
+		
+	}
+
+	private Customer buildObjectId(ResultSet rs) throws DataAccessException {
+		Customer customer = new Customer();
+		try {
+			customer.setCustomerId(rs.getInt(1));
+			customer.setFirstName(rs.getString(2));
+			customer.setLastName(rs.getString(3));
+			customer.setPhoneNo(rs.getString(4));
+			customer.setEmail(rs.getString(5));
+		} catch (SQLException e) {
+			throw new DataAccessException("", e);
+		}
 		return customer;
 	}
 
