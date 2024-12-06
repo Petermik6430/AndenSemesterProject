@@ -8,6 +8,9 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import com.github.lgooddatepicker.components.DateTimePicker;
+import com.github.lgooddatepicker.optionalusertools.CalendarListener;
+import com.github.lgooddatepicker.zinternaltools.CalendarSelectionEvent;
+import com.github.lgooddatepicker.zinternaltools.YearMonthChangeEvent;
 import com.github.lgooddatepicker.components.CalendarPanel;
 
 public class JDialogCreateBooking extends JDialog {
@@ -43,7 +46,30 @@ public class JDialogCreateBooking extends JDialog {
 		contentPanel.add(dateTimePicker);
 		
 		CalendarPanel calendarPanel = new CalendarPanel();
+		calendarPanel.addCalendarListener(new CalendarListener() {
+
+			@Override
+			public void selectedDateChanged(CalendarSelectionEvent arg0) {
+				dateSelected(arg0);
+				
+			}
+
+			
+
+			@Override
+			public void yearMonthChanged(YearMonthChangeEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+		});
 		calendarPanel.setBounds(0, 42, 279, 318);
 		contentPanel.add(calendarPanel);
 	}
+	
+	private void dateSelected(CalendarSelectionEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+	
 }

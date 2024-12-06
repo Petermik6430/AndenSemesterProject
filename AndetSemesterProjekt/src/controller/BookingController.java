@@ -47,8 +47,8 @@ public class BookingController {
 //	public void createBookingDate() {
 //	}
 
-	public void setService(Service service) {
-		bookingInSystem.setService(service);
+	public void setService(int serviceId) {
+		bookingInSystem.setService(serviceId);
 		
 	}
 	public void setNote(String note) {

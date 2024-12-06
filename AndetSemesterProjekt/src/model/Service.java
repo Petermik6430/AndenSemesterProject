@@ -7,6 +7,7 @@ public class Service {
 	private int serviceId;
 	private String name;
 	private int duration;
+	//private double price;
 	
 	// i ServiceDB fungere instansen new ServiceDB ikke når der bliver dannet en constructor i Service
 	/*
@@ -21,6 +22,7 @@ public class Service {
 	this.serviceId = serviceId;
 	this.name = name;
 	this.duration = duration;
+	
 	}
 
 
@@ -44,6 +46,10 @@ public class Service {
 		this.name = name;	
 	}
 	
+	//public void setPrice(double price) {
+	//	this.price = price;
+	//}
+	
 	public int getDuration() {
 		return duration;
 	}
@@ -51,6 +57,10 @@ public class Service {
 	public void setDuration(int duration) {
 		this.duration = duration;
 	}
+	
+	//public double getPrice() {
+	//	return price;
+	//}
 
 
 	/*

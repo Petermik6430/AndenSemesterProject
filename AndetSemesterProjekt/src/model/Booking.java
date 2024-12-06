@@ -54,7 +54,7 @@ public class Booking {
 		this.bookingId = bookingId;
 	}
 
-	public void setService(Service service) {
+	public void setService( int serviceId) {
 		this.service = service;
 	}
 
