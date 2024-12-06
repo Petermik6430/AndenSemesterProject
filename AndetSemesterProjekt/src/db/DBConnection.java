@@ -21,11 +21,11 @@ public class DBConnection {
 
 	private static final String driverClass = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
 	private static final String dbName = "mockdatabase";
-	private static final String serverAddress = "hildur.ucn.dk";
+	private static final String serverAddress = "DESKTOP-L5O6C9T";
 	// private static final String serverAddress = "kraka.ucn.dk";
 	private static final int serverPort = 1433;
-	private static final String userName = "DESKTOP-L5O6C9T";
-	private static final String password = "secret2024*";
+	private static final String userName = "sa";
+	private static final String password = "secret2024";
 
 	private DBConnection() throws DataAccessException {
 		// Cheat sheet for the printf() method, the format is also used in the

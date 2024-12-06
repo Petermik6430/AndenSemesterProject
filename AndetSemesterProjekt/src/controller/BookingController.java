@@ -47,8 +47,8 @@ public class BookingController {
 //	public void createBookingDate() {
 //	}
 
-	public void setService(int serviceId) {
-		bookingInSystem.setService(serviceId);
+	public void setService(Service service) {
+		bookingInSystem.setService(service);
 		
 	}
 	public void setNote(String note) {
@@ -61,8 +61,8 @@ public class BookingController {
 		 //TODO skal returnere Employee
 	}
 
-	public List<LocalDateTime> setDateTime(LocalDate date) {
-		List<LocalDateTime> boo = new ArrayList<>();
+	public List<LocalTime> setDateTime(LocalDate date) {
+		List<LocalTime> boo = new ArrayList<>();
 		
 		bookingInSystem.setBookingDate(LocalDateTime.of(date, LocalTime.MIN));
 	

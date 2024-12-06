@@ -68,7 +68,7 @@ public class BookingDB implements BookingDBIF {
 
 	    try {
 	        ps_saveBooking.setObject(1, java.sql.Timestamp.valueOf(booking.getBookingDate()));
-	        ps_saveBooking.setString(2, booking.getType().name());
+	     //   ps_saveBooking.setString(2, booking.getType().name());
 	        ps_saveBooking.setString(3, booking.getNote());
 	        ps_saveBooking.setInt(4, booking.getEmployee().getEmployeeId());
 	        ps_saveBooking.setInt(5, booking.getCustomer().getCustomerId());
