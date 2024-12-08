@@ -41,7 +41,7 @@ public class JDialogBooking extends JDialog {
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
 		{
-			JButton okButton = new JButton("Lav Booking");
+			JButton okButton = new JButton("Opret Booking");
 			okButton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					try {

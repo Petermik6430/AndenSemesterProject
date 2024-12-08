@@ -13,6 +13,7 @@ public class Booking {
 	private String barber;
 	private Customer customer;
 	private Employee employee;
+	private String note;
 
 	public int getBookingId() {
 		return bookingId;
@@ -80,6 +81,7 @@ public class Booking {
 	}
 
 	public void setNote(String note) {
+		this.note = note;
 	}
 	
 	public void setBookingType(BookingType type) {

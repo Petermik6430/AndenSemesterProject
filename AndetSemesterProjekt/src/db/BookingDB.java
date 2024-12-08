@@ -14,8 +14,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
+import controller.EmployeeController;
 import model.Booking;
 import model.Customer;
+import model.Employee;
+import model.Service;
 
 public class BookingDB implements BookingDBIF {
 	private DBConnection dbc;
@@ -120,24 +123,30 @@ public class BookingDB implements BookingDBIF {
 	private Booking buildObject(ResultSet rs) throws DataAccessException {
 	    Booking booking = new Booking();
 	    try {
-	        int Id = rs.getInt("Id");
-	        booking.setBookingId(Id);
+	        booking.setBookingId(rs.getInt("id"));
+	        booking.setBookingDate(rs.getTimestamp("bookingDate").toLocalDateTime());
+	        booking.setNote(rs.getString("note"));
 
-	        // Log output
-	        System.out.println("Setting bookingId: " + Id);
+	        // Hent og sæt Service objekt
+	        int serviceId = rs.getInt("id");
+	        if (!rs.wasNull()) {
+	            Service service = serviceDB.findServiceById(serviceId);
+	            booking.setService(service);
+	        }
 
-	        LocalDateTime bookingDate = rs.getTimestamp("bookingDate").toLocalDateTime();
-	        booking.setBookingDate(bookingDate);
+	        // Hent og sæt Employee objekt
+	        int employeeId = rs.getInt("id");
+	        if (!rs.wasNull()) {
+	            Employee employee = employeeDB.findEmployeeById(employeeId);
+	            booking.setEmployee(employee);
+	        }
+	        // Hent og sæt Customer objekt
+	        int customerId = rs.getInt("id");
+	        if (!rs.wasNull()) {
+	            Customer customer = customerDB.findCustomerById(customerId);
+	            booking.setCustomer(customer);
+	        }
 
-	        // Log output
-	        System.out.println("Setting bookingDate: " + bookingDate);
-
-	        int customerId = rs.getInt("Id");
-	        Customer customer = customerDB.findCustomerById(rs.getInt("Id"));
-	        booking.setCustomer(customer);
-
-	        // Log output
-	        System.out.println("Setting customerId: " + "phoneNo" + ", Customer: " + customer);
 	    } catch (SQLException e) {
 	        System.err.println("SQLException ved opbygning af booking-objekt: " + e.getMessage());
 	        throw new DataAccessException("Fejl ved opbygning af booking-objekt", e);
@@ -148,56 +157,8 @@ public class BookingDB implements BookingDBIF {
 	    return booking;
 	}
 
-/*
-	private Booking buildObject(ResultSet rs) throws DataAccessException {
-	    Booking booking = new Booking();
-	    try {
-	        booking.setBookingId(rs.getInt("bookingId"));
-	        LocalDateTime bookingDate = rs.getTimestamp("bookingDate").toLocalDateTime();
-	        booking.setBookingDate(bookingDate);
-	        
-	        Customer customer = customerDB.findCustomerByPhoneNo(rs.getString("phoneNo"));
-	        booking.setCustomer(customer);
-	    } catch (SQLException e) {
-	        throw new DataAccessException("Fejl ved opbygning af booking-objekt rs", e);
-	    }
-	    return booking;
-	}
-*/
-	
-
-	
-/*
-	private List<Booking> buildObjects(ResultSet rs) throws DataAccessException {
-		List<Booking> res = new ArrayList<>();
-		try {
-			while(rs.next()) {
-				Booking boo = buildObject(rs);
-				res.add(boo);
-				} 
-			} catch(SQLException e) {
-				throw new DataAccessException("", e);
-
-		}
-		return res;
-	}
 	
 	
-	private Booking buildObject(ResultSet rs) throws DataAccessException {
-		Booking boo = new Booking();
-		
-		try {
-			boo.setBookingId(rs.getInt("bookingId"));
-			LocalDateTime ldt = LocalDateTime.of(rs.getDate("bookingDate").toLocalDate(), rs.getTime("bookingDate").toLocalTime());
-		boo.setBookingDate(ldt);
-		Customer customer = customerDB.findCustomerByPhoneNo(rs.getString("phoneNo"));
-		boo.setCustomer(customer);
-		} catch (SQLException e)  {
-			throw new DataAccessException("", e);
-		}
-	return boo;
-	}
-	*/
 
 	@Override
 	public Booking findBookingByCustomerPhoneNo(String phoneNo) {

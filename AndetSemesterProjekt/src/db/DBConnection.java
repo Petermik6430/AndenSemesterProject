@@ -21,7 +21,7 @@ public class DBConnection {
 
 	private static final String driverClass = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
 	private static final String dbName = "mockdatabase";
-	private static final String serverAddress = "DESKTOP-L5O6C9T";
+	private static final String serverAddress = "LAPTOP-8M9DJQKQ";
 	// private static final String serverAddress = "kraka.ucn.dk";
 	private static final int serverPort = 1433;
 	private static final String userName = "sa";
