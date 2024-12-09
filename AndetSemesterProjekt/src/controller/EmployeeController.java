@@ -1,5 +1,8 @@
 package controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import db.DataAccessException;
 import db.EmployeeDB;
 import db.EmployeeDBIF;
@@ -8,7 +11,7 @@ import model.Employee;
 public class EmployeeController {
 	private EmployeeDBIF employeeDB;
 
-	public EmployeeController() {
+	public EmployeeController() throws DataAccessException {
 		employeeDB = new EmployeeDB();
 	}
 
@@ -28,4 +31,27 @@ public class EmployeeController {
 	public Employee findEmployeeByPhoneNo(String phoneNo) throws DataAccessException {
 		return employeeDB.findEmployeeByPhoneNo(phoneNo);
 	}
+	
+	public Employee getEmployee(int id) throws DataAccessException {
+		return employeeDB.findEmployeeById(id);	
+	}
+	
+//	public List<Employee>findAllEmployees() throws DataAccessException{
+//		return employeeDB.findAllEmployees();	
+//	}
+	
+	public List<Employee> getEmployees() throws DataAccessException {
+	    try {
+	        List<Employee> employees = employeeDB.findAllEmployees();
+	        if (employees == null) {
+	            employees = new ArrayList<>(); // Sørg for, at listen er initialiseret
+	        }
+	     //   return employees;
+	    } catch (DataAccessException e) {
+	        e.printStackTrace();
+	     //   return new ArrayList<>(); // Returner en tom liste i tilfælde af fejl
+	    }
+	    return employeeDB.findAllEmployees();
+	}
+
 }

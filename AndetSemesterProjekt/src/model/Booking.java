@@ -3,6 +3,7 @@ package model;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.Objects;
 
 public class Booking {
 	private int bookingId;
@@ -12,6 +13,7 @@ public class Booking {
 	private String barber;
 	private Customer customer;
 	private Employee employee;
+	private String note;
 
 	public int getBookingId() {
 		return bookingId;
@@ -54,7 +56,7 @@ public class Booking {
 		this.bookingId = bookingId;
 	}
 
-	public void setService(Service service) {
+	public void setService( Service service) {
 		this.service = service;
 	}
 
@@ -79,17 +81,38 @@ public class Booking {
 	}
 
 	public void setNote(String note) {
+		this.note = note;
 	}
-
-
+	
 	public void setBookingType(BookingType type) {
 		this.type = type;
 	}
+
+	@Override 
+	public boolean equals(Object o) {
+		if (this == o) return true; 
+		if (o == null || getClass() != o.getClass()) return false; 
+		Booking booking = (Booking) o;
+		return bookingId == booking.bookingId && 
+				Objects.equals(service, booking.service) && 
+				Objects.equals(bookingDate, booking.bookingDate) && 
+				Objects.equals(barber, booking.barber) && 
+				Objects.equals(customer, booking.customer) && 
+				Objects.equals(employee, booking.employee);
+		} 
 	
+	@Override 
+	public int hashCode() { 
+		return Objects.hash(bookingId, service, bookingDate, barber, customer, employee);
+		}
+
+
 	@Override
 	public String toString() {
 		return "booking{" + "time=" + bookingDate + ", Status" + type + "}";
 		
 	}
+
+	
 	
 }

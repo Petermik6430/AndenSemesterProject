@@ -14,7 +14,7 @@ public class ServiceDB implements ServiceDBIF {
 	
 
 	
-	private final String FIND_BY_SERVICE_ID = "select * from Service, name where serviceId = ?";
+	private final String FIND_BY_SERVICE_ID = "select * from Service where id = ?";
 	private final String FIND_ALL_SERVICE = "select * from Service";
 	private final String CREATE_SERVICE = "insert into service(serviceId, name, duration) values (?,?,?)";
 	
@@ -40,15 +40,15 @@ public class ServiceDB implements ServiceDBIF {
 		}
 	}
 
-	public Service findServiceById(int serviceId) throws DataAccessException {
+	public Service findServiceById(int id) throws DataAccessException {
 		Service res = null;
 		try {
-			ps_findByServiceId.setInt(1, serviceId);
+			ps_findByServiceId.setInt(1, id);
 			ResultSet rs = ps_findByServiceId.executeQuery();
 				if(rs.next()) 
 				res = buildObject(rs);
 		} catch (SQLException e) {
-			throw new DataAccessException("fejl ved at finde service med id" + serviceId, e);
+			throw new DataAccessException("fejl ved at finde service med id" + id, e);
 		}
 		return res;
 	}

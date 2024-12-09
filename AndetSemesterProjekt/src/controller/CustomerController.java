@@ -24,6 +24,14 @@ public class CustomerController {
 		return cus;
 
 	}
+	
+	public Customer findCustomerById(int id) throws DataAccessException {
+		Customer cus = customerDB.findCustomerById(id);
+		return cus;
+		
+	}
+	
+	
 }
 
 //tror ikke dette skal være der.

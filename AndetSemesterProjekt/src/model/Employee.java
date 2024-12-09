@@ -16,6 +16,10 @@ public class Employee extends Person {
 		this.address = address;
 	}
 
+	public Employee() {
+		super();
+	}
+
 	public int getEmployeeId() {
 		return employeeId;
 	}
@@ -48,3 +52,4 @@ public class Employee extends Person {
 		this.address = address;
 	}
 }
+	

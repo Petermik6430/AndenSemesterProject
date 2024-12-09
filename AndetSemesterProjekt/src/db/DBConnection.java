@@ -20,14 +20,14 @@ public class DBConnection {
 	private static DBConnection dbConnection;
 
 	private static final String driverClass = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
-	private static final String dbName = "";
-	private static final String serverAddress = "hildur.ucn.dk";
+	private static final String dbName = "mockdatabase";
+	private static final String serverAddress = "LAPTOP-8M9DJQKQ";
 	// private static final String serverAddress = "kraka.ucn.dk";
 	private static final int serverPort = 1433;
-	private static final String userName = "";
-	private static final String password = "";
+	private static final String userName = "sa";
+	private static final String password = "secret2024";
 
-	private DBConnection() throws DataAccessException {
+	private  DBConnection() throws DataAccessException {
 		// Cheat sheet for the printf() method, the format is also used in the
 		// String.format() method
 		// http://alvinalexander.com/programming/printf-format-cheat-sheet
