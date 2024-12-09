@@ -198,6 +198,7 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
@@ -209,6 +210,7 @@ import com.github.lgooddatepicker.zinternaltools.YearMonthChangeEvent;
 import controller.EmployeeController;
 import controller.BookingController;
 import db.DataAccessException;
+import model.Booking;
 import model.BookingType;
 import model.Employee;
 import model.TimeSlot;
@@ -283,7 +285,12 @@ public class JDialogCreateBooking extends JDialog {
         }
 
         tableModel = new DefaultTableModel(columnNames, 0) {
-            public boolean isCellEditable(int row, int column) {
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			public boolean isCellEditable(int row, int column) {
                 return false;
             }
         };
@@ -384,12 +391,15 @@ public class JDialogCreateBooking extends JDialog {
     }
 
 
-    private void dateSelected(CalendarSelectionEvent event) throws DataAccessException {
-        LocalDate selectedDate = event.getNewDate();
+    private void dateSelected(CalendarSelectionEvent arg0) throws DataAccessException {
+        LocalDate selectedDate = arg0.getNewDate();
         System.out.println("dateSelected: " + selectedDate);
         List<Employee> employees = employeeController.getEmployees();
         fillTableWithAvailableTimes(tableModel, employees, selectedDate);
     }
+    
+
+
 
 
 }

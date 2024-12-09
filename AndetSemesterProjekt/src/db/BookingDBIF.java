@@ -7,7 +7,7 @@ import model.Booking;
 
 public interface BookingDBIF {
 	
-	public void createBooking(Booking booking) throws  DataAccessException;
+	public int createBooking(Booking booking) throws  DataAccessException;
 
 	public List<Booking> findBookingByDate(LocalDate date) throws DataAccessException;
 	
@@ -16,5 +16,7 @@ public interface BookingDBIF {
 	public void updateBooking(Booking booking) throws DataAccessException;
 
 	public void deleteBooking(int bookingId) throws DataAccessException;
+	
+	//public List<Booking> updateBookingCalender(LocalDate date) throws DataAccessException;
 
 }

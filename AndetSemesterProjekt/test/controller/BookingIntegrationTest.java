@@ -19,6 +19,7 @@ import org.junit.jupiter.api.Test;
 import db.DataAccessException;
 import model.Booking;
 import model.BookingType;
+import model.Customer;
 import model.Service;
 
 class BookingIntegrationTest {
@@ -37,20 +38,21 @@ class BookingIntegrationTest {
 
 
 
-	@Test
-	void testCreateBooking() {
-		
-	Booking created;
-	Booking arranged = new Booking();
-	
-	//created = bookingController.createBooking();
-	//	assertEquals(created, arranged);
-	}
+    @Test
+    void testCreateBooking() throws DataAccessException {
+    	Booking created;
+    	Booking arranged = new Booking();
+    	
+    	created = bookingController.createBooking(arranged);
+    	
+    	assertEquals(created, arranged);
+    }
 	
 	
 	@Test
 	void testAddDate() {
-	//	bookingController.createBooking();
+		Booking arranged = new Booking();
+		bookingController.createBooking(arranged);
 		LocalDate testDate = LocalDate.of(2018, 6, 15);
 		List<LocalTime> expected = new ArrayList<>();
 		int duration = 15;
@@ -89,6 +91,14 @@ class BookingIntegrationTest {
 	        assertEquals(service, booking.getService());
 	        assertEquals("Hårklipning", booking.getService().getName());
 	        assertEquals(20, booking.getService().getDuration());
+	}
+	
+	@Test
+void testSelectCustomerToService() {
+		Booking booking = new Booking();
+		Customer customer = new Customer();
+		
+		
 	}
 	
 

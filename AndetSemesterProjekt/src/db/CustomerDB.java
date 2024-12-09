@@ -13,7 +13,7 @@ public class CustomerDB implements CustomerDBIF {
 	
 	private static final String FIND_CUSTOMER_BY_PHONENO = "select * from Customer where phoneNo = ?";
 	private static final String FIND_CUSTOMER_BY_ID = "select fName, lName, phoneNo, email from Customer where id = ?";
-	private static final String SAVE_CUSTOMER = "insert into Customer (fName, lName, phoneNo, email) values(?,?,?,?)";
+	private static final String SAVE_CUSTOMER = "insert into Customer ( fName, lName, phoneNo, email) values(?,?,?,?)";
 	
 	private PreparedStatement ps_findCustomerByPhoneNo;
 	private PreparedStatement ps_saveCustomer;
@@ -41,9 +41,12 @@ public class CustomerDB implements CustomerDBIF {
 		try {
 			ps_findCustomerByPhoneNo.setString(1, phoneNo);
 			ResultSet rs = ps_findCustomerByPhoneNo.executeQuery();
-			rs.next(); 
+			if(rs.next()) {
+				
 			res = buildObject(rs);
-			
+			} else {
+				System.err.println("No customer found with phone number: " + phoneNo);
+			}
 		} catch (SQLException e) {
 			dbc.rollbackTransaction();
 			throw new DataAccessException("fejl", e); //TODO skriv en beskrivende fejlbesked
@@ -97,7 +100,11 @@ public class CustomerDB implements CustomerDBIF {
 	@Override
 	public int createCustomer(Customer customer) throws DataAccessException {
 		int customerId = -1;
+		if(customer == null) {
+			throw new DataAccessException("Customer is null", null);
+		}
 		try {
+			//ps_saveCustomer.setInt(1, customer.getCustomerId());
 			ps_saveCustomer.setString(2, customer.getFirstName());
 			ps_saveCustomer.setString(3, customer.getLastName());
 			ps_saveCustomer.setString(4, customer.getPhoneNo());
@@ -113,7 +120,9 @@ public class CustomerDB implements CustomerDBIF {
 		return customerId;
 
 		
-	} 
+	}
+
+
 	
 
 	

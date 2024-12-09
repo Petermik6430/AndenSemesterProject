@@ -16,6 +16,12 @@ public class Booking {
 	private String note;
 
 
+	public Booking() {
+		
+	}
+	
+	public Booking(Employee employee, LocalDateTime bookingDate, BookingType type) { this.employee = employee; this.bookingDate = bookingDate; this.type = type; }
+
 	public int getBookingId() {
 		return bookingId;
 	}

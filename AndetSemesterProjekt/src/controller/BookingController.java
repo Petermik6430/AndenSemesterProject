@@ -24,7 +24,7 @@ public class BookingController {
 	private CustomerController cc;
 	private EmployeeController ec;
 	private ServiceController sc;
-	private BookingDBIF bookingDB;
+	private BookingDB bookingDB;
 	public Booking bookingInSystem;
 	private Map <Employee, List<Booking>> employeeBookings;
 	
@@ -38,25 +38,58 @@ public class BookingController {
 		ec = new EmployeeController();
 		sc = new ServiceController();
 		bookingDB = new BookingDB();
-		bookingInSystem = new Booking();
+	//	bookingInSystem = new Booking();
 	//	Booking boo = new Booking();
 		employeeBookings = new HashMap<>();
-	//	createBookings();
+	//	createBooking();
 	}
 
-	//public Booking createBookings() {
-	//	Booking boo = new Booking();
+public Booking createBooking(Booking booking) {
+		Booking boo = new Booking();
 		
-	//	bookingInSystem = boo;
-	//	return boo;
-	//}
+		bookingInSystem = booking;
+		try {
+			bookingDB.createBooking(booking);
+		} catch (DataAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return booking;
+	}
 
+
+
+/*
 	public void createBooking(Booking booking) throws DataAccessException {
 		if (booking.getEmployee() == null) {
 			throw new DataAccessException("Employee cannot be null", null);
 		}
-		
-	}
+	
+}
+*/
+/*
+public void createBooking(Employee employee, LocalDate date, LocalTime time) throws DataAccessException {
+	
+	Customer customer = cc.findCustomerByPhoneNo("12345678"); // Eksempel telefonnummer, opdater som nødvendigt
+    if (customer == null) {
+        throw new DataAccessException("Customer is null in BookingController",null);
+    }
+    Service service = new Service();
+    service.setServiceId(1);
+
+    Booking booking = new Booking(employee, date.atTime(time), BookingType.booked);
+    booking.setCustomer(customer);
+    booking.setService(service);
+    booking.setNote("Test booking");
+
+    System.out.println("Customer ID: " + customer.getCustomerId());
+    System.out.println("Service ID: " + service.getServiceId());
+    System.out.println("Booking Date: " + booking.getBookingDate());
+    System.out.println("Employee ID: " + employee.getEmployeeId());
+
+    bookingDB.createBooking(booking);
+}
+*/
 
 
 	public void setService(Service service) {
@@ -79,19 +112,27 @@ public class BookingController {
 	}
 
 	public List<LocalTime> setDateTime(LocalDate date) {
-		List<LocalTime> times = new ArrayList<>();
+		List<LocalTime> res = new ArrayList<>();
 		
 		bookingInSystem.setBookingDate(LocalDateTime.of(date, LocalTime.MIN));
 	
 		
 		
-		return times;
+		return res;
 	}
 
 //	public int createCustomer() {
 //		return 1;
 //	}
-
+	
+	public Customer selectCustomer(String phoneNo) throws DataAccessException {
+		Customer res = null;
+		res = cc.findCustomerByPhoneNo(phoneNo);
+		
+		return res;
+	}
+	
+/*
 	public Customer selectCustomer(String phoneNo) throws DataAccessException {
 		Customer customer = cc.findCustomerByPhoneNo(phoneNo);
 		
@@ -99,10 +140,11 @@ public class BookingController {
 		/* if(customer == null) {
 			cc.createCustomer(0, phoneNo, phoneNo, phoneNo, phoneNo);
 		}
-	*/	
+		
 		bookingInSystem.setCustomer(customer);
 		return customer; //TODO skal returnere Customer
 	}
+*/
 	
 	public void addBooking(Employee employee, Booking booking) {
 		if(!employeeBookings.containsKey(employee)) { // vi kunne bruge en lamdaudtryk her
@@ -112,11 +154,9 @@ public class BookingController {
 		
 	}
 	
+	
 	public List<TimeSlot> findAvailableTimes(Employee employee, LocalDate date) throws DataAccessException {
-	    if (employee == null) {
-	        throw new DataAccessException("Employee cannot be null in booking", null);
-	    }
-
+	 
 	    int employeeId = employee.getEmployeeId();
 	    List<TimeSlot> timeSlots = new ArrayList<>();
 	    LocalTime startTime = LocalTime.of(9, 0);
@@ -141,6 +181,18 @@ public class BookingController {
 
 	    return timeSlots;
 	}
+
+	
+/*
+	public List<Booking> findBookingsByDate(LocalDate date) throws DataAccessException {
+	    return bookingDB.updateBookingCalender(date);
+	}
+
+
+*/
+
+
+
 
 	
 

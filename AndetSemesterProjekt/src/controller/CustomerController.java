@@ -13,10 +13,12 @@ public class CustomerController {
 		customerDB = new CustomerDB();
 	}
 
-//	public Customer createCustomer(int customerId, String fName, String lName, String phoneNo, String email) {
-//		Customer customer = new Customer(customerId, fName, lName, phoneNo, email);
-//		return customerDB.createCustomer(customerId,fName,lName,phoneNo,email); 
-//	}
+	/*
+	public Customer createCustomer(int customerId, String fName, String lName, String phoneNo, String email) {
+		Customer customer = new Customer(customerId, fName, lName, phoneNo, email);
+		return customerDB.createCustomer(customerId,fName,lName,phoneNo,email); 
+	}
+	*/
 
 	public Customer findCustomerByPhoneNo(String phoneNo) throws DataAccessException {
 		Customer cus = customerDB.findCustomerByPhoneNo(phoneNo);

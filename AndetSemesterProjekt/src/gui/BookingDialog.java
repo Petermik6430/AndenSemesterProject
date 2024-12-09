@@ -2,6 +2,7 @@ package gui;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -28,6 +29,8 @@ public class BookingDialog extends JDialog {
     private LocalDate date;
     private BookingController bookingController;
     private ServiceController serviceController;
+    private JTable table;
+    private DefaultTableModel tableModel;
 
     // Korrekt defineret konstruktør
     public BookingDialog(Employee employee, LocalTime time, LocalDate date) throws DataAccessException {
@@ -78,11 +81,11 @@ public class BookingDialog extends JDialog {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    String phone = txtPhone.getText();
+                    String phoneNo = txtPhone.getText();
                     Service selectedService = (Service) comboBoxService.getSelectedItem();
 
                     // Find kunde via telefonnummer
-                    Customer customer = bookingController.selectCustomer(phone);
+                   Customer customer = bookingController.selectCustomer(phoneNo);
                     if (customer == null) {
                         JOptionPane.showMessageDialog(BookingDialog.this, "Kunde ikke fundet.");
                         return;
@@ -101,15 +104,18 @@ public class BookingDialog extends JDialog {
                     booking.setBookingDate(LocalDateTime.of(date, time));
 
                     // Gem booking i databasen
-                    bookingController.createBooking(booking);
+                   bookingController.createBooking(booking);
 
                     JOptionPane.showMessageDialog(BookingDialog.this, "Booking oprettet!");
+                  //  updateTableAfterBooking();
                     dispose(); // Luk dialogen
                 } catch (Exception ex) {
                     ex.printStackTrace();
                     JOptionPane.showMessageDialog(BookingDialog.this, "Fejl ved oprettelse af booking.");
                 }
             }
+            
+            
         });
         okButton.setActionCommand("OK");
         buttonPane.add(okButton);
@@ -125,6 +131,28 @@ public class BookingDialog extends JDialog {
         buttonPane.add(btnTilbage);
         btnTilbage.setActionCommand("OK");
     }
+    /*
+    private void updateTableAfterBooking() {
+        try {
+            LocalDate date = LocalDate.now(); // eller den specifikke dato du ønsker at opdatere
+            List<Booking> bookings = bookingController.findBookingsByDate(date);
+            tableModel.setRowCount(0); // Ryd tabel
+            for (Booking booking : bookings) {
+                tableModel.addRow(new Object[] {
+                    booking.getBookingDate(),
+                    booking.getEmployee().getFirstName(),
+                    booking.getService().getName(),
+                    booking.getCustomer().getFirstName(),
+                    booking.getType().name()
+                });
+            }
+            tableModel.fireTableDataChanged();
+        } catch (DataAccessException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Fejl ved opdatering af tabel efter booking: " + e.getMessage());
+        }
+    }
+*/
 }
 
 
