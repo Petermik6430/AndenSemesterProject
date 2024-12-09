@@ -16,11 +16,13 @@ public class ServiceDB implements ServiceDBIF {
 	
 	private final String FIND_BY_SERVICE_ID = "select * from Service where id = ?";
 	private final String FIND_ALL_SERVICE = "select * from Service";
+	private final String FIND_SERVICE_BY_NAME = " select * from Service where name = ?";
 	private final String CREATE_SERVICE = "insert into service(serviceId, name, duration) values (?,?,?)";
 	
 	
 	private PreparedStatement ps_findByServiceId;
 	private PreparedStatement ps_findAllService;
+	private PreparedStatement ps_findServiceByName;
 	private PreparedStatement ps_createService;
 	
 	public ServiceDB() throws DataAccessException {
@@ -33,6 +35,7 @@ public class ServiceDB implements ServiceDBIF {
 		
 		ps_findByServiceId = con.prepareStatement(FIND_BY_SERVICE_ID);
 		ps_findAllService = con.prepareStatement(FIND_ALL_SERVICE);
+		ps_findServiceByName = con.prepareStatement(FIND_SERVICE_BY_NAME);
 		ps_createService = con.prepareStatement(CREATE_SERVICE, Statement.RETURN_GENERATED_KEYS);
 		
 		}catch (SQLException e) {
@@ -80,7 +83,7 @@ public class ServiceDB implements ServiceDBIF {
 		} catch(SQLException e) {
 			throw new DataAccessException("Fejl",e);
 		}
-		return null;
+		return res;
 		
 		
 	}
@@ -116,6 +119,35 @@ public class ServiceDB implements ServiceDBIF {
 
         return serviceId;
     }
+	
+	public Service findServiceByName(String serviceName) throws DataAccessException {
+		Service ser = null;
+		try {
+			ps_findServiceByName.setString(1, serviceName);;
+			ResultSet rs = ps_findServiceByName.executeQuery();
+			if(rs.next()) {
+				ser = buildObjectName(rs);
+			}
+		} catch (SQLException e) {
+		throw new DataAccessException("", e);	
+		}
+		return null;
+		
+	}
+
+	private Service buildObjectName(ResultSet rs) throws DataAccessException {
+		Service service = null;
+		try {
+			service = new Service();
+			service.setServiceId(rs.getInt("id"));
+			service.setName(rs.getString("name"));
+			//service.setDuration(rs.getInt("duration"));
+			
+		} catch (SQLException e) {
+			throw new DataAccessException("", e);
+		}
+		return null;
+	}
 		
 		
 	

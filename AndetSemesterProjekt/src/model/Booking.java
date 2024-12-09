@@ -8,12 +8,13 @@ import java.util.Objects;
 public class Booking {
 	private int bookingId;
 	private Service service;
-	private BookingType type;
+	private BookingType type = BookingType.booked;
 	private LocalDateTime bookingDate;
 	private String barber;
 	private Customer customer;
 	private Employee employee;
 	private String note;
+
 
 	public int getBookingId() {
 		return bookingId;
@@ -43,9 +44,11 @@ public class Booking {
 		return employee;
 	}
 
+	
 	public String getNote() {
-		return null;
-	}
+		return note; 
+		}
+	 
 	
 	public BookingType getType() {
 		return type;
@@ -80,9 +83,11 @@ public class Booking {
 		this.employee = employee;
 	}
 
-	public void setNote(String note) {
-		this.note = note;
-	}
+	
+	 public void setNote(String note) { 
+		  this.note = note; 
+		  }
+	 
 	
 	public void setBookingType(BookingType type) {
 		this.type = type;
