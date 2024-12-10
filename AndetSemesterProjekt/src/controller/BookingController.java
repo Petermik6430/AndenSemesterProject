@@ -39,35 +39,15 @@ public class BookingController {
 		ec = new EmployeeController();
 		sc = new ServiceController();
 		bookingDB = new BookingDB();
-	//	bookingInSystem = new Booking();
-	//	Booking boo = new Booking();
 		employeeBookings = new HashMap<>();
-	//	createBooking();
+
 	}
 
-	/*
-public Booking createBooking(Booking booking) {
-		booking = new Booking();
-		
-		bookingInSystem = booking;
-		try {
-			bookingDB.createBooking(booking);
-		} catch (DataAccessException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return booking;
-	} */
 
-public Booking createBooking(Booking booking) { 
+public Booking createBooking(Booking booking) throws DataAccessException { 
 	bookingInSystem = booking; 
-	try { 
 	bookingDB.createBooking(booking); 
-	updateBookingStatus(booking.getEmployee(), booking.getBookingDate().toLocalDate(), booking.getBookingDate().toLocalTime()); 
-	} catch 
-	(DataAccessException e) { 
-		e.printStackTrace(); 
-		} 
+
 	return booking;
 }
 
@@ -77,38 +57,6 @@ private void updateBookingStatus(Employee employee, LocalDate localDate, LocalTi
 		// TODO 
 		
 	}
-
-/*
-	public void createBooking(Booking booking) throws DataAccessException {
-		if (booking.getEmployee() == null) {
-			throw new DataAccessException("Employee cannot be null", null);
-		}
-	
-}
-*/
-/*
-public void createBooking(Employee employee, LocalDate date, LocalTime time) throws DataAccessException {
-	
-	Customer customer = cc.findCustomerByPhoneNo("12345678"); // Eksempel telefonnummer, opdater som nødvendigt
-    if (customer == null) {
-        throw new DataAccessException("Customer is null in BookingController",null);
-    }
-    Service service = new Service();
-    service.setServiceId(1);
-
-    Booking booking = new Booking(employee, date.atTime(time), BookingType.booked);
-    booking.setCustomer(customer);
-    booking.setService(service);
-    booking.setNote("Test booking");
-
-    System.out.println("Customer ID: " + customer.getCustomerId());
-    System.out.println("Service ID: " + service.getServiceId());
-    System.out.println("Booking Date: " + booking.getBookingDate());
-    System.out.println("Employee ID: " + employee.getEmployeeId());
-
-    bookingDB.createBooking(booking);
-}
-*/
 
 
 	public void setService(Service service) {
@@ -140,9 +88,7 @@ public void createBooking(Employee employee, LocalDate date, LocalTime time) thr
 		return res;
 	}
 
-//	public int createCustomer() {
-//		return 1;
-//	}
+
 	
 	public Customer selectCustomer(String phoneNo) throws DataAccessException {
 		Customer res = null;
@@ -150,29 +96,6 @@ public void createBooking(Employee employee, LocalDate date, LocalTime time) thr
 		
 		return res;
 	}
-	
-/*
-	public Customer selectCustomer(String phoneNo) throws DataAccessException {
-		Customer customer = cc.findCustomerByPhoneNo(phoneNo);
-		
-		// håndtering hvis kunden ikke er i systemet.
-		/* if(customer == null) {
-			cc.createCustomer(0, phoneNo, phoneNo, phoneNo, phoneNo);
-		}
-		
-		bookingInSystem.setCustomer(customer);
-		return customer; //TODO skal returnere Customer
-	}
-*/
-	
-	public void addBooking(Employee employee, Booking booking) {
-		if(!employeeBookings.containsKey(employee)) { // vi kunne bruge en lamdaudtryk her
-			employeeBookings.put(employee, new ArrayList<>());
-		}
-		employeeBookings.get(employee).add(booking);
-		
-	}
-	
 	
 	
 	public Map<Employee,List<TimeSlot>> findAvailableTimes( LocalDate date) throws DataAccessException {
