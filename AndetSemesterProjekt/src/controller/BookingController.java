@@ -44,6 +44,7 @@ public class BookingController {
 	//	createBooking();
 	}
 
+	/*
 public Booking createBooking(Booking booking) {
 		Booking boo = new Booking();
 		
@@ -55,9 +56,26 @@ public Booking createBooking(Booking booking) {
 			e.printStackTrace();
 		}
 		return booking;
+	} */
+
+public Booking createBooking(Booking booking) { 
+	bookingInSystem = booking; 
+	try { 
+	bookingDB.createBooking(booking); 
+	updateBookingStatus(booking.getEmployee(), booking.getBookingDate().toLocalDate(), booking.getBookingDate().toLocalTime()); 
+	} catch 
+	(DataAccessException e) { 
+		e.printStackTrace(); 
+		} 
+	return booking;
+}
+
+
+
+private void updateBookingStatus(Employee employee, LocalDate localDate, LocalTime localTime) {
+		// TODO 
+		
 	}
-
-
 
 /*
 	public void createBooking(Booking booking) throws DataAccessException {
