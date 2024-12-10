@@ -43,7 +43,7 @@ class BookingIntegrationTest {
     	Booking created;
     	Booking arranged = new Booking();
     	
-    	created = bookingController.createBooking(arranged);
+    	created = bookingController.createBooking();
     	
     	assertEquals(created, arranged);
     }
@@ -52,7 +52,7 @@ class BookingIntegrationTest {
 	@Test
 	void testAddDate() {
 		Booking arranged = new Booking();
-		bookingController.createBooking(arranged);
+		bookingController.createBooking();
 		LocalDate testDate = LocalDate.of(2018, 6, 15);
 		List<LocalTime> expected = new ArrayList<>();
 		int duration = 15;
@@ -62,7 +62,7 @@ class BookingIntegrationTest {
 			 startTime = startTime.plusMinutes(duration);
 		 }
 		 
-		 List<LocalTime> timeReturned = bookingController.setDateTime(testDate);
+		 List<LocalTime> timeReturned = bookingController.setDate(testDate);
 		 
 		 for(LocalTime localTime : timeReturned) {
 			 assertEquals(localTime, expected.get(timeReturned.indexOf(localTime)));

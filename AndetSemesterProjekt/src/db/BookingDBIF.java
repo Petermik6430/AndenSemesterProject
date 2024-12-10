@@ -11,7 +11,7 @@ public interface BookingDBIF {
 
 	public List<Booking> findBookingByDate(LocalDate date) throws DataAccessException;
 	
-	public Booking findBookingByCustomerPhoneNo(String phoneNo) throws DataAccessException;
+	//public Booking findBookingByCustomerPhoneNo(String phoneNo) throws DataAccessException;
 
 	public void updateBooking(Booking booking) throws DataAccessException;
 
