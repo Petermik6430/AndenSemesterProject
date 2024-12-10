@@ -369,11 +369,10 @@ public class JDialogCreateBooking extends JDialog {
 
                 List<TimeSlot> employeeTimeSlots = bookingController.findAvailableTimes(employee, date);
 
-                BookingType status = BookingType.available;
+                BookingType status = BookingType.booked;
                 for (TimeSlot slot : employeeTimeSlots) {
                     if (slot.getTime().equals(time)) {
                         status = slot.getStatus();
-                        break;
                     }
                 }
 

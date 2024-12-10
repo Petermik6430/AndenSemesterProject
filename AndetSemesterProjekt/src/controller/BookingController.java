@@ -27,6 +27,7 @@ public class BookingController {
 	private BookingDB bookingDB;
 	public Booking bookingInSystem;
 	private Map <Employee, List<Booking>> employeeBookings;
+	private Booking booking;
 	
 	private final LocalTime startOfDayWeekDays = LocalTime.of(9, 0);
 	private final LocalTime endOfDatWeekDays = LocalTime.of(18, 0);
@@ -45,7 +46,7 @@ public class BookingController {
 	}
 
 public Booking createBooking(Booking booking) {
-		Booking boo = new Booking();
+		booking = new Booking();
 		
 		bookingInSystem = booking;
 		try {
@@ -155,6 +156,13 @@ public void createBooking(Employee employee, LocalDate date, LocalTime time) thr
 	}
 	
 	
+	
+	public Map<Employee,List<TimeSlot>> findAvailableTimes( LocalDate date) throws DataAccessException {
+		 		
+		//TODO 
+
+	    return null;
+	}
 	public List<TimeSlot> findAvailableTimes(Employee employee, LocalDate date) throws DataAccessException {
 	 
 	    int employeeId = employee.getEmployeeId();
@@ -172,7 +180,6 @@ public void createBooking(Employee employee, LocalDate date, LocalTime time) thr
 	                LocalTime bookingEnd = bookingStart.plusMinutes(30);
 	                if (!time.isBefore(bookingStart) && time.isBefore(bookingEnd)) {
 	                    status = BookingType.booked;
-	                    break;
 	                }
 	            }
 	        }
