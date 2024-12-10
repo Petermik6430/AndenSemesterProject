@@ -3,6 +3,7 @@ package model;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.List;
 import java.util.Objects;
 
 public class Booking {
@@ -19,8 +20,11 @@ public class Booking {
 	public Booking() {
 		
 	}
-	
-	public Booking(Employee employee, LocalDateTime bookingDate, BookingType type) { this.employee = employee; this.bookingDate = bookingDate; this.type = type; }
+	/*
+	public Booking(Employee employee, LocalDateTime bookingDate, BookingType type) { 
+		this.employee = employee; this.bookingDate = bookingDate; this.type = type; 
+		}
+	*/
 
 	public int getBookingId() {
 		return bookingId;
@@ -123,6 +127,8 @@ public class Booking {
 		return "booking{" + "time=" + bookingDate + ", Status" + type + "}";
 		
 	}
+
+
 
 	
 	

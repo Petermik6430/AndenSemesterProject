@@ -343,51 +343,53 @@ public class JDialogCreateBooking extends JDialog {
     }
     
     private void fillTableWithAvailableTimes(DefaultTableModel tableModel, List<Employee> employees, LocalDate date) throws DataAccessException {
-        if (date == null) {
-            throw new DataAccessException("Date cannot be null", null);
-        }
-        System.out.println("Updating table for date: " + date);
-        tableModel.setRowCount(0); // Ryd eksisterende rækker
+    if (date == null) {
+        throw new DataAccessException("Date cannot be null", null);
+    }
+    System.out.println("Updating table for date: " + date);
+    tableModel.setRowCount(0); // Ryd eksisterende rækker
 
-        LocalTime startTime = LocalTime.of(9, 0);
-        LocalTime endTime = LocalTime.of(18, 0);
+    LocalTime startTime = LocalTime.of(9, 0);
+    LocalTime endTime = LocalTime.of(18, 0);
 
-        List<LocalTime> timeSlots = new ArrayList<>();
-        for (LocalTime time = startTime; time.isBefore(endTime); time = time.plusMinutes(30)) {
-            timeSlots.add(time);
-        }
+    List<LocalTime> timeSlots = new ArrayList<>();
+    for (LocalTime time = startTime; time.isBefore(endTime); time = time.plusMinutes(30)) {
+        timeSlots.add(time);
+    }
 
-        for (LocalTime time : timeSlots) {
-            Object[] rowData = new Object[employees.size() + 1];
-            rowData[0] = time;
+    for (LocalTime time : timeSlots) {
+        Object[] rowData = new Object[employees.size() + 1];
+        rowData[0] = time;
 
-            for (int i = 0; i < employees.size(); i++) {
-                Employee employee = employees.get(i);
-                if (employee == null) {
-                    throw new DataAccessException("Employee cannot be null", null);
-                }
-
-                List<TimeSlot> employeeTimeSlots = bookingController.findAvailableTimes(employee, date);
-
-                BookingType status = BookingType.booked;
-                for (TimeSlot slot : employeeTimeSlots) {
-                    if (slot.getTime().equals(time)) {
-                        status = slot.getStatus();
-                    }
-                }
-
-                System.out.println("Time: " + time + ", Employee: " + employee.getFirstName() + ", Status: " + status);
-
-                rowData[i + 1] = status;
+        for (int i = 0; i < employees.size(); i++) {
+            Employee employee = employees.get(i);
+            if (employee == null) {
+                throw new DataAccessException("Employee cannot be null", null);
             }
 
-            tableModel.addRow(rowData);
+            List<TimeSlot> employeeTimeSlots = bookingController.findAvailableTimes(employee, date);
+
+            BookingType status = BookingType.booked;
+            for (TimeSlot slot : employeeTimeSlots) {
+                if (slot.getTime().equals(time)) {
+                    status = slot.getStatus();
+                }
+            }
+
+            System.out.println("Time: " + time + ", Employee: " + employee.getFirstName() + ", Status: " + status);
+
+            rowData[i + 1] = status;
         }
 
-        System.out.println("Table updated for date: " + date);
-        ((DefaultTableModel) table.getModel()).fireTableDataChanged();
-        table.repaint();
+        tableModel.addRow(rowData);
     }
+
+    System.out.println("Table updated for date: " + date);
+    ((DefaultTableModel) table.getModel()).fireTableDataChanged();
+    table.repaint();
+}
+    
+   
 
 
     private void dateSelected(CalendarSelectionEvent arg0) throws DataAccessException {

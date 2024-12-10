@@ -85,11 +85,12 @@ public class BookingDialog extends JDialog {
                     Service selectedService = (Service) comboBoxService.getSelectedItem();
 
                     // Find kunde via telefonnummer
-                   Customer customer = bookingController.selectCustomer(phoneNo);
+                   /*Customer customer = bookingController.selectCustomerByPhoneNo(phoneNo);
                     if (customer == null) {
                         JOptionPane.showMessageDialog(BookingDialog.this, "Kunde ikke fundet.");
                         return;
                     }
+                    */
 
                     if (selectedService == null) {
                         JOptionPane.showMessageDialog(BookingDialog.this, "Vælg venligst en service.");
@@ -99,12 +100,12 @@ public class BookingDialog extends JDialog {
                     // Opret booking
                     Booking booking = new Booking();
                     booking.setEmployee(employee);
-                    booking.setCustomer(customer);
+                    booking.getCustomer();
                     booking.setService(selectedService); // Brug setService til at sætte servicen
                     booking.setBookingDate(LocalDateTime.of(date, time));
 
                     // Gem booking i databasen
-                   bookingController.createBooking(booking);
+                   bookingController.createBooking();
 
                     JOptionPane.showMessageDialog(BookingDialog.this, "Booking oprettet!");
                   //  updateTableAfterBooking();
