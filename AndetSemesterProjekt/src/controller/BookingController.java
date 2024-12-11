@@ -127,7 +127,7 @@ public class BookingController {
 	                    status = BookingType.booked;
 	                    break;
 	                }
-	            }
+	            } 
 	        }
 	        // Tjek om tiden er udenfor arbejdstid (ikke mulig at booke)
 	        if (time.isBefore(startTime) || time.isAfter(endTime.minusMinutes(30))) {
