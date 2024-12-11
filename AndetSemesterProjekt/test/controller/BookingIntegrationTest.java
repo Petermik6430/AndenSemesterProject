@@ -6,7 +6,6 @@ import model.Booking;
 import model.Customer;
 import model.Employee;
 import model.Service;
-import model.TimeSlot;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 

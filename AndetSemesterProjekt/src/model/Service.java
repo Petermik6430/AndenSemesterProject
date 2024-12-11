@@ -8,15 +8,6 @@ public class Service {
 	private String name;
 	private int duration;
 	//private double price;
-	
-	// i ServiceDB fungere instansen new ServiceDB ikke når der bliver dannet en constructor i Service
-	/*
-	public Service(int serviceId, String trim, int duration) {
-		this.serviceId = serviceId;
-		this.trim = trim;
-		this.duration = duration;
-	}
-	*/
 
 	public Service(int serviceId, String name, int duration) {
 	this.serviceId = serviceId;
@@ -62,6 +53,10 @@ public class Service {
 	//	return price;
 	//}
 
+	@Override
+	public String toString() {
+		return name;
+	}
 
 	
 }
