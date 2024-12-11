@@ -3,17 +3,28 @@ package model;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.List;
 import java.util.Objects;
 
 public class Booking {
 	private int bookingId;
 	private Service service;
-	private BookingType type;
+	private BookingType type = BookingType.booked;
 	private LocalDateTime bookingDate;
 	private String barber;
 	private Customer customer;
 	private Employee employee;
 	private String note;
+
+
+	public Booking() {
+		
+	}
+	
+	public Booking(Employee employee, LocalDateTime bookingDate, BookingType type) { 
+		this.employee = employee; this.bookingDate = bookingDate; this.type = type; 
+		}
+	
 
 	public int getBookingId() {
 		return bookingId;
@@ -43,9 +54,11 @@ public class Booking {
 		return employee;
 	}
 
+	
 	public String getNote() {
-		return null;
-	}
+		return note; 
+		}
+	 
 	
 	public BookingType getType() {
 		return type;
@@ -80,9 +93,11 @@ public class Booking {
 		this.employee = employee;
 	}
 
-	public void setNote(String note) {
-		this.note = note;
-	}
+	
+	 public void setNote(String note) { 
+		  this.note = note; 
+		  }
+	 
 	
 	public void setBookingType(BookingType type) {
 		this.type = type;
@@ -112,6 +127,8 @@ public class Booking {
 		return "booking{" + "time=" + bookingDate + ", Status" + type + "}";
 		
 	}
+
+
 
 	
 	

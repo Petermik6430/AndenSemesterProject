@@ -1,17 +1,16 @@
 package controller;
 
-import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 import db.BookingDB;
-import db.BookingDBIF;
 import db.DataAccessException;
 import model.Booking;
 import model.BookingType;
@@ -21,142 +20,159 @@ import model.Service;
 import model.TimeSlot;
 
 public class BookingController {
-	private CustomerController cc;
-	private EmployeeController ec;
-	private ServiceController sc;
-	private BookingDBIF bookingDB;
-	public Booking bookingInSystem;
-	private Map <Employee, List<Booking>> employeeBookings;
-	
-	private final LocalTime startOfDayWeekDays = LocalTime.of(9, 0);
-	private final LocalTime endOfDatWeekDays = LocalTime.of(18, 0);
-	private final LocalTime startOfDaySaturDay = LocalTime.of(10, 0);
-	private final LocalTime endOfDaySaturDay = LocalTime.of(15, 0);
+    private CustomerController cc;
+    private EmployeeController ec;
+    private ServiceController sc;
+    private BookingDB bookingDB;
+    private Map<Employee, List<Booking>> employeeBookings;
+    private Booking booking;
 
-	public BookingController() throws DataAccessException {
-		cc = new CustomerController();
-		ec = new EmployeeController();
-		sc = new ServiceController();
-		bookingDB = new BookingDB();
-		createBooking();
-		bookingInSystem = new Booking();
-		
-		employeeBookings = new HashMap<>();
-	}
+    public BookingController() throws DataAccessException {
+        cc = new CustomerController();
+        ec = new EmployeeController();
+        sc = new ServiceController(); // Initialisering af serviceController
+        bookingDB = new BookingDB();
+        employeeBookings = new HashMap<>();
+    }
 
-	public Booking createBooking() {
-		Booking boo = new Booking();
-		
-		bookingInSystem = boo;
-		return boo;
-	}
+    public Booking createBooking() {
+        booking = new Booking();
+        return booking;
+    }
 
-//	public void createBookingUnit() {
-//	}
+    public void setService(Service service) {
+        booking.setService(service);
+    }
 
-//	public void createBookingDate() {
-//	}
+    public void setNote(String note) {
+        booking.setNote(note);
+    }
 
-	public void setService(Service service) {
-		bookingInSystem.setService(service);
-		
-	}
-	public void setNote(String note) {
-		bookingInSystem.setNote(note);
-	}
-	
-	public void setEmployee(Employee employee) {
-		bookingInSystem.setEmployee(employee);
-		
-		if(!employeeBookings.containsKey(employee)) {
-			employeeBookings.put(employee, new ArrayList<>());
-		}
-		
-		 //TODO skal returnere Employee
-	}
+    public void setEmployee(Employee employee) {
+        booking.setEmployee(employee);
+    }
 
-	public List<LocalTime> setDateTime(LocalDate date) {
-		List<LocalTime> times = new ArrayList<>();
-		
-		bookingInSystem.setBookingDate(LocalDateTime.of(date, LocalTime.MIN));
-	
-		
-		
-		return times;
-	}
+    public Customer selectCustomerByPhoneNo(String phoneNo) throws DataAccessException {
+        Customer customer = cc.findCustomerByPhoneNo(phoneNo);
+        booking.setCustomer(customer);
+        return customer;
+    }
 
-//	public int createCustomer() {
-//		return 1;
-//	}
+    public void setDate(LocalDate date) {
+        booking.setBookingDate(LocalDateTime.of(date, booking.getBookingDate().toLocalTime()));
+    }
 
-	public Customer selectCustomer(String phoneNo) throws DataAccessException {
-		Customer customer = cc.findCustomerByPhoneNo(phoneNo);
-		
-		// håndtering hvis kunden ikke er i systemet.
-		/* if(customer == null) {
-			cc.createCustomer(0, phoneNo, phoneNo, phoneNo, phoneNo);
-		}
-	*/	
-		bookingInSystem.setCustomer(customer);
-		return customer; //TODO skal returnere Customer
-	}
-	
-	public void addBooking(Employee employee, Booking booking) {
-		if(!employeeBookings.containsKey(employee)) { // vi kunne bruge en lamdaudtryk her
-			employeeBookings.put(employee, new ArrayList<>());
-		}
-		employeeBookings.get(employee).add(booking);
-		
-	}
+    public void setStaringTime(LocalTime time) {
+        if (booking.getBookingDate() == null) {
+            booking.setBookingDate(LocalDateTime.of(LocalDate.now(), time)); // Hvis bookingDate er null, initialiser med dato og tid
+        } else {
+            LocalDate date = booking.getBookingDate().toLocalDate();
+            booking.setBookingDate(LocalDateTime.of(date, time));
+        }
+    }
 
-	
-	public List<TimeSlot> findAvailableTimes(Employee employee, LocalDate date) throws DataAccessException {
-	    List<TimeSlot> timeSlots = new ArrayList<>();
-	    LocalTime startTime = LocalTime.of(9, 0);
-	    LocalTime endTime = LocalTime.of(18, 0);
+    public Booking completeBooking() throws DataAccessException {
+        if (booking.getEmployee() == null) {
+            throw new IllegalStateException("Employee is not set for the booking");
+        }
+        bookingDB.createBooking(booking);
+        return booking;
+    }
 
-	    List<Booking> bookings = bookingDB.findBookingByDate(date); // Hent bookinger fra databasen
+    public List<TimeSlot> findAvailableTimes(Employee employee, LocalDate date) throws DataAccessException {
+        int employeeId = employee.getEmployeeId();
+        List<TimeSlot> timeSlots = new ArrayList<>();
+        LocalTime startTime = LocalTime.of(9, 0);
+        LocalTime endTime = LocalTime.of(18, 0);
 
-	    for (LocalTime time = startTime; time.isBefore(endTime); time = time.plusMinutes(30)) {
-	        BookingType status = BookingType.available;
-	        for (Booking booking : bookings) {
-	            if (booking.getEmployee().getEmployeeId() == employee.getEmployeeId()) {
-	                LocalTime bookingStart = booking.getBookingDate().toLocalTime();
-	                LocalTime bookingEnd = bookingStart.plusMinutes(30); // Antag 30 minutters booking
-	                if (!time.isBefore(bookingStart) && time.isBefore(bookingEnd)) {
-	                    status = BookingType.booked;
-	                    break;
-	                }
-	            }
-	        }
-	        // Tjek om tiden er udenfor arbejdstid (ikke mulig at booke)
-	        if (time.isBefore(startTime) || time.isAfter(endTime.minusMinutes(30))) {
-	            status = BookingType.other; // Definer "other" som ikke mulig at booke
-	        }
-	        timeSlots.add(new TimeSlot(time, status));
-	    }
+        List<Booking> bookings = bookingDB.findBookingByDate(date); // Hent bookinger fra databasen
 
-	    return timeSlots;
-	}
-	
+        for (LocalTime time = startTime; time.isBefore(endTime); time = time.plusMinutes(30)) {
+            BookingType status = BookingType.available;
+            for (Booking booking : bookings) {
+                if (booking.getEmployee() != null && booking.getEmployee().getEmployeeId() == employeeId) {
+                    LocalTime bookingStart = booking.getBookingDate().toLocalTime();
+                    LocalTime bookingEnd = bookingStart.plusMinutes(30);
+                    if (!time.isBefore(bookingStart) && time.isBefore(bookingEnd)) {
+                        status = BookingType.booked;
+                        break;
+                    }
+                }
+            }
+            timeSlots.add(new TimeSlot(time, status));
+        }
 
+        // Sorter timeSlots i stigende rækkefølge
+        Collections.sort(timeSlots, Comparator.comparing(TimeSlot::getTime));
 
+        return timeSlots;
+    }
 
-	public BookingType getBookingTypeForTime(Employee employee, LocalDate date, LocalTime time) throws DataAccessException {
-	    List<Booking> bookings = employeeBookings.get(employee);
-	    if (bookings != null) {
-	        for (Booking booking : bookings) {
-	            if (booking.getBookingDate().toLocalDate().equals(date) && booking.getBookingDate().toLocalTime().equals(time)) {
-	                return booking.getType();
-	            }
-	        }
-	    }
-	    return BookingType.available;
-	}
+    public List<Object[]> getAvailableTimesTableData(List<Employee> employees, LocalDate date) throws DataAccessException {
+        List<Object[]> tableData = new ArrayList<>();
+        Map<LocalTime, List<BookingType>> availableTimes = findAvailableTimesForAllEmployees(employees, date);
 
-	
+        for (Map.Entry<LocalTime, List<BookingType>> entry : availableTimes.entrySet()) {
+            Object[] rowData = new Object[entry.getValue().size() + 1];
+            rowData[0] = entry.getKey();
+            for (int i = 0; i < entry.getValue().size(); i++) {
+                rowData[i + 1] = entry.getValue().get(i);
+            }
+            tableData.add(rowData);
+        }
 
+        // Sorter tableData i stigende rækkefølge af tid
+        tableData.sort(Comparator.comparing(row -> (LocalTime) row[0]));
 
-	
-}// map til hver employee og tilknytte en liste af booking.
+        return tableData;
+    }
+
+    private Map<LocalTime, List<BookingType>> findAvailableTimesForAllEmployees(List<Employee> employees, LocalDate date) throws DataAccessException {
+        Map<LocalTime, List<BookingType>> availableTimes = new HashMap<>();
+        LocalTime startTime = LocalTime.of(9, 0);
+        LocalTime endTime = LocalTime.of(18, 0);
+
+        List<LocalTime> timeSlots = new ArrayList<>();
+        for (LocalTime time = startTime; time.isBefore(endTime); time = time.plusMinutes(30)) {
+            timeSlots.add(time);
+        }
+
+        for (LocalTime time : timeSlots) {
+            List<BookingType> statuses = new ArrayList<>();
+            for (Employee employee : employees) {
+                List<TimeSlot> employeeTimeSlots = findAvailableTimes(employee, date);
+
+                BookingType status = BookingType.available;
+                for (TimeSlot slot : employeeTimeSlots) {
+                    if (slot.getTime().equals(time)) {
+                        status = slot.getStatus();
+                        break;
+                    }
+                }
+                statuses.add(status);
+            }
+            availableTimes.put(time, statuses);
+        }
+
+        return availableTimes;
+    }
+
+    public List<Employee> getAllEmployees() throws DataAccessException {
+        return ec.getEmployees();
+    }
+
+    public List<Service> getAllServices() throws DataAccessException {
+        return sc.findAllService();
+    }
+
+    public boolean isBookingAvailable(Object value) {
+        return BookingType.available.equals(value);
+    }
+    
+    public List<Object[]> updateTableData(LocalDate date) throws DataAccessException {
+        List<Employee> employees = getAllEmployees();
+        return getAvailableTimesTableData(employees, date);
+    }
+}
+
 

@@ -53,5 +53,9 @@ public class EmployeeController {
 	    }
 	    return employeeDB.findAllEmployees();
 	}
+	
+	public List<Employee> getAllEmployees() throws DataAccessException { return employeeDB.findAllEmployees(); }
+	
+	
 
 }
