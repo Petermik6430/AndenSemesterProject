@@ -62,10 +62,6 @@ public class Service {
 	//	return price;
 	//}
 
-	@Override
-	public String toString() {
-		return name;
-	}
 
 	
 }

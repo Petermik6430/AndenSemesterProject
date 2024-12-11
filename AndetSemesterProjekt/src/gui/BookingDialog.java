@@ -1,94 +1,64 @@
 package gui;
 
-import javax.swing.*;
-import controller.BookingController;
-import controller.ServiceController;
-import db.DataAccessException;
-import model.Booking;
-import model.Employee;
-import model.Service;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.List;
+
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+import model.Employee;
 
 public class BookingDialog extends JDialog {
-    private JTextField txtPhone;
-    private JComboBox<Service> comboBoxService;
-    private BookingController bookingController;
-    private ServiceController serviceController;
-    private LocalTime startTime;
-    private LocalDate selectedDate;  // Opdateret til at bruge den valgte dato
-    private Employee employee;
 
-    public BookingDialog(BookingController bookingController, Employee employee, LocalTime startTime, LocalDate date) throws DataAccessException {
-        this.bookingController = bookingController;
-        this.employee = employee;
-        this.startTime = startTime;
-        this.selectedDate = date;  // Sæt den valgte dato
+	private static final long serialVersionUID = 1L;
+	private final JPanel contentPanel = new JPanel();
 
-        setTitle("Opret Booking");
-        setBounds(100, 100, 450, 300);
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        getContentPane().setLayout(new BorderLayout());
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		try {
+			BookingDialog dialog = new BookingDialog();
+			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+			dialog.setVisible(true);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
-        serviceController = new ServiceController();
+	/**
+	 * Create the dialog.
+	 */
+	public BookingDialog() {
+		setBounds(100, 100, 450, 300);
+		getContentPane().setLayout(new BorderLayout());
+		contentPanel.setLayout(new FlowLayout());
+		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		getContentPane().add(contentPanel, BorderLayout.CENTER);
+		{
+			JPanel buttonPane = new JPanel();
+			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
+			getContentPane().add(buttonPane, BorderLayout.SOUTH);
+			{
+				JButton okButton = new JButton("OK");
+				okButton.setActionCommand("OK");
+				buttonPane.add(okButton);
+				getRootPane().setDefaultButton(okButton);
+			}
+			{
+				JButton cancelButton = new JButton("Cancel");
+				cancelButton.setActionCommand("Cancel");
+				buttonPane.add(cancelButton);
+			}
+		}
+	}
 
-        JPanel contentPanel = new JPanel();
-        contentPanel.setLayout(new GridLayout(4, 2));
+	public BookingDialog(Employee employee, LocalTime time, LocalDate now) {
+		// TODO Auto-generated constructor stub
+	}
 
-        // Kunde telefonnummer
-        JLabel lblPhone = new JLabel("Telefonnummer:");
-        contentPanel.add(lblPhone);
-        txtPhone = new JTextField();
-        contentPanel.add(txtPhone);
-
-        // Service
-        JLabel lblService = new JLabel("Service:");
-        contentPanel.add(lblService);
-        comboBoxService = new JComboBox<>();
-        List<Service> services = serviceController.findAllService();
-        for (Service service : services) {
-            comboBoxService.addItem(service);
-        }
-        contentPanel.add(comboBoxService);
-
-        getContentPane().add(contentPanel, BorderLayout.CENTER);
-
-        // Knapper
-        JPanel buttonPane = new JPanel();
-        JButton btnOpret = new JButton("Opret");
-        btnOpret.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    createBooking();
-                } catch (DataAccessException ex) {
-                    ex.printStackTrace();
-                    JOptionPane.showMessageDialog(BookingDialog.this, "Fejl ved oprettelse af booking.");
-                }
-            }
-        });
-        buttonPane.add(btnOpret);
-        getContentPane().add(buttonPane, BorderLayout.SOUTH);
-    }
-
-    private void createBooking() throws DataAccessException {
-        String phoneNo = txtPhone.getText();
-        Service selectedService = (Service) comboBoxService.getSelectedItem();
-
-        // Sæt kunde, service, medarbejder, dato og tidspunkt i bookingController
-        bookingController.createBooking();
-        bookingController.selectCustomerByPhoneNo(phoneNo);
-        bookingController.setService(selectedService);
-        bookingController.setEmployee(employee);
-        bookingController.setStaringTime(startTime);
-        bookingController.setDate(selectedDate);  // Sæt den valgte dato
-
-        // Gem booking i databasen
-        Booking booking = bookingController.completeBooking();
-
-        JOptionPane.showMessageDialog(this, "Booking oprettet med ID: " + booking.getBookingId());
-    }
 }

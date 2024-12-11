@@ -1,71 +1,95 @@
-
 package gui;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
+
+import javax.swing.JComboBox;
 import javax.swing.JDialog;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.JScrollPane;
 import com.github.lgooddatepicker.components.CalendarPanel;
 import com.github.lgooddatepicker.optionalusertools.CalendarListener;
 import com.github.lgooddatepicker.zinternaltools.CalendarSelectionEvent;
 import com.github.lgooddatepicker.zinternaltools.YearMonthChangeEvent;
-
-import controller.BookingController;
 import controller.EmployeeController;
+import controller.BookingController;
 import db.DataAccessException;
+import model.Booking;
+import model.BookingType;
 import model.Employee;
+import model.TimeSlot;
+
+import javax.swing.JTable;
+import java.awt.GridBagConstraints;
+import java.awt.Insets;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class JDialogCreateBooking extends JDialog {
-    private BookingController bookingController;
-    private EmployeeController employeeController;
+
+    private static final long serialVersionUID = 1L;
+    private final JPanel contentPanel = new JPanel();
     private JTable table;
     private DefaultTableModel tableModel;
-    private JPanel contentPanel = new JPanel();
+    private EmployeeController employeeController;
+    private BookingController bookingController;
 
+    /**
+     * Launch the application.
+     */
+    public static void main(String[] args) {
+        try {
+            JDialogCreateBooking dialog = new JDialogCreateBooking();
+            dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+            dialog.setVisible(true);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Create the dialog.
+     */
     public JDialogCreateBooking() throws DataAccessException {
-        setTitle("Book Tid");
+        // Initialiser instansvariabler
+        employeeController = new EmployeeController();
+        bookingController = new BookingController();
+        bookingController.setDateTime(LocalDate.of(2024, 12, 02)); // Sæt datoen her
+
+        List<Employee> employees = employeeController.getEmployees(); 
+        
         setBounds(100, 100, 450, 634);
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new BorderLayout());
         contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
         getContentPane().add(contentPanel, BorderLayout.CENTER);
         contentPanel.setLayout(null);
 
-        bookingController = new BookingController(); // Initialize bookingController
-        employeeController = new EmployeeController(); // Initialize employeeController
-
-        List<Employee> employees = employeeController.getEmployees();
-
         CalendarPanel calendarPanel = new CalendarPanel();
         calendarPanel.addCalendarListener(new CalendarListener() {
             @Override
-            public void selectedDateChanged(CalendarSelectionEvent event) {
+            public void selectedDateChanged(CalendarSelectionEvent arg0) {
                 try {
-                    LocalDate selectedDate = event.getNewDate();
-                    updateTable(selectedDate);
-                } catch (DataAccessException e) {
-                    e.printStackTrace();
-                }
-            }
+					dateSelected(arg0);
+				} catch (DataAccessException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+            } 
 
             @Override
-            public void yearMonthChanged(YearMonthChangeEvent event) {
+            public void yearMonthChanged(YearMonthChangeEvent arg0) {
                 // TODO Auto-generated method stub
             }
         });
         calendarPanel.setBounds(0, 0, 279, 318);
         contentPanel.add(calendarPanel);
+      
+   //     List<Employee> employees = employeeController.getEmployees();
 
         Object[] columnNames = new Object[employees.size() + 1];
         columnNames[0] = "Tid";
@@ -74,11 +98,9 @@ public class JDialogCreateBooking extends JDialog {
         }
 
         tableModel = new DefaultTableModel(columnNames, 0) {
-            private static final long serialVersionUID = 1L;
-
-            public boolean isCellEditable(int row, int column) {
-                return false;
-            }
+        public boolean isCellEditable(int row, int column ) {
+        	return false;
+        }
         };
         table = new JTable(tableModel);
         table.addMouseListener(new MouseAdapter() {
@@ -88,66 +110,84 @@ public class JDialogCreateBooking extends JDialog {
                 int col = table.columnAtPoint(e.getPoint());
                 if (col > 0) { // Undgå første kolonne
                     Object value = table.getValueAt(row, col);
-                    if (bookingController.isBookingAvailable(value)) {
+                    if (value.equals(BookingType.available)) {
                         LocalTime time = (LocalTime) table.getValueAt(row, 0);
                         Employee employee = employees.get(col - 1);
-                        LocalDate selectedDate = calendarPanel.getSelectedDate();
-                        openBookingDialog(employee, time, selectedDate);
+                        openBookingDialog(employee, time);
                     }
                 }
             }
+
+            private void openBookingDialog(Employee employee, LocalTime time) {
+                BookingDialog bookingDialog = new BookingDialog(employee, time, LocalDate.now());
+                bookingDialog.setVisible(true);
+            }
+
         });
 
-        JScrollPane scrollPane = new JScrollPane(table);
-        getContentPane().add(scrollPane, BorderLayout.SOUTH);
+        table.setBounds(10, 341, 269, 243);
+        getContentPane().add(new JScrollPane(table), BorderLayout.SOUTH);
+
+        try {
+        	LocalDate tody = LocalDate.now();
+        	LocalDate.now();
+            fillTableWithAvailableTimes(tableModel, employees, tody);
+        } catch (DataAccessException e) {
+            e.printStackTrace();
+        }
 
         setVisible(true);
     }
+    
+    private void fillTableWithAvailableTimes(DefaultTableModel tableModel, List<Employee> employees, LocalDate date) throws DataAccessException {
+        tableModel.setRowCount(0); // Ryd eksisterende rækker
 
-    private void updateTable(LocalDate date) throws DataAccessException {
-        List<Employee> employees = employeeController.getEmployees();
-        List<Object[]> tableData = bookingController.updateTableData(date);
+        LocalTime startTime = LocalTime.of(9, 0);
+        LocalTime endTime = LocalTime.of(18, 0);
 
-        tableModel.setRowCount(0);
-        for (Object[] rowData : tableData) {
+        List<LocalTime> timeSlots = new ArrayList<>();
+        for (LocalTime time = startTime; time.isBefore(endTime); time = time.plusMinutes(30)) {
+            timeSlots.add(time);
+        }
+
+        for (LocalTime time : timeSlots) {
+            Object[] rowData = new Object[employees.size() + 1];
+            rowData[0] = time;
+
+            for (int i = 0; i < employees.size(); i++) {
+                Employee employee = employees.get(i);
+                List<TimeSlot> employeeTimeSlots = bookingController.findAvailableTimes(employee, date); // Hent TimeSlots
+
+                BookingType status = BookingType.available;
+                for (TimeSlot slot : employeeTimeSlots) {
+                    if (slot.getTime().equals(time)) {
+                        status = slot.getStatus();
+                        break;
+                    }
+                }
+
+                rowData[i + 1] = status;
+            }
+
             tableModel.addRow(rowData);
         }
     }
 
-    private void openBookingDialog(Employee employee, LocalTime time, LocalDate date) {
-        try {
-            bookingController.createBooking(); // Opret en ny booking
-            bookingController.setEmployee(employee); // Sæt medarbejder
-            bookingController.setStaringTime(time); // Sæt starttidspunkt
-            BookingDialog bookingDialog = new BookingDialog(bookingController, employee, time, date);
-            bookingDialog.setVisible(true);
 
-            updateTable(date);
-        } catch (DataAccessException e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(this, "Fejl ved åbning af booking dialog.");
-        }
-    }
+   
 
-    @Override
-    public void setVisible(boolean b) {
-        super.setVisible(b);
+    private void dateSelected(CalendarSelectionEvent arg0) throws DataAccessException {
+        LocalDate selectedDate = arg0.getNewDate();
+        List<Employee> employees = employeeController.getEmployees();
+        
+
         try {
-            updateTable(LocalDate.now());
+            fillTableWithAvailableTimes(tableModel, employees, selectedDate); // Opdater tabellen med ledige tider for den valgte medarbejder
         } catch (DataAccessException e) {
             e.printStackTrace();
         }
-    }
-
-    public static void main(String[] args) {
-        EventQueue.invokeLater(() -> {
-            try {
-                JDialogCreateBooking dialog = new JDialogCreateBooking();
-                dialog.setVisible(true);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        });
     }
 }
 
+    
+  
