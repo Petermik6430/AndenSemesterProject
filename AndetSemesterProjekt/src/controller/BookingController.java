@@ -86,9 +86,22 @@ public class BookingController {
         if (booking.getEmployee() == null) {
             throw new IllegalStateException("Employee is not set for the booking");
         }
+        if (booking.getService() == null) {
+            throw new IllegalStateException("Service is not set for the booking");
+        }
+        if (booking.getBookingDate() == null) {
+            throw new IllegalStateException("Booking date is not set for the booking");
+        }
+        if (booking.getNote() == null) {
+            booking.setNote(""); // Sæt en tom note, hvis ingen note er angivet
+        }
+        if (booking.getType() == null) {
+            booking.setBookingType(BookingType.booked); // Sæt default bookingtype, hvis ingen type er angivet
+        }
         bookingDB.createBooking(booking);
         return booking;
     }
+
 
     public List<TimeSlot> findAvailableTimes(Employee employee, LocalDate date) throws DataAccessException {
         int employeeId = employee.getEmployeeId();

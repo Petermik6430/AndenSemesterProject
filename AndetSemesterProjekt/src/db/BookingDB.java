@@ -250,20 +250,20 @@ public class BookingDB implements BookingDBIF {
 	        booking.setNote(rs.getString("note"));
 
 	        // Hent og sæt Service objekt
-	        int serviceId = rs.getInt("sid");
+	        int serviceId = rs.getInt("serviceId");
 	        if (!rs.wasNull()) {
 	            Service service = serviceDB.findServiceById(serviceId);
 	            booking.setService(service);
 	        }
 
 	        // Hent og sæt Employee objekt
-	        int employeeId = rs.getInt("id");
+	        int employeeId = rs.getInt("employeeId");
 	        if (!rs.wasNull()) {
 	            Employee employee = employeeDB.findEmployeeById(employeeId);
 	            booking.setEmployee(employee);
 	        }
 	        // Hent og sæt Customer objekt
-	        int customerId = rs.getInt("id");
+	        int customerId = rs.getInt("customerId");
 	        if (!rs.wasNull()) {
 	            Customer customer = customerDB.findCustomerById(customerId);
 	            booking.setCustomer(customer);
@@ -286,6 +286,7 @@ public class BookingDB implements BookingDBIF {
 	    return booking;
 	}
 	
+	
 
 	
 /*
@@ -303,6 +304,12 @@ public class BookingDB implements BookingDBIF {
 	@Override
 	public void deleteBooking(int bookingId) {
 		// Method implementation
+	}
+
+	@Override
+	public Booking findBookingByCustomerPhoneNo(String phoneNo) throws DataAccessException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 
