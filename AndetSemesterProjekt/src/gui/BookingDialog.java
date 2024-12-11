@@ -15,7 +15,7 @@ import java.time.LocalTime;
 import java.util.List;
 
 public class BookingDialog extends JDialog {
-    private JTextField txtPhone;
+	private JTextField txtPhone;
     private JComboBox<Service> comboBoxService;
     private JTextField txtNote;  // Tilføj tekstfelt til noter
     private BookingController bookingController;
