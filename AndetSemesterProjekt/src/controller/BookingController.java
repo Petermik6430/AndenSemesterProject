@@ -47,12 +47,6 @@ public class BookingController {
     public void setNote(String note) {
         booking.setNote(note);
     }
-
-    /*
-    public void setEmployee(Employee employee) {
-    	if (booking != null) { booking.setEmployee(employee); } else { throw new IllegalStateException("Booking object is not initialized."); }
-    }
-    */
     
     public void setEmployee(Employee employee) {
         booking.setEmployee(employee);

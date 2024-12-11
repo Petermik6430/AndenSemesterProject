@@ -30,13 +30,10 @@ public class BookingDB implements BookingDBIF {
 	private EmployeeDBIF employeeDB;
 	
 	private static final String FIND_BY_BOOKING_ID_SQL = "select * from Booking where id = ?";
-	//private static final String FIND_BOOKING_BY_DATE_SQL ="SELECT * FROM BookingDate WHERE bookingDate >= ? AND bookingDate < ?"; //"SELECT * FROM Booking WHERE bookingDate >= ? AND bookingDate < ?"; // "SELECT * FROM Booking WHERE bookingDate >= ? AND bookingDate < ?"; // "select * from Booking where bookingDate <=cast (? as datetime) and bookingdate < cast(? as datetime)";
-	//private static final String UPDATE_BOOKINGS = "SELECT * FROM BookingDate WHERE DATE(bookingDate) = ?";
 	private static final String UPDATE_BOOKINGS = "SELECT * FROM BookingDate WHERE CAST(bookingDate AS DATE) = ?";
-
-	//private static final String SAVE_BOOKING = "insert into BookingDate (bookingDate, type, note,  employeeId, customerId, serviceId) values(?,?,?,?,?,?)";
 	private static final String SAVE_BOOKING = "insert into BookingDate (bookingDate, type, note,  employeeId, customerId, serviceId) values(?,?,?,?,?,?)";
 	private static final String FIND_BOOKING_BY_DATE_SQL = "select * from BookingDate where bookingDate >= ? and bookingDate < ?";
+	
 	private PreparedStatement ps_findBookingByDate;
 	private PreparedStatement ps_updateBookings;
 	private PreparedStatement ps_saveBooking;
@@ -91,26 +88,9 @@ public class BookingDB implements BookingDBIF {
 	            }
 	        }
 
-	        System.out.println("Customer ID checked and updated if necessary...");
-
-	        System.out.println("Booking date: " + booking.getBookingDate());
-	        System.out.println("Type: " + (booking.getType() != null ? booking.getType().name() : "null"));
-	        System.out.println("Note: " + booking.getNote());
-	        System.out.println("Employee ID: " + booking.getEmployee().getEmployeeId());
-	        System.out.println("Customer ID: " + booking.getCustomer().getCustomerId());
-	        System.out.println("Service ID: " + booking.getService().getServiceId());
-
-	        if (booking.getBookingDate() == null || booking.getType() == null || booking.getEmployee() == null || booking.getCustomer() == null || booking.getService() == null) {
-	            throw new DataAccessException("En eller flere booking attributter er null", null);
-	        }
-
-	        System.out.println("All booking attributes are not null...");
-
-	        String note = booking.getNote() != null && !booking.getNote().isEmpty() ? booking.getNote() : "Standard note for booking.";
-
 	        ps_saveBooking.setObject(1, java.sql.Timestamp.valueOf(booking.getBookingDate()));
 	        ps_saveBooking.setString(2, booking.getType() != null ? booking.getType().name() : BookingType.available.name());
-	        ps_saveBooking.setString(3, note);
+	        ps_saveBooking.setString(3, booking.getNote());
 	        ps_saveBooking.setInt(4, booking.getEmployee().getEmployeeId());
 	        ps_saveBooking.setInt(5, booking.getCustomer().getCustomerId());
 	        ps_saveBooking.setInt(6, booking.getService().getServiceId());
@@ -152,25 +132,6 @@ public class BookingDB implements BookingDBIF {
 	}
 
 	
-/*
-	
-	public List<Booking> updateBookingCalender(LocalDate bookingDate) throws DataAccessException {
-		List<Booking> bookings = new ArrayList<>();
-		try {
-		ps_updateBookings.setDate(1, java.sql.Date.valueOf(bookingDate));
-		ResultSet rs = ps_updateBookings.executeQuery();
-		while (rs.next()) {
-			bookings.add(buildBooking(rs));
-		}
-		} catch(SQLException e) {
-			dbc.rollbackTransaction();
-			throw new DataAccessException("" , e);
-		}
-		return bookings;
-		
-	}
-	*/
-
 
 	
 	private Booking buildBooking(ResultSet rs) throws SQLException, DataAccessException {
@@ -202,8 +163,7 @@ public class BookingDB implements BookingDBIF {
         String bookingType = rs.getString("type");
         if (bookingType !=null) {
         	booking.setBookingType(BookingType.valueOf(bookingType));
-        //	} else {
-        //		booking.setBookingType(BookingType.booked);
+
         }
 		
 		
@@ -272,8 +232,7 @@ public class BookingDB implements BookingDBIF {
 	        String bookingType = rs.getString("type");
 	        if (bookingType !=null) {
 	        	booking.setBookingType(BookingType.valueOf(bookingType));
-	        //	} else {
-	        //		booking.setBookingType(BookingType.booked);
+	 
 	        }
 
 	    } catch (SQLException e) {
@@ -287,33 +246,6 @@ public class BookingDB implements BookingDBIF {
 	}
 	
 	
-
-	
-/*
-	@Override
-	public Booking findBookingByCustomerPhoneNo(String phoneNo) {
-		// Method implementation
-		return null;
-	}
-*/
-	@Override
-	public void updateBooking(Booking booking) {
-		// Method implementation
-	}
-
-	@Override
-	public void deleteBooking(int bookingId) {
-		// Method implementation
-	}
-
-	@Override
-	public Booking findBookingByCustomerPhoneNo(String phoneNo) throws DataAccessException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-
 
 
 }
