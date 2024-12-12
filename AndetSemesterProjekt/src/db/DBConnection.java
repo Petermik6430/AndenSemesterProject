@@ -50,7 +50,7 @@ public class DBConnection {
 		}
 	}
 
-	public static DBConnection getInstance() throws DataAccessException {
+	public static synchronized DBConnection getInstance() throws DataAccessException {
 		if (dbConnection == null) {
 			dbConnection = new DBConnection();
 		}
