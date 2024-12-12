@@ -20,6 +20,7 @@ public class Booking {
 		
 	}
 
+
 	public int getBookingId() {
 		return bookingId;
 	}
@@ -32,7 +33,6 @@ public class Booking {
 		return bookingDate;
 	}
 
-	
 	public LocalDateTime getStartTime() {
 		return bookingDate;
 	}
@@ -40,7 +40,6 @@ public class Booking {
 	public LocalDateTime getEndTime() {
 		return bookingDate;
 	}
-	
 
 	public Customer getCustomer() {
 		return customer;
@@ -74,6 +73,8 @@ public class Booking {
 		this.bookingDate = LocalDateTime.of(start, Bookingdate);
 	}
 
+	public void setEndTime(LocalTime endTime) { // TODO ved ikke om denne kode er 
+	}
 
 	public void setBookingDate(LocalDateTime bookingDate) {
 		this.bookingDate = bookingDate;
