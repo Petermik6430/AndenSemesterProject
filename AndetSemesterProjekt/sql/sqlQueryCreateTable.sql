@@ -1,24 +1,24 @@
 use mockdatabase
 go
+
+
 --dropper tabel hvis den eksistere
-drop table if exists Price;
 drop table if exists SaleLine;
-drop table if exists TrimType;
-drop table if exists [Service];
-drop table if exists BookingUnit;
 drop table if exists BookingDate;
-drop table if exists Employee;
 drop table if exists Sale;
-drop table if exists Payment;
 drop table if exists Stock;
 drop table if exists Shop;
-drop table if exists ItemType;
 drop table if exists ItemSupplier;
 drop table if exists Item;
 drop table if exists Supplier;
+drop table if exists Employee;
 drop table if exists Customer;
+drop table if exists [Service];
+drop table if exists Price;
+drop table if exists ItemType;
 drop table if exists [Address];
 drop table if exists Zipcode;
+
 
 --oprettelse af tabeller
 
@@ -123,24 +123,8 @@ create table Stock(
 )
 
 
-create table Payment(
-	id int identity(1,1),
-	creditInfo varchar(100),
-	customerInfo varchar (100),
-	paymentMethod varchar (100),
-	constraint pk_Payment_id Primary key(id)
-)
 
 
-
-create table Sale(
-	saleNo int identity(1,1),
-	totalPrice money, -- or decimal
-	paymentId int,
-	constraint pk_Sale_saleNo Primary key(saleNo),
-	constraint fk_Sale_paymentId Foreign key (paymentId) references Payment(id),
-
-)
 
 
 
@@ -155,56 +139,49 @@ create table Employee(
 	contactPerson varchar(40),
 	addressId int,
 	zipcode varchar(12),
-	saleNo int,
 	constraint pk_Employee_id Primary key(id),
 	constraint fk_Emplyee_addressId Foreign key (addressId) references [Address](id),
-	constraint fk_Emplouee_zipcode Foreign key (zipcode) references Zipcode(zipcode),
-	constraint fk_Employee_saleNo Foreign key (saleNo) references Sale(saleNo)
-	 on delete cascade
+	constraint fk_Employee_zipcode Foreign key (zipcode) references Zipcode(zipcode)
 )
 
 
-
-create table BookingDate(
-	id int identity(1,1),
-	[service] varchar(50), --skal denne v�re en fk til service?
-	bookingDate dateTime,
-	note varchar(300),
-	constraint pk_BookingDate_id Primary key(id)
-)
-
-
-
-create table BookingUnit(
-	id int identity(1,1),
-	timeSlot dateTime,
-	[type] varchar(50), -- if the bookingtime is available, booked or other
+create table Sale(
+	saleNo int identity(1,1),
+	totalPrice money, -- or decimal
 	employeeId int,
-	customerId int,
-	bookingDateId int,
-	constraint pk_BookingUnit_id Primary key(id),
-	constraint fk_BookingUnit_employeeId Foreign key (employeeId) references Employee(id)
-		on delete cascade,
-	constraint fk_BookingUnit_customerId Foreign key (customerId) references Customer(id)
-		on delete cascade,
-	constraint fk_BookingUnit_bookingDateId Foreign key (bookingDateId) references BookingDate(id)
-		on delete cascade
-) 
+	constraint pk_Sale_saleNo Primary key(saleNo),
+	constraint fk_Sale_employeeId Foreign key (employeeId) references Employee(id)
+)
+
+
 
 create table [Service](
 	id int identity(1,1),
-	trimTypeId varchar(50),
-	bookingId int,
-	constraint pk_Service_id Primary key(id),
-	constraint fk_Service_bookingId Foreign key (bookingId) references BookingDate(id),
-	constraint fk_Service_trimId Foreign key (trimTypeId) references TrimType(id)
+	[name] varchar(25),
+	duration int,
+	constraint pk_Service_id Primary key(id)
 )
 
-create table TrimType(
+
+
+create table BookingDate (
 	id int identity(1,1),
-	trim varchar(50),
-	constraint pk_TrimType_id Primary key(id),
+	bookingDate dateTime,
+	[type] varchar(20),
+	note varchar(300),
+	employeeId int,
+	customerId int,
+	[serviceId] int,
+	constraint pk_BookingDate_id Primary key (id),
+	constraint fk_BookingDate_employeeId Foreign key (employeeId) references Employee(id)
+		on delete cascade,
+		constraint fk_BookingDate_customerId Foreign key (customerId) references Customer(id)
+		on delete cascade,
+	constraint fk_BookingId_service Foreign key (serviceId) references [Service](id)
 )
+
+
+
 
 
 
