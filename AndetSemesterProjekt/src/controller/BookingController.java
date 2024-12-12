@@ -24,15 +24,13 @@ public class BookingController {
     private EmployeeController ec;
     private ServiceController sc;
     private BookingDB bookingDB;
-    private Map<Employee, List<Booking>> employeeBookings;
     private Booking booking;
 
     public BookingController() throws DataAccessException {
         cc = new CustomerController();
         ec = new EmployeeController();
-        sc = new ServiceController(); // Initialisering af serviceController
+        sc = new ServiceController();
         bookingDB = new BookingDB();
-        employeeBookings = new HashMap<>();
     }
 
     public Booking createBooking() {

@@ -11,7 +11,6 @@ public class Booking {
 	private Service service;
 	private BookingType type = BookingType.booked;
 	private LocalDateTime bookingDate;
-	private String barber;
 	private Customer customer;
 	private Employee employee;
 	private String note;
@@ -111,14 +110,13 @@ public class Booking {
 		return bookingId == booking.bookingId && 
 				Objects.equals(service, booking.service) && 
 				Objects.equals(bookingDate, booking.bookingDate) && 
-				Objects.equals(barber, booking.barber) && 
 				Objects.equals(customer, booking.customer) && 
 				Objects.equals(employee, booking.employee);
 		} 
 	
 	@Override 
 	public int hashCode() { 
-		return Objects.hash(bookingId, service, bookingDate, barber, customer, employee);
+		return Objects.hash(bookingId, service, bookingDate, customer, employee);
 		}
 
 

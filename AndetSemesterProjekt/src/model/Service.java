@@ -8,7 +8,7 @@ public class Service {
 	private String name;
 	private int duration;
 	//private double price;
-
+	
 	public Service(int serviceId, String name, int duration) {
 	this.serviceId = serviceId;
 	this.name = name;
@@ -18,7 +18,7 @@ public class Service {
 
 
 	public Service() {
-		// TODO Auto-generated constructor stub
+
 	}
 
 

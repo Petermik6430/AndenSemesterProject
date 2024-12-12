@@ -25,12 +25,15 @@ public class ServiceDB implements ServiceDBIF {
 	private PreparedStatement ps_findServiceByName;
 	private PreparedStatement ps_createService;
 	
+	private DBConnection dbc;
+	
 	public ServiceDB() throws DataAccessException {
 		init();
-	}
+		}
 
 	private void init() throws DataAccessException {
 	try {
+		DBConnection dbc = DBConnection.getInstance();
 		Connection con = DBConnection.getInstance().getConnection();
 		
 		ps_findByServiceId = con.prepareStatement(FIND_BY_SERVICE_ID);
@@ -105,6 +108,7 @@ public class ServiceDB implements ServiceDBIF {
 	@Override
     public int createService(Service service) throws DataAccessException {
         int serviceId = -1;
+        dbc.startTransaction();
         try {
         ps_createService.setString(2, service.getName());
         ps_createService.setInt(3, service.getDuration());
@@ -112,7 +116,9 @@ public class ServiceDB implements ServiceDBIF {
 
         ResultSet generatedKeys = ps_createService.getGeneratedKeys();
         if(generatedKeys.next()) serviceId = generatedKeys.getInt(1);
+        dbc.commitTransaction();
         } catch (SQLException e) {
+        	dbc.rollbackTransaction();
             throw new DataAccessException("", e); // TODO lav en beskrivende fejl besked.
         }
     
@@ -141,21 +147,12 @@ public class ServiceDB implements ServiceDBIF {
 			service = new Service();
 			service.setServiceId(rs.getInt("id"));
 			service.setName(rs.getString("name"));
-			//service.setDuration(rs.getInt("duration"));
+			service.setDuration(rs.getInt("duration"));
 			
 		} catch (SQLException e) {
 			throw new DataAccessException("", e);
 		}
 		return null;
 	}
-		
-		
-	
-	
-	
-	
-	
-	// TODO updateService(Service service): void
-	// TODO deleteService(int serviceId): void
 
 }
