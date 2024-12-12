@@ -98,6 +98,6 @@ public class BookingDialog extends JDialog {
         // Gem booking i databasen
         Booking booking = bookingController.completeBooking();
 
-        JOptionPane.showMessageDialog(this, "Booking oprettet med ID: " + booking.getBookingId());
+        JOptionPane.showMessageDialog(this,"Booking is successfully created");
     }
 }

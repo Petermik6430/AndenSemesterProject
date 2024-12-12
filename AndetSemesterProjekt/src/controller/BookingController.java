@@ -17,7 +17,7 @@ import model.BookingType;
 import model.Customer;
 import model.Employee;
 import model.Service;
-import model.TimeSlot;
+import model.BookingUnit;
 
 public class BookingController {
     private CustomerController cc;
@@ -97,9 +97,9 @@ public class BookingController {
     }
 
 
-    public List<TimeSlot> findAvailableTimes(Employee employee, LocalDate date) throws DataAccessException {
+    public List<BookingUnit> findAvailableTimes(Employee employee, LocalDate date) throws DataAccessException {
         int employeeId = employee.getEmployeeId();
-        List<TimeSlot> timeSlots = new ArrayList<>();
+        List<BookingUnit> timeSlots = new ArrayList<>();
         LocalTime startTime = LocalTime.of(9, 0);
         LocalTime endTime = LocalTime.of(18, 0);
 
@@ -117,11 +117,11 @@ public class BookingController {
                     }
                 }
             }
-            timeSlots.add(new TimeSlot(time, status));
+            timeSlots.add(new BookingUnit(time, status));
         }
 
         // Sorter timeSlots i stigende rækkefølge
-        Collections.sort(timeSlots, Comparator.comparing(TimeSlot::getTime));
+        Collections.sort(timeSlots, Comparator.comparing(BookingUnit::getTime));
 
         return timeSlots;
     }
@@ -158,10 +158,10 @@ public class BookingController {
         for (LocalTime time : timeSlots) {
             List<BookingType> statuses = new ArrayList<>();
             for (Employee employee : employees) {
-                List<TimeSlot> employeeTimeSlots = findAvailableTimes(employee, date);
+                List<BookingUnit> employeeTimeSlots = findAvailableTimes(employee, date);
 
                 BookingType status = BookingType.available;
-                for (TimeSlot slot : employeeTimeSlots) {
+                for (BookingUnit slot : employeeTimeSlots) {
                     if (slot.getTime().equals(time)) {
                         status = slot.getStatus();
                         break;
