@@ -162,8 +162,7 @@ public class BookingController {
                 BookingType status = BookingType.available;
                 for (BookingUnit slot : employeeTimeSlots) {
                     if (slot.getTime().equals(time)) {
-                        status = slot.getStatus();
-                        break;
+                        status = slot.getStatus();     
                     }
                 }
                 statuses.add(status);
@@ -204,7 +203,7 @@ public class BookingController {
                 if (booking.getBookingDate().toLocalTime().equals(time)) {
                     for (int i = 0; i < employees.size(); i++) {
                         if (employees.get(i).getEmployeeId() == booking.getEmployee().getEmployeeId()) {
-                            rowData[i + 1] = "Booked";
+                            rowData[i + 1] = "Booket";
                         }
                     }
                 }

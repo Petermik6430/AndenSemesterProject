@@ -78,6 +78,7 @@ public class ServiceDB implements ServiceDBIF {
 	
 	} 
 	
+	
 	public List<Service> findAllService() throws DataAccessException {
 		List<Service> res = null;
 		try {
@@ -125,7 +126,7 @@ public class ServiceDB implements ServiceDBIF {
 
         return serviceId;
     }
-	
+/*
 	public Service findServiceByName(String serviceName) throws DataAccessException {
 		Service ser = null;
 		try {
@@ -154,5 +155,5 @@ public class ServiceDB implements ServiceDBIF {
 		}
 		return null;
 	}
-
+*/
 }
