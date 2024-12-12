@@ -11,7 +11,7 @@ public interface EmployeeDBIF {
 	
 	public List<Employee> findAllEmployees() throws DataAccessException;
 	
-	public void createEmployee() throws DataAccessException ;
+	public int createEmployee() throws DataAccessException ;
 
 	public void updateEmployee(Employee employee) throws DataAccessException;
 

@@ -83,7 +83,8 @@ public class EmployeeDB implements EmployeeDBIF {
 
 
 
-    public void createEmployee() {
+    public int createEmployee() {
+		return 0;
     	
     }
     

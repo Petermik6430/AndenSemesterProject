@@ -25,8 +25,8 @@ public class EmployeeController {
 	}
 
 
-	public void createEmployee() throws DataAccessException {
-		employeeDB.createEmployee();
+	public int createEmployee() throws DataAccessException {
+		return employeeDB.createEmployee();
 	}
 
 	public void updateEmployee(Employee employee) throws DataAccessException {
