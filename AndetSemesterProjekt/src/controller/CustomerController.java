@@ -1,13 +1,14 @@
 package controller;
 
 import db.CustomerDB;
+import db.CustomerDBIF;
 import db.DataAccessException;
 import model.Customer;
 
 
 public class CustomerController {
 
-	private CustomerDB customerDB;
+	private CustomerDBIF customerDB;
 
 	public CustomerController() throws DataAccessException {
 		customerDB = new CustomerDB();
@@ -37,12 +38,3 @@ public class CustomerController {
 	
 	
 }
-
-//tror ikke dette skal være der.
-	// fortæller hvad vi skal kunne gøre med databasen gemme kunde og finde en kunde baseret på telefonnumnmer
-	/*public interface CustomerDBIF {
-	    void saveCustomer(Customer customer);
-	    
-		Customer findCustomerByPhoneNo(String phoneNo);
-	}
-	*/

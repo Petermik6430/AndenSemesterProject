@@ -15,6 +15,8 @@ public class ServiceController {
 		serviceDB = new ServiceDB();
 	}
 	
+	
+	
 	public Service findServiceById(int serviceId) throws DataAccessException {
 		Service ser = serviceDB.findServiceById(serviceId);
 		return ser;
@@ -24,10 +26,8 @@ public class ServiceController {
 		return serviceDB.findAllService();
 	}
 	
-	public Service createService(int serviceId, String name, int duration) throws DataAccessException {
+	public void createService(int serviceId, String name, int duration) throws DataAccessException {
 		Service service = new Service(serviceId, name, duration );
-		
-		return service;
 	}
 	
 //	public Service findServiceByName(String serviceName) throws DataAccessException {

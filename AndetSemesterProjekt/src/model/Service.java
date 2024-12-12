@@ -9,6 +9,7 @@ public class Service {
 	private int duration;
 	//private double price;
 	
+	
 	public Service(int serviceId, String name, int duration) {
 	this.serviceId = serviceId;
 	this.name = name;

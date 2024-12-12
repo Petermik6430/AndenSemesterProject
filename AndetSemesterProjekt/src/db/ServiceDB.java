@@ -12,20 +12,20 @@ import model.Service;
 
 public class ServiceDB implements ServiceDBIF {
 	
-
+	private DBConnection dbc;
 	
 	private final String FIND_BY_SERVICE_ID = "select * from Service where id = ?";
 	private final String FIND_ALL_SERVICE = "select * from Service";
-	private final String FIND_SERVICE_BY_NAME = " select * from Service where name = ?";
+	//private final String FIND_SERVICE_BY_NAME = " select * from Service where name = ?";
 	private final String CREATE_SERVICE = "insert into service(serviceId, name, duration) values (?,?,?)";
 	
 	
 	private PreparedStatement ps_findByServiceId;
 	private PreparedStatement ps_findAllService;
-	private PreparedStatement ps_findServiceByName;
+//	private PreparedStatement ps_findServiceByName;
 	private PreparedStatement ps_createService;
 	
-	private DBConnection dbc;
+
 	
 	public ServiceDB() throws DataAccessException {
 		init();
@@ -33,12 +33,12 @@ public class ServiceDB implements ServiceDBIF {
 
 	private void init() throws DataAccessException {
 	try {
-		DBConnection dbc = DBConnection.getInstance();
+		dbc = DBConnection.getInstance();
 		Connection con = DBConnection.getInstance().getConnection();
 		
 		ps_findByServiceId = con.prepareStatement(FIND_BY_SERVICE_ID);
 		ps_findAllService = con.prepareStatement(FIND_ALL_SERVICE);
-		ps_findServiceByName = con.prepareStatement(FIND_SERVICE_BY_NAME);
+	//	ps_findServiceByName = con.prepareStatement(FIND_SERVICE_BY_NAME);
 		ps_createService = con.prepareStatement(CREATE_SERVICE, Statement.RETURN_GENERATED_KEYS);
 		
 		}catch (SQLException e) {
@@ -69,6 +69,7 @@ public class ServiceDB implements ServiceDBIF {
 			service = new Service();
 			service.setServiceId(rs.getInt(1));
 			service.setName(rs.getString(2));
+			service.setDuration(rs.getInt(3));
 			
 			
 		}catch (SQLException e) {
@@ -83,7 +84,7 @@ public class ServiceDB implements ServiceDBIF {
 		List<Service> res = null;
 		try {
 			ResultSet rs = ps_findAllService.executeQuery();
-			res = buildObject1(rs);
+			res = buildObjects(rs);
 		} catch(SQLException e) {
 			throw new DataAccessException("Fejl",e);
 		}
@@ -92,7 +93,7 @@ public class ServiceDB implements ServiceDBIF {
 		
 	}
 	
-	private List<Service> buildObject1(ResultSet rs) throws DataAccessException {
+	private List<Service> buildObjects(ResultSet rs) throws DataAccessException {
 		List<Service> res = new ArrayList<>();
 			try {
 				while (rs.next()) {

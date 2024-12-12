@@ -20,19 +20,21 @@ import model.Service;
 import model.BookingUnit;
 
 public class BookingController {
-    private CustomerController cc;
-    private EmployeeController ec;
-    private ServiceController sc;
-    private BookingDB bookingDB;
+    private CustomerController customerController;
+    private EmployeeController employeeController;
+    private ServiceController serviceController;
     private Booking booking;
+    private BookingDB bookingDB;
+
 
     public BookingController() throws DataAccessException {
-        cc = new CustomerController();
-        ec = new EmployeeController();
-        sc = new ServiceController();
+        customerController = new CustomerController();
+        employeeController = new EmployeeController();
+        serviceController = new ServiceController();
         bookingDB = new BookingDB();
     }
 
+    
 
     public Booking createBooking() {
         booking = new Booking();
@@ -52,7 +54,7 @@ public class BookingController {
     }
 
     public Customer selectCustomerByPhoneNo(String phoneNo) throws DataAccessException {
-        Customer customer = cc.findCustomerByPhoneNo(phoneNo);
+        Customer customer = customerController.findCustomerByPhoneNo(phoneNo);
         booking.setCustomer(customer);
         return customer;
     }
@@ -88,9 +90,9 @@ public class BookingController {
         if (booking.getNote() == null) {
             booking.setNote(""); // Sæt en tom note, hvis ingen note er angivet
         }
-        if (booking.getType() == null) {
-            booking.setBookingType(BookingType.booked); // Sæt default bookingtype, hvis ingen type er angivet
-        }
+
+        booking.setBookingType(BookingType.booked); // Sæt default bookingtype, hvis ingen type er angivet
+        
         bookingDB.createBooking(booking);
         return booking;
     }
@@ -149,20 +151,20 @@ public class BookingController {
         LocalTime startTime = LocalTime.of(9, 0);
         LocalTime endTime = LocalTime.of(18, 0);
 
-        List<LocalTime> timeSlots = new ArrayList<>();
+        List<LocalTime> bookingUnits = new ArrayList<>();
         for (LocalTime time = startTime; time.isBefore(endTime); time = time.plusMinutes(30)) {
-            timeSlots.add(time);
+        	bookingUnits.add(time);
         }
 
-        for (LocalTime time : timeSlots) {
+        for (LocalTime time : bookingUnits) {
             List<BookingType> statuses = new ArrayList<>();
             for (Employee employee : employees) {
                 List<BookingUnit> employeeTimeSlots = findAvailableTimes(employee, date);
 
                 BookingType status = BookingType.available;
-                for (BookingUnit slot : employeeTimeSlots) {
-                    if (slot.getTime().equals(time)) {
-                        status = slot.getStatus();     
+                for (BookingUnit unit : employeeTimeSlots) {
+                    if (unit.getTime().equals(time)) {
+                        status = unit.getStatus();     
                     }
                 }
                 statuses.add(status);
@@ -174,11 +176,11 @@ public class BookingController {
     }
 
     public List<Employee> getAllEmployees() throws DataAccessException {
-        return ec.getEmployees();
+        return employeeController.getEmployees();
     }
 
     public List<Service> getAllServices() throws DataAccessException {
-        return sc.findAllService();
+        return serviceController.findAllService();
     }
 
     public boolean isBookingAvailable(Object value) {
@@ -188,10 +190,10 @@ public class BookingController {
     public List<Object[]> updateTableDataForAllEmployees(LocalDate date) throws DataAccessException {
         List<Booking> bookings = bookingDB.updateBookingCalender(date);
         List<Object[]> tableData = new ArrayList<>();
-        List<LocalTime> timeSlots = createHalfHourTimeSlots();
+        List<LocalTime> bookingUnits = createHalfHourBookingUnits();
         List<Employee> employees = getAllEmployees(); // Hent alle medarbejdere
 
-        for (LocalTime time : timeSlots) {
+        for (LocalTime time : bookingUnits) {
             Object[] rowData = new Object[employees.size() + 1];
             rowData[0] = time; // Første kolonne er tid
 
@@ -214,15 +216,15 @@ public class BookingController {
         return tableData;
     }
 
-    private List<LocalTime> createHalfHourTimeSlots() {
-        List<LocalTime> timeSlots = new ArrayList<>();
+    private List<LocalTime> createHalfHourBookingUnits() {
+        List<LocalTime> bookingUnits = new ArrayList<>();
         LocalTime startTime = LocalTime.of(9, 0);
         LocalTime endTime = LocalTime.of(18, 0);
 
         for (LocalTime time = startTime; time.isBefore(endTime); time = time.plusMinutes(30)) {
-            timeSlots.add(time);
+            bookingUnits.add(time);
         }
-        return timeSlots;
+        return bookingUnits;
     }
 
 

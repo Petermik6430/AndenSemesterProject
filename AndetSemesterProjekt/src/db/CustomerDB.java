@@ -16,8 +16,8 @@ public class CustomerDB implements CustomerDBIF {
 	private static final String SAVE_CUSTOMER = "insert into Customer ( fName, lName, phoneNo, email) values(?,?,?,?)";
 	
 	private PreparedStatement ps_findCustomerByPhoneNo;
-	private PreparedStatement ps_saveCustomer;
 	private PreparedStatement ps_findCustomerById;
+	private PreparedStatement ps_saveCustomer;
 	
 	public CustomerDB() throws DataAccessException {
 		init();
@@ -35,6 +35,8 @@ public class CustomerDB implements CustomerDBIF {
 		}
 	}
 
+	
+	
 	@Override
 	public Customer findCustomerByPhoneNo(String phoneNo) throws DataAccessException{
 		Customer res = null;
@@ -53,6 +55,8 @@ public class CustomerDB implements CustomerDBIF {
 		}
 		return res;
 	}
+	
+	
 
 	private Customer buildObject(ResultSet rs) throws DataAccessException {
 		Customer customer = new Customer();
@@ -68,6 +72,8 @@ public class CustomerDB implements CustomerDBIF {
 		return customer;
 	}
 	
+	
+	
 	public Customer findCustomerById(int id) throws DataAccessException {
 	    Customer cus = null;
 	    try {
@@ -81,6 +87,8 @@ public class CustomerDB implements CustomerDBIF {
 	    }
 	    return cus;
 	}
+	
+	
 
 	private Customer buildObjectId(ResultSet rs) throws DataAccessException {
 	    Customer customer = new Customer();
@@ -100,15 +108,13 @@ public class CustomerDB implements CustomerDBIF {
 	@Override
 	public int createCustomer(Customer customer) throws DataAccessException {
 		int customerId = -1;
-		if(customer == null) {
-			throw new DataAccessException("Customer is null", null);
-		}
 		try {
+			
 			//ps_saveCustomer.setInt(1, customer.getCustomerId());
-			ps_saveCustomer.setString(2, customer.getFirstName());
-			ps_saveCustomer.setString(3, customer.getLastName());
-			ps_saveCustomer.setString(4, customer.getPhoneNo());
-			ps_saveCustomer.setString(5, customer.getEmail());
+			ps_saveCustomer.setString(1, customer.getFirstName());
+			ps_saveCustomer.setString(2, customer.getLastName());
+			ps_saveCustomer.setString(3, customer.getPhoneNo());
+			ps_saveCustomer.setString(4, customer.getEmail());
 			ps_saveCustomer.executeUpdate();
 			
 			ResultSet generatedKeys = ps_saveCustomer.getGeneratedKeys();

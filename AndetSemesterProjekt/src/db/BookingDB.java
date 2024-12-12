@@ -22,17 +22,17 @@ import model.Employee;
 import model.Service;
 
 public class BookingDB implements BookingDBIF {
-	private DBConnection dbc;
-	private Connection con;
 	
+
 	private ServiceDBIF serviceDB;
 	private CustomerDBIF customerDB;
 	private EmployeeDBIF employeeDB;
+	private DBConnection dbc;
+	private Connection con;
 	
-	private static final String FIND_BY_BOOKING_ID_SQL = "select * from Booking where id = ?";
-	private static final String UPDATE_BOOKINGS = "SELECT * FROM BookingDate WHERE CAST(bookingDate AS DATE) = ?";
+	private static final String UPDATE_BOOKINGS = "select * from BookingDate where cast(bookingDate as date) = ?";
 	private static final String SAVE_BOOKING = "insert into BookingDate (bookingDate, type, note,  employeeId, customerId, serviceId) values(?,?,?,?,?,?)";
-	private static final String FIND_BOOKING_BY_DATE_SQL = "select * from BookingDate where bookingDate >= ? and bookingDate < ?";
+	private static final String FIND_BOOKING_BY_DATE = "select * from BookingDate where bookingDate >= ? and bookingDate < ?";
 	
 	private PreparedStatement ps_findBookingByDate;
 	private PreparedStatement ps_updateBookings;
@@ -46,12 +46,12 @@ public class BookingDB implements BookingDBIF {
 		try {
 			serviceDB = new ServiceDB();
 			customerDB = new CustomerDB();
-			employeeDB = new EmployeeDB(); // Constructoren i EmployeeDB er ikke blevet defineret
+			employeeDB = new EmployeeDB();
 			
 			dbc = DBConnection.getInstance();
 			con = dbc.getConnection();
 			
-			ps_findBookingByDate = con.prepareStatement(FIND_BOOKING_BY_DATE_SQL);
+			ps_findBookingByDate = con.prepareStatement(FIND_BOOKING_BY_DATE);
 			ps_updateBookings = con.prepareStatement(UPDATE_BOOKINGS);
 			ps_saveBooking = con.prepareStatement(SAVE_BOOKING, Statement.RETURN_GENERATED_KEYS);
 			
@@ -64,30 +64,10 @@ public class BookingDB implements BookingDBIF {
 	@Override
 	public int createBooking(Booking booking) throws DataAccessException {
 	    int bookingId = -1;
-	    System.out.println("Starting createBooking method...");
 
 	    dbc.startTransaction();
-	    System.out.println("Transaction started...");
 
 	    try {
-	        Customer customer = booking.getCustomer();
-	        if (customer == null) {
-	            throw new DataAccessException("Customer in booking is null", null);
-	        }
-
-	        System.out.println("Customer is not null...");
-
-	        // Kontroller, om kunden allerede findes
-	        if (customer.getCustomerId() == 0) { // Antag at 0 betyder, at kunden ikke er i systemet
-	            Customer existingCustomer = customerDB.findCustomerByPhoneNo(customer.getPhoneNo());
-	            if (existingCustomer != null) {
-	                customer.setCustomerId(existingCustomer.getCustomerId());
-	            } else {
-	                int customerId = customerDB.createCustomer(customer);
-	                customer.setCustomerId(customerId);
-	            }
-	        }
-
 	        ps_saveBooking.setObject(1, java.sql.Timestamp.valueOf(booking.getBookingDate()));
 	        ps_saveBooking.setString(2, booking.getType() != null ? booking.getType().name() : BookingType.available.name());
 	        ps_saveBooking.setString(3, booking.getNote());
@@ -105,10 +85,7 @@ public class BookingDB implements BookingDBIF {
 	    } catch (SQLException e) {
 	        dbc.rollbackTransaction();
 	        throw new DataAccessException("Fejl ved oprettelse af booking", e);
-	    } catch (DataAccessException e) {
-	        dbc.rollbackTransaction();
-	        throw new DataAccessException("Fejl ved oprettelse af booking", e);
-	    }
+	    } 
 	    
 	    return bookingId;
 	}
@@ -121,61 +98,22 @@ public class BookingDB implements BookingDBIF {
 	        ps_updateBookings.setDate(1, java.sql.Date.valueOf(bookingDate));
 	        ResultSet rs = ps_updateBookings.executeQuery();
 	        while (rs.next()) {
-	            bookings.add(buildBooking(rs));
+	            bookings.add(buildObject(rs));
 	        }
 	    } catch(SQLException e) {
-	        System.err.println("SQLException ved opdatering af bookingkalender: " + e.getMessage());
 	        dbc.rollbackTransaction();
 	        throw new DataAccessException("Fejl ved opdatering af bookingkalender", e);
 	    }
 	    return bookings;
 	}
 
-	
-
-	
-	private Booking buildBooking(ResultSet rs) throws SQLException, DataAccessException {
-		Booking booking = new Booking();		
-		booking.setBookingId(rs.getInt("id"));
-        booking.setBookingDate(rs.getTimestamp("bookingDate").toLocalDateTime());
-        booking.setNote(rs.getString("note"));
-        
-        // Hent og sæt Service objekt
-        int serviceId = rs.getInt("serviceId");
-        if (!rs.wasNull()) {
-            Service service = serviceDB.findServiceById(serviceId);
-            booking.setService(service);
-        }
-
-        // Hent og sæt Employee objekt
-        int employeeId = rs.getInt("employeeId");
-        if (!rs.wasNull()) {
-            Employee employee = employeeDB.findEmployeeById(employeeId);
-            booking.setEmployee(employee);
-        }
-        // Hent og sæt Customer objekt
-        int customerId = rs.getInt("customerId");
-        if (!rs.wasNull()) {
-            Customer customer = customerDB.findCustomerById(customerId);
-            booking.setCustomer(customer);
-        }
-        
-        String bookingType = rs.getString("type");
-        if (bookingType !=null) {
-        	booking.setBookingType(BookingType.valueOf(bookingType));
-
-        }
-		
-		
-		return booking;
-	}
 
 	public List<Booking> findBookingByDate(LocalDate date) throws DataAccessException {
 		List<Booking> res = new ArrayList<>();
-		LocalDate nextDay = date.plus(1, ChronoUnit.DAYS);
+		//LocalDate nextDay = date.plus(1, ChronoUnit.DAYS);
 		try {
 			ps_findBookingByDate.setDate(1, Date.valueOf(date));
-			ps_findBookingByDate.setDate(2, Date.valueOf(nextDay));
+			//ps_findBookingByDate.setDate(2, Date.valueOf(nextDay));
 			ResultSet rs = ps_findBookingByDate.executeQuery();
 		res = buildObjects(rs);
 		} catch(SQLException e) {
@@ -209,20 +147,18 @@ public class BookingDB implements BookingDBIF {
 	        booking.setBookingDate(rs.getTimestamp("bookingDate").toLocalDateTime());
 	        booking.setNote(rs.getString("note"));
 
-	        // Hent og sæt Service objekt
 	        int serviceId = rs.getInt("serviceId");
 	        if (!rs.wasNull()) {
 	            Service service = serviceDB.findServiceById(serviceId);
 	            booking.setService(service);
 	        }
 
-	        // Hent og sæt Employee objekt
 	        int employeeId = rs.getInt("employeeId");
 	        if (!rs.wasNull()) {
 	            Employee employee = employeeDB.findEmployeeById(employeeId);
 	            booking.setEmployee(employee);
 	        }
-	        // Hent og sæt Customer objekt
+
 	        int customerId = rs.getInt("customerId");
 	        if (!rs.wasNull()) {
 	            Customer customer = customerDB.findCustomerById(customerId);
@@ -238,10 +174,7 @@ public class BookingDB implements BookingDBIF {
 	    } catch (SQLException e) {
 	        System.err.println("SQLException ved opbygning af booking-objekt: " + e.getMessage());
 	        throw new DataAccessException("Fejl ved opbygning af booking-objekt", e);
-	    } catch (NullPointerException e) {
-	        System.err.println("NullPointerException ved opbygning af booking-objekt: " + e.getMessage());
-	        throw new DataAccessException("Fejl ved opbygning af booking-objekt", e);
-	    }
+	    } 
 	    return booking;
 	}
 	

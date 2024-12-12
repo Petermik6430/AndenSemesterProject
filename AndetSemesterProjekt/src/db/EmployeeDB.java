@@ -12,9 +12,11 @@ public class EmployeeDB implements EmployeeDBIF {
 
     private DBConnection dbc;
     private Connection con;
-    private String FIND_BY_ID_SQL = "SELECT * FROM Employee WHERE id = ?";
-    private String FIND_ALL_EMPLOYEES_SQL = "SELECT * FROM Employee";
-    private PreparedStatement ps_findById;
+    
+    private String FIND_EMPLOYEE_BY_ID = "select * from Employee where id = ?";
+    private String FIND_ALL_EMPLOYEES = "select  * from Employee";
+    
+    private PreparedStatement ps_findEmployeeById;
     private PreparedStatement ps_findAllEmployees;
 
     public EmployeeDB() throws DataAccessException {
@@ -25,17 +27,68 @@ public class EmployeeDB implements EmployeeDBIF {
         dbc = DBConnection.getInstance();
         con = DBConnection.getInstance().getConnection();
         try {
-            ps_findAllEmployees = con.prepareStatement(FIND_ALL_EMPLOYEES_SQL);
-            ps_findById = con.prepareStatement(FIND_BY_ID_SQL);
+            ps_findAllEmployees = con.prepareStatement(FIND_ALL_EMPLOYEES);
+            ps_findEmployeeById = con.prepareStatement(FIND_EMPLOYEE_BY_ID);
         } catch (SQLException e) {
             throw new DataAccessException("Failed to prepare statements", e);
         }
+        
+        
+    }
+    
+    public Employee findEmployeeById(int id) throws DataAccessException {
+        Employee emp = null;
+        try {
+            ps_findEmployeeById.setInt(1, id);
+            ResultSet rs = ps_findEmployeeById.executeQuery();
+            if (rs.next()) {
+                emp = buildObject(rs);
+            } 
+        } catch (SQLException e) {
+            throw new DataAccessException("Failed to find employee by id: " + id, e);
+        }
+        return emp;
+    }
+    
+
+    public List<Employee> findAllEmployees() throws DataAccessException {
+        List<Employee> employees = new ArrayList<>();
+        try (ResultSet rs = ps_findAllEmployees.executeQuery()) {
+            while (rs.next()) {
+                Employee employee = buildObject(rs);
+                employees.add(employee);
+            }
+        } catch (SQLException e) {
+            throw new DataAccessException("Failed to find all employees", e);
+        }
+        return employees;
     }
 
-    public void createEmployee(int employeeId, String fName, String lName, String phoneNo, String email, String cprNo,
-                               double salary, String address) {
+    private Employee buildObject(ResultSet rs) throws DataAccessException {
+        Employee emp = new Employee();
+        try {
+            emp.setEmployeeId(rs.getInt(1));
+            emp.setFirstName(rs.getString(2));
+            emp.setLastName(rs.getString(3));
+            emp.setPhoneNo(rs.getString(4));
+            emp.setEmail(rs.getString(5));
+            emp.setCprNo(rs.getString(6));
+            emp.setSalary(rs.getDouble(7));
+            emp.setAddress(rs.getString(8));
+        } catch (SQLException e) {
+            throw new DataAccessException("Failed to build employee object", e);
+        }
+        return emp;
     }
 
+
+
+    public void createEmployee() {
+    	
+    }
+    
+
+ 
     @Override
     public void updateEmployee(Employee employee) throws DataAccessException {
         try (Connection c = dbc.getConnection()) {
@@ -67,87 +120,8 @@ public class EmployeeDB implements EmployeeDBIF {
         }
     }
 
-    public Employee findEmployeeById(int id) throws DataAccessException {
-        Employee emp = null;
-        dbc.startTransaction();
-        try {
-            ps_findById.setInt(1, id);
-            ResultSet rs = ps_findById.executeQuery();
-            if (rs.next()) {
-                emp = buildObject(rs);
-            } 
-            dbc.commitTransaction();
-        } catch (SQLException e) {
-            dbc.rollbackTransaction();
-            throw new DataAccessException("Failed to find employee by id: " + id, e);
-        }
-        return emp;
-    }
 
-    private Employee buildObject(ResultSet rs) throws DataAccessException {
-        Employee emp = new Employee();
-        try {
-            emp.setEmployeeId(rs.getInt(1));
-            emp.setFirstName(rs.getString(2));
-            emp.setLastName(rs.getString(3));
-            emp.setPhoneNo(rs.getString(4));
-            emp.setEmail(rs.getString(5));
-            emp.setCprNo(rs.getString(6));
-            emp.setSalary(rs.getDouble(7));
-            emp.setAddress(rs.getString(8));
-        } catch (SQLException e) {
-            throw new DataAccessException("Failed to build employee object", e);
-        }
-        return emp;
-    }
 
-    private List<Employee> buildObjects(ResultSet rs) throws DataAccessException {
-        List<Employee> employees = new ArrayList<>();
-        try {
-            while (rs.next()) {
-                employees.add(buildObject(rs));
-            }
-        } catch (SQLException e) {
-            throw new DataAccessException("Failed to build employee objects", e);
-        }
-        return employees;
-    }
 
-    @Override
-    public Employee findEmployeeByPhoneNo(String phoneNo) {
-        return null; // TODO
-    }
 
-    public List<Employee> findAllEmployees() throws DataAccessException {
-        List<Employee> employees = new ArrayList<>();
-        dbc.startTransaction();
-        try (ResultSet rs = ps_findAllEmployees.executeQuery()) {
-            while (rs.next()) {
-                Employee employee = buildObjectEmployee(rs);
-                employees.add(employee);
-            }
-            dbc.commitTransaction();
-        } catch (SQLException e) {
-            dbc.rollbackTransaction();
-            throw new DataAccessException("Failed to find all employees", e);
-        }
-        return employees;
-    }
-
-    private Employee buildObjectEmployee(ResultSet rs) throws DataAccessException {
-        Employee employee = new Employee();
-        try {
-            employee.setEmployeeId(rs.getInt(1));
-            employee.setFirstName(rs.getString(2));
-            employee.setLastName(rs.getString(3));
-            employee.setPhoneNo(rs.getString(4));
-            employee.setEmail(rs.getString(5));
-            employee.setCprNo(rs.getString(6));
-            employee.setSalary(rs.getDouble(7));
-            employee.setAddress(rs.getString(8));
-        } catch (SQLException e) {
-            throw new DataAccessException("Failed to build employee object", e);
-        }
-        return employee;
-    }
 }
