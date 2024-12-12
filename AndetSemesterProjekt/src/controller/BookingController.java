@@ -1,3 +1,4 @@
+
 package controller;
 
 import java.time.LocalDate;
@@ -33,11 +34,15 @@ public class BookingController {
         bookingDB = new BookingDB();
     }
 
+  
+  
+   
     public Booking createBooking() {
         booking = new Booking();
         return booking;
     }
 
+    
     public void setService(Service service) {
         booking.setService(service);
     }
@@ -66,12 +71,12 @@ public class BookingController {
 
 
     public void setStaringTime(LocalTime time) {
-        if (booking.getBookingDate() == null) {
+    /*    if (booking.getBookingDate() == null) {
             booking.setBookingDate(LocalDateTime.of(LocalDate.now(), time)); // Hvis bookingDate er null, initialiser med dato og tid
-        } else {
+       } else {*/
             LocalDate date = booking.getBookingDate().toLocalDate();
             booking.setBookingDate(LocalDateTime.of(date, time));
-        }
+      // }
     }
 
     public Booking completeBooking() throws DataAccessException {
