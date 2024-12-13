@@ -246,11 +246,11 @@ public class BookingIntegrationTest {
             // Assert
             assertNotNull(booking);
             assertNotNull(booking.getBookingId());
-            assertEquals(phoneNo, booking.getCustomer().getPhoneNo().trim(), "Customer phone number should match");
-            assertEquals(service.getServiceId(), booking.getService().getServiceId(), "Service ID should match");
-            assertEquals(employee.getEmployeeId(), booking.getEmployee().getEmployeeId(), "Employee ID should match");
-            assertEquals(selectedDate, booking.getBookingDate().toLocalDate(), "Booking date should match");
-            assertEquals(startTime, booking.getBookingDate().toLocalTime(), "Booking time should match");
+            assertEquals(phoneNo, booking.getCustomer().getPhoneNo().trim());
+            assertEquals(service.getServiceId(), booking.getService().getServiceId());
+            assertEquals(employee.getEmployeeId(), booking.getEmployee().getEmployeeId());
+            assertEquals(selectedDate, booking.getBookingDate().toLocalDate());
+            assertEquals(startTime, booking.getBookingDate().toLocalTime());
         } catch (DataAccessException e) {
             fail("DataAccessException: " + e.getMessage());
         }
