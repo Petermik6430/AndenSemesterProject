@@ -20,17 +20,15 @@ public class DBConnection {
 	private static DBConnection dbConnection;
 
 	private static final String driverClass = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
-	private static final String dbName = "mockdatabase";
-	private static final String serverAddress = "DESKTOP-L5O6C9T";
-	// private static final String serverAddress = "kraka.ucn.dk";
+	private static final String dbName = "DMA-CSD-V24_10526043";
+	//private static final String serverAddress = "DESKTOP-L5O6C9T";
+	private static final String serverAddress = "kraka.ucn.dk";
 	private static final int serverPort = 1433;
-	private static final String userName = "sa";
-	private static final String password = "secret2024";
+	private static final String userName = "DMA-CSD-V24_10526043";
+	private static final String password = "Password1!";
 
 	private  DBConnection() throws DataAccessException {
-		// Cheat sheet for the printf() method, the format is also used in the
-		// String.format() method
-		// http://alvinalexander.com/programming/printf-format-cheat-sheet
+	
 		String connectionString = String.format("jdbc:sqlserver://%s:%d;databaseName=%s;user=%s;password=%s;encrypt=false",
 				serverAddress, serverPort, dbName, userName, password);
 		try {
@@ -38,15 +36,11 @@ public class DBConnection {
 			connection = DriverManager.getConnection(connectionString);
 		} catch (ClassNotFoundException e) {
 			throw new DataAccessException("Missing JDBC driver", e);
-			// System.err.println("Could not load JDBC driver");
-			// e.printStackTrace();
+		
 
 		} catch (SQLException e) {
 			throw new DataAccessException(String.format("Could not connect to database %s@%s:%d user %s", dbName,
 					serverAddress, serverPort, userName), e);
-			// System.out.println("Connection string was: " + connectionString.substring(0,
-			// connectionString.length() - password.length()) + "....");
-			// e.printStackTrace();
 		}
 	}
 
