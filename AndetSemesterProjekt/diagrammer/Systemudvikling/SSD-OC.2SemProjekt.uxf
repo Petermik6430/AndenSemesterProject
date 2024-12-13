@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<diagram program="umlet" version="15.0.0">
-  <zoom_level>9</zoom_level>
+<diagram program="umlet" version="15.1">
+  <zoom_level>8</zoom_level>
   <element>
     <id>UMLFrame</id>
     <coordinates>
       <x>0</x>
-      <y>1467</y>
-      <w>666</w>
-      <h>63</h>
+      <y>1304</y>
+      <w>592</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>optional</panel_attributes>
     <additional_attributes/>
@@ -15,10 +15,10 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>504</x>
-      <y>1233</y>
-      <w>90</w>
-      <h>27</h>
+      <x>448</x>
+      <y>1096</y>
+      <w>80</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>_:Instance_</panel_attributes>
     <additional_attributes/>
@@ -26,10 +26,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>144</x>
-      <y>1251</y>
-      <w>27</w>
-      <h>522</h>
+      <x>128</x>
+      <y>1112</y>
+      <w>24</w>
+      <h>464</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;560.0</additional_attributes>
@@ -37,10 +37,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>513</x>
-      <y>414</y>
-      <w>369</w>
-      <h>144</h>
+      <x>456</x>
+      <y>368</y>
+      <w>328</w>
+      <h>128</h>
     </coordinates>
     <panel_attributes>Operation: select(Date, Time, Employee)
 Cross references: Opret Booking
@@ -57,10 +57,10 @@ Postcondition:
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>936</x>
-      <y>414</y>
-      <w>369</w>
-      <h>144</h>
+      <x>832</x>
+      <y>368</y>
+      <w>328</w>
+      <h>128</h>
     </coordinates>
     <panel_attributes>Operation: createCustomer
 Cross references: Opret Booking
@@ -78,10 +78,10 @@ Postcondition:
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>513</x>
-      <y>594</y>
-      <w>369</w>
-      <h>144</h>
+      <x>456</x>
+      <y>528</y>
+      <w>328</w>
+      <h>128</h>
     </coordinates>
     <panel_attributes>Operation: selectCustomer
 Cross references: Opret Booking
@@ -97,10 +97,10 @@ Postcondition:
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>936</x>
-      <y>207</y>
-      <w>369</w>
-      <h>171</h>
+      <x>832</x>
+      <y>184</y>
+      <w>328</w>
+      <h>152</h>
     </coordinates>
     <panel_attributes>Operation: selectService(serviceType)
 Cross references: Opret Booking
@@ -119,10 +119,10 @@ Postcondition:
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>936</x>
-      <y>594</y>
-      <w>369</w>
-      <h>216</h>
+      <x>832</x>
+      <y>528</y>
+      <w>328</w>
+      <h>192</h>
     </coordinates>
     <panel_attributes>Operation: completeBooking
 Cross references: Opret Booking
@@ -142,10 +142,10 @@ Postcondition:
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>108</x>
-      <y>1170</y>
-      <w>90</w>
-      <h>99</h>
+      <x>96</x>
+      <y>1040</y>
+      <w>80</w>
+      <h>88</h>
     </coordinates>
     <panel_attributes>Receptionist</panel_attributes>
     <additional_attributes/>
@@ -153,10 +153,10 @@ Postcondition:
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>2484</x>
-      <y>576</y>
-      <w>108</w>
-      <h>27</h>
+      <x>2192</x>
+      <y>304</y>
+      <w>96</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>Opret Booking
 bg=blue</panel_attributes>
@@ -165,10 +165,10 @@ bg=blue</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>540</x>
-      <y>1251</y>
-      <w>27</w>
-      <h>531</h>
+      <x>480</x>
+      <y>1112</y>
+      <w>24</w>
+      <h>472</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;570.0</additional_attributes>
@@ -176,10 +176,10 @@ bg=blue</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>144</x>
-      <y>1314</y>
-      <w>423</w>
-      <h>27</h>
+      <x>128</x>
+      <y>1168</y>
+      <w>376</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;.</panel_attributes>
     <additional_attributes>10.0;10.0;450.0;10.0</additional_attributes>
@@ -187,10 +187,10 @@ bg=blue</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>144</x>
-      <y>1278</y>
-      <w>423</w>
-      <h>36</h>
+      <x>128</x>
+      <y>1136</y>
+      <w>376</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 createBooking</panel_attributes>
@@ -199,10 +199,10 @@ createBooking</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>144</x>
-      <y>1404</y>
-      <w>423</w>
-      <h>36</h>
+      <x>128</x>
+      <y>1248</y>
+      <w>376</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 select(date, time, employee)</panel_attributes>
@@ -211,10 +211,10 @@ select(date, time, employee)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>144</x>
-      <y>1431</y>
-      <w>423</w>
-      <h>36</h>
+      <x>128</x>
+      <y>1272</y>
+      <w>376</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 recervationsConfirmed</panel_attributes>
@@ -223,10 +223,10 @@ recervationsConfirmed</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>144</x>
-      <y>1494</y>
-      <w>423</w>
-      <h>36</h>
+      <x>128</x>
+      <y>1328</y>
+      <w>376</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 recervationsConfirmed</panel_attributes>
@@ -235,10 +235,10 @@ recervationsConfirmed</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>144</x>
-      <y>1593</y>
-      <w>423</w>
-      <h>36</h>
+      <x>128</x>
+      <y>1416</y>
+      <w>376</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 selectCustomer(phoneNo)</panel_attributes>
@@ -247,10 +247,10 @@ selectCustomer(phoneNo)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>144</x>
-      <y>1620</y>
-      <w>423</w>
-      <h>36</h>
+      <x>128</x>
+      <y>1440</y>
+      <w>376</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 customerConfirmed</panel_attributes>
@@ -259,10 +259,10 @@ customerConfirmed</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>144</x>
-      <y>1341</y>
-      <w>423</w>
-      <h>36</h>
+      <x>128</x>
+      <y>1192</y>
+      <w>376</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 selectService(serviceType)</panel_attributes>
@@ -271,10 +271,10 @@ selectService(serviceType)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>144</x>
-      <y>1368</y>
-      <w>423</w>
-      <h>45</h>
+      <x>128</x>
+      <y>1216</y>
+      <w>376</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 serviceConfirmed
@@ -284,10 +284,10 @@ serviceConfirmed
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>144</x>
-      <y>1656</y>
-      <w>423</w>
-      <h>36</h>
+      <x>128</x>
+      <y>1472</y>
+      <w>376</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 completeBooking</panel_attributes>
@@ -296,10 +296,10 @@ completeBooking</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>144</x>
-      <y>1683</y>
-      <w>423</w>
-      <h>45</h>
+      <x>128</x>
+      <y>1496</y>
+      <w>376</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 bookingConfirmed
@@ -309,10 +309,10 @@ bookingConfirmed
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>144</x>
-      <y>1557</y>
-      <w>423</w>
-      <h>36</h>
+      <x>128</x>
+      <y>1384</y>
+      <w>376</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 customerFound</panel_attributes>
@@ -321,10 +321,10 @@ customerFound</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>513</x>
-      <y>207</y>
-      <w>369</w>
-      <h>171</h>
+      <x>456</x>
+      <y>184</y>
+      <w>328</w>
+      <h>152</h>
     </coordinates>
     <panel_attributes>Operation: createBooking
 Cross references: Opret Booking
@@ -341,10 +341,10 @@ Postcondition:
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>729</x>
-      <y>81</y>
-      <w>198</w>
-      <h>72</h>
+      <x>648</x>
+      <y>72</y>
+      <w>176</w>
+      <h>64</h>
     </coordinates>
     <panel_attributes>bg=blue
 hør mogens af med 
@@ -355,10 +355,10 @@ især pre-conditions</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>171</x>
-      <y>81</y>
-      <w>27</w>
-      <h>522</h>
+      <x>152</x>
+      <y>72</y>
+      <w>24</w>
+      <h>464</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;560.0</additional_attributes>
@@ -366,10 +366,10 @@ især pre-conditions</panel_attributes>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>126</x>
+      <x>112</x>
       <y>0</y>
-      <w>90</w>
-      <h>99</h>
+      <w>80</w>
+      <h>88</h>
     </coordinates>
     <panel_attributes>Receptionist</panel_attributes>
     <additional_attributes/>
@@ -377,10 +377,10 @@ især pre-conditions</panel_attributes>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>2295</x>
-      <y>549</y>
-      <w>90</w>
-      <h>99</h>
+      <x>2024</x>
+      <y>280</y>
+      <w>80</w>
+      <h>88</h>
     </coordinates>
     <panel_attributes>Receptionist</panel_attributes>
     <additional_attributes/>
@@ -388,10 +388,10 @@ især pre-conditions</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2340</x>
-      <y>657</y>
-      <w>423</w>
-      <h>36</h>
+      <x>2064</x>
+      <y>376</y>
+      <w>376</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 createBooking()</panel_attributes>
@@ -400,10 +400,10 @@ createBooking()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2340</x>
-      <y>891</y>
-      <w>423</w>
-      <h>54</h>
+      <x>2064</x>
+      <y>584</y>
+      <w>376</w>
+      <h>48</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 customerFound
@@ -414,10 +414,10 @@ customerFound
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2340</x>
-      <y>1080</y>
-      <w>423</w>
-      <h>45</h>
+      <x>2064</x>
+      <y>752</y>
+      <w>376</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 bookingComplete
@@ -427,10 +427,10 @@ bookingComplete
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>2700</x>
-      <y>603</y>
-      <w>90</w>
-      <h>27</h>
+      <x>2384</x>
+      <y>328</y>
+      <w>80</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>_:Instance_</panel_attributes>
     <additional_attributes/>
@@ -438,10 +438,10 @@ bookingComplete
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2736</x>
-      <y>621</y>
-      <w>27</w>
-      <h>522</h>
+      <x>2416</x>
+      <y>344</y>
+      <w>24</w>
+      <h>464</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;560.0</additional_attributes>
@@ -449,10 +449,10 @@ bookingComplete
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2340</x>
-      <y>630</y>
-      <w>27</w>
-      <h>513</h>
+      <x>2064</x>
+      <y>352</y>
+      <w>24</w>
+      <h>456</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;550.0</additional_attributes>
@@ -460,10 +460,10 @@ bookingComplete
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2340</x>
-      <y>972</y>
-      <w>423</w>
-      <h>45</h>
+      <x>2064</x>
+      <y>656</y>
+      <w>376</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 service
@@ -473,10 +473,10 @@ service
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2340</x>
-      <y>693</y>
-      <w>423</w>
-      <h>36</h>
+      <x>2064</x>
+      <y>408</y>
+      <w>376</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 setDate(date)</panel_attributes>
@@ -485,10 +485,10 @@ setDate(date)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2340</x>
-      <y>774</y>
-      <w>423</w>
-      <h>36</h>
+      <x>2064</x>
+      <y>480</y>
+      <w>376</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 setEmployee(Employee)</panel_attributes>
@@ -497,10 +497,10 @@ setEmployee(Employee)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2340</x>
-      <y>819</y>
-      <w>423</w>
-      <h>36</h>
+      <x>2064</x>
+      <y>520</y>
+      <w>376</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 setStartingTime(time)</panel_attributes>
@@ -509,10 +509,10 @@ setStartingTime(time)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2340</x>
-      <y>936</y>
-      <w>423</w>
-      <h>36</h>
+      <x>2064</x>
+      <y>624</y>
+      <w>376</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 setService(service)</panel_attributes>
@@ -521,10 +521,10 @@ setService(service)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2340</x>
-      <y>1044</y>
-      <w>423</w>
-      <h>36</h>
+      <x>2064</x>
+      <y>720</y>
+      <w>376</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 completeBooking()</panel_attributes>
@@ -533,10 +533,10 @@ completeBooking()</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1395</x>
-      <y>207</y>
-      <w>369</w>
-      <h>171</h>
+      <x>1240</x>
+      <y>184</y>
+      <w>328</w>
+      <h>152</h>
     </coordinates>
     <panel_attributes>Operation: createBooking
 Cross references: Opret Booking
@@ -552,10 +552,10 @@ Postcondition:
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1800</x>
-      <y>207</y>
-      <w>369</w>
-      <h>171</h>
+      <x>1600</x>
+      <y>184</y>
+      <w>328</w>
+      <h>152</h>
     </coordinates>
     <panel_attributes>Operation: setDate(date)
 Cross references: Opret Booking
@@ -570,10 +570,10 @@ Postcondition:
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2340</x>
-      <y>855</y>
-      <w>423</w>
-      <h>36</h>
+      <x>2064</x>
+      <y>552</y>
+      <w>376</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 selectCustomerByPhoneNo(phoneNo)</panel_attributes>
@@ -582,48 +582,48 @@ selectCustomerByPhoneNo(phoneNo)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1395</x>
-      <y>414</y>
-      <w>369</w>
-      <h>171</h>
+      <x>1240</x>
+      <y>368</y>
+      <w>328</w>
+      <h>152</h>
     </coordinates>
     <panel_attributes>Operation: setEmployee(employee)
 Cross references: Opret Booking
 -
 Precondition:
 - en instans af b er blevet lavet
-- en instans af Employee e er bliver lavet
+- en instans af Employee e er blevet lavet
 
 Postcondition:
-- en employee bliver associeret med b</panel_attributes>
+- e bliver associeret med b</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1800</x>
-      <y>414</y>
-      <w>369</w>
-      <h>171</h>
+      <x>1600</x>
+      <y>368</y>
+      <w>328</w>
+      <h>152</h>
     </coordinates>
     <panel_attributes>Operation: setStartingTime(time)
 Cross references: Opret Booking
 -
 Precondition:
 - en instans af b er blevet lavet
-- en employee bliver associeret med b
+- en employee blevet associeret med b
 
 Postcondition:
-- en tid bliver associeret med b og employee</panel_attributes>
+- en tid bliver associeret med b og e</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1395</x>
-      <y>612</y>
-      <w>369</w>
-      <h>171</h>
+      <x>1240</x>
+      <y>544</y>
+      <w>328</w>
+      <h>152</h>
     </coordinates>
     <panel_attributes>Operation: findCustomerByPhoneNo(phoneNo)
 Cross references: Opret Booking
@@ -639,10 +639,10 @@ Postcondition:
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1800</x>
-      <y>612</y>
-      <w>369</w>
-      <h>171</h>
+      <x>1600</x>
+      <y>544</y>
+      <w>328</w>
+      <h>152</h>
     </coordinates>
     <panel_attributes>Operation: setService(service)
 Cross references: Opret Booking
@@ -658,17 +658,17 @@ Postcondition:
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1395</x>
-      <y>819</y>
-      <w>369</w>
-      <h>225</h>
+      <x>1240</x>
+      <y>728</y>
+      <w>328</w>
+      <h>200</h>
     </coordinates>
-    <panel_attributes>Operation: setService(service)
+    <panel_attributes>Operation: setNore(note)
 Cross references: Opret Booking
 -
 Precondition:
 - en instans af b er blevet lavet
-- en instans af Service s er blevet oprettet
+- en instans af s er blevet oprettet
 
 Postcondition:
 -s bliver associeret til b</panel_attributes>
@@ -677,12 +677,12 @@ Postcondition:
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1800</x>
-      <y>819</y>
-      <w>369</w>
-      <h>225</h>
+      <x>1600</x>
+      <y>728</y>
+      <w>328</w>
+      <h>200</h>
     </coordinates>
-    <panel_attributes>Operation: setService(service)
+    <panel_attributes>Operation: bookingComplete
 Cross references: Opret Booking
 -
 Precondition:
@@ -700,10 +700,10 @@ Postcondition:
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2340</x>
-      <y>729</y>
-      <w>423</w>
-      <h>36</h>
+      <x>2064</x>
+      <y>440</y>
+      <w>376</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
 EmployeesCalender</panel_attributes>
@@ -712,10 +712,10 @@ EmployeesCalender</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2340</x>
-      <y>1008</y>
-      <w>423</w>
-      <h>36</h>
+      <x>2064</x>
+      <y>688</y>
+      <w>376</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 setNote(note)</panel_attributes>
