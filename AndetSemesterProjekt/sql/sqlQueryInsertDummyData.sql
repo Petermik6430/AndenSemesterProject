@@ -17,8 +17,7 @@ INSERT INTO [Address] ([address], zipcode) VALUES
 INSERT INTO Customer (fName, lName, phoneNo, email) VALUES 
 ('John', 'Doe', '12345678', 'john.doe@example.com'),
 ('Jane', 'Smith', '0987654321', 'jane.smith@example.com'),
-('Alice', 'Johnson', '5551234567', 'alice.johnson@example.com'),
-('Anna', 'Dinh', '31374305', 'Anna@live.dk');
+('Alice', 'Johnson', '5551234567', 'alice.johnson@example.com');
 
 -- Tilføj data til Employee tabellen
 INSERT INTO Employee (fName, lName, phoneNo, email, cprNo, salary, contactPerson, addressId, zipcode) VALUES 
@@ -38,8 +37,7 @@ INSERT INTO BookingDate (bookingDate, [type], note, employeeId, customerId, serv
 ('2024-12-08 10:00:00', 'booked', 'Regular haircut', 1, 1, 1),
 ('2024-12-08 11:00:00', 'booked', 'Full shave', 2, 2, 2),
 ('2024-12-08 12:00:00', 'booked', 'Deep cleansing facial', 3, 3, 3),
-('2024-12-10 12:00:00', 'booked', 'Deep cleansing facial', 3, 2, 3),
-('2024-12-09 12:00:00', 'booked', 'Deep cleansing facial', 3, 4, 3);
+('2024-12-10 12:00:00', 'booked', 'Deep cleansing facial', 3, 2, 3);
 
 -- Tilføj data til Sale tabellen
 INSERT INTO Sale (totalPrice, employeeId) VALUES 

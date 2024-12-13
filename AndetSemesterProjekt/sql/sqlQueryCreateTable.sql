@@ -3,19 +3,19 @@ go
 
 
 --dropper tabel hvis den eksistere
+drop table if exists Price;
 drop table if exists SaleLine;
 drop table if exists BookingDate;
+drop table if exists [Service];
 drop table if exists Sale;
+drop table if exists Employee;
 drop table if exists Stock;
 drop table if exists Shop;
+drop table if exists ItemType;
 drop table if exists ItemSupplier;
 drop table if exists Item;
 drop table if exists Supplier;
-drop table if exists Employee;
 drop table if exists Customer;
-drop table if exists [Service];
-drop table if exists Price;
-drop table if exists ItemType;
 drop table if exists [Address];
 drop table if exists Zipcode;
 
