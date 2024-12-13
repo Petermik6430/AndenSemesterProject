@@ -1,4 +1,4 @@
-use mockdatabase;
+use [DMA-CSD-V24_10526043];
 go
 
 -- Tilføj data til Zipcode tabellen
