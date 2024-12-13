@@ -177,7 +177,7 @@ create table BookingDate (
 		on delete cascade,
 		constraint fk_BookingDate_customerId Foreign key (customerId) references Customer(id)
 		on delete cascade,
-	constraint fk_BookingId_service Foreign key (serviceId) references [Service](id)
+	constraint fk_BookingDate_service Foreign key (serviceId) references [Service](id)
 )
 
 
