@@ -1,4 +1,3 @@
-
 package controller;
 
 import db.DataAccessException;
@@ -6,6 +5,8 @@ import model.Booking;
 import model.Customer;
 import model.Employee;
 import model.Service;
+
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -27,7 +28,7 @@ public class BookingIntegrationTest {
         }
     }
 
-    @Test
+	@Test
     public void testCreateBooking() {
         // Arrange
         Booking booking;
@@ -46,7 +47,7 @@ public class BookingIntegrationTest {
             bookingController.createBooking();
             List<Service> services = bookingController.getAllServices();
             assertFalse(services.isEmpty());
-            Service service = services.get(0);
+            Service service = services.get(1);
             Customer customer = bookingController.selectCustomerByPhoneNo("12345678");
             List<Employee> employees = bookingController.getAllEmployees();
             assertFalse(employees.isEmpty());
@@ -54,8 +55,8 @@ public class BookingIntegrationTest {
 
             // Act
             bookingController.setService(service);
-            bookingController.setDate(LocalDate.now());
-            bookingController.setStaringTime(LocalTime.now());
+            bookingController.setDate(LocalDate.of( 2010, 10, 10));
+            bookingController.setStaringTime(LocalTime.of(10,30));
             bookingController.setEmployee(employee);
             
             Booking completedBooking = bookingController.completeBooking();
@@ -85,8 +86,8 @@ public class BookingIntegrationTest {
             // Act
             bookingController.setNote(note);
             bookingController.setService(service);
-            bookingController.setDate(LocalDate.now());
-            bookingController.setStaringTime(LocalTime.now());
+            bookingController.setDate(LocalDate.of(2010, 10, 10));
+            bookingController.setStaringTime(LocalTime.of(10, 0));
             bookingController.setEmployee(employee);
             
             Booking completedBooking = bookingController.completeBooking();
@@ -144,7 +145,7 @@ public class BookingIntegrationTest {
 
             // Act
             bookingController.setService(service);
-            bookingController.setDate(LocalDate.now());
+            bookingController.setDate(LocalDate.of(2010, 10, 10));
             bookingController.setStaringTime(LocalTime.now());
             bookingController.setEmployee(employee);
             
@@ -218,14 +219,51 @@ public class BookingIntegrationTest {
             fail("DataAccessException: " + e.getMessage());
         }
     }
-
+    
     @Test
     public void testCompleteBooking() {
         try {
             // Arrange
             bookingController.createBooking();
             String phoneNo = "12345678";
-            LocalDate selectedDate = LocalDate.now();
+            LocalDate selectedDate = LocalDate.of(2010, 10, 10);
+            LocalTime startTime = LocalTime.of(10, 0);
+            List<Employee> employees = bookingController.getAllEmployees();
+            assertFalse(employees.isEmpty());
+            Employee employee = employees.get(0);
+            List<Service> services = bookingController.getAllServices();
+            assertFalse(services.isEmpty());
+            Service service = services.get(0);
+
+            // Act
+            Customer customer = bookingController.selectCustomerByPhoneNo(phoneNo);
+            bookingController.setService(service);
+            bookingController.setEmployee(employee);
+            bookingController.setStaringTime(startTime);
+            bookingController.setDate(selectedDate);
+            Booking booking = bookingController.completeBooking();
+
+            // Assert
+            assertNotNull(booking);
+            assertNotNull(booking.getBookingId());
+            assertEquals(phoneNo, booking.getCustomer().getPhoneNo().trim(), "Customer phone number should match");
+            assertEquals(service.getServiceId(), booking.getService().getServiceId(), "Service ID should match");
+            assertEquals(employee.getEmployeeId(), booking.getEmployee().getEmployeeId(), "Employee ID should match");
+            assertEquals(selectedDate, booking.getBookingDate().toLocalDate(), "Booking date should match");
+            assertEquals(startTime, booking.getBookingDate().toLocalTime(), "Booking time should match");
+        } catch (DataAccessException e) {
+            fail("DataAccessException: " + e.getMessage());
+        }
+    }
+
+/*
+    @Test
+    public void testCompleteBooking() {
+        try {
+            // Arrange
+            bookingController.createBooking();
+            String phoneNo = "12345678";
+            LocalDate selectedDate = LocalDate.of(2010, 10, 10);
             LocalTime startTime = LocalTime.of(10, 0);
             List<Employee> employees = bookingController.getAllEmployees();
             assertFalse(employees.isEmpty());
@@ -249,5 +287,8 @@ public class BookingIntegrationTest {
             fail("DataAccessException: " + e.getMessage());
         }
     }
+    
+    
+  */  
 }
 
