@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<diagram program="umlet" version="15.1">
+<diagram program="umlet" version="15.0.0">
   <help_text>// Uncomment the following line to change the fontsize and font:
 fontsize=10
 // fontfamily=SansSerif //possible: SansSerif,Serif,Monospaced
@@ -94,7 +94,7 @@ bg=blue</panel_attributes>
       <w>204</w>
       <h>68</h>
     </coordinates>
-    <panel_attributes>Opret Booking</panel_attributes>
+    <panel_attributes>opret Booking</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -139,7 +139,7 @@ bg=blue</panel_attributes>
       <w>204</w>
       <h>68</h>
     </coordinates>
-    <panel_attributes>CRUD Sale</panel_attributes>
+    <panel_attributes>CRUD Salg</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -150,7 +150,7 @@ bg=blue</panel_attributes>
       <w>204</w>
       <h>68</h>
     </coordinates>
-    <panel_attributes>Find Employee</panel_attributes>
+    <panel_attributes>Find Medarbejder</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -161,7 +161,7 @@ bg=blue</panel_attributes>
       <w>204</w>
       <h>68</h>
     </coordinates>
-    <panel_attributes>CUD Employee</panel_attributes>
+    <panel_attributes>CUD Medarbejder</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -240,17 +240,6 @@ bg=blue</panel_attributes>
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;10.0;300.0;250.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>272</x>
-      <y>221</y>
-      <w>544</w>
-      <h>544</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes>10.0;10.0;300.0;300.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
