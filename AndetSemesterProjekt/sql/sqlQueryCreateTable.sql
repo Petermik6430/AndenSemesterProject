@@ -124,10 +124,6 @@ create table Stock(
 
 
 
-
-
-
-
 create table Employee(
 	id int identity(1,1),
 	fName varchar (40),
@@ -143,6 +139,7 @@ create table Employee(
 	constraint fk_Emplyee_addressId Foreign key (addressId) references [Address](id),
 	constraint fk_Employee_zipcode Foreign key (zipcode) references Zipcode(zipcode)
 )
+
 
 
 create table Sale(
@@ -179,9 +176,6 @@ create table BookingDate (
 		on delete cascade,
 	constraint fk_BookingDate_service Foreign key (serviceId) references [Service](id)
 )
-
-
-
 
 
 
