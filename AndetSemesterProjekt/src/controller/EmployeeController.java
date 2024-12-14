@@ -36,11 +36,6 @@ public class EmployeeController {
 	public void deleteEmployee(int id) throws DataAccessException {
 		employeeDB.deleteEmployee(id);
 	}
-/*
-	public Employee findEmployeeByPhoneNo(String phoneNo) throws DataAccessException {
-		return employeeDB.findEmployeeByPhoneNo(phoneNo);
-	}
-	*/
 
 }
 

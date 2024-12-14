@@ -30,11 +30,5 @@ public class ServiceController {
 		Service service = new Service(serviceId, name, duration );
 	}
 	
-//	public Service findServiceByName(String serviceName) throws DataAccessException {
-//		Service ser = serviceDB.findServiceByName(serviceName);
-//		return ser;
-		
-//	}
-	// TODO updateService updateService(Service service):  void
-	// TODO deleteService deleteService(int serviceId): void
+
 }

@@ -47,7 +47,6 @@ public class JDialogBooking extends JDialog {
 					try {
 						openCreateBooking();
 					} catch (DataAccessException e1) {
-						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
 				}

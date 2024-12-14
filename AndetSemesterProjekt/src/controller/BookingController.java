@@ -69,12 +69,9 @@ public class BookingController {
 
 
     public void setStaringTime(LocalTime time) {
-    //    if (booking.getBookingDate() == null) {
-         booking.setBookingDate(LocalDateTime.of(LocalDate.now(), time)); // Hvis bookingDate er null, initialiser med dato og tid
-     //  } else {
+         booking.setBookingDate(LocalDateTime.of(LocalDate.now(), time)); 
            LocalDate date = booking.getBookingDate().toLocalDate();
             booking.setBookingDate(LocalDateTime.of(date, time));
-    //   }
     }
 
     public Booking completeBooking() throws DataAccessException {
@@ -104,7 +101,7 @@ public class BookingController {
         LocalTime startTime = LocalTime.of(9, 0);
         LocalTime endTime = LocalTime.of(18, 0);
 
-        List<Booking> bookings = bookingDB.findBookingByDate(date); // Hent bookinger fra databasen
+        List<Booking> bookings = bookingDB.findBookingByDate(date);
 
         for (LocalTime time = startTime; time.isBefore(endTime); time = time.plusMinutes(30)) {
             BookingType status = BookingType.available;
@@ -114,15 +111,14 @@ public class BookingController {
                     LocalTime bookingEnd = bookingStart.plusMinutes(30);
                     if (!time.isBefore(bookingStart) && time.isBefore(bookingEnd)) {
                         status = BookingType.booked;
-                        break;
                     }
                 }
             }
             timeSlots.add(new BookingUnit(time, status));
         }
 
-        // Sorter timeSlots i stigende rækkefølge
-        Collections.sort(timeSlots, Comparator.comparing(BookingUnit::getTime));
+      
+
 
         return timeSlots;
     }
@@ -140,7 +136,7 @@ public class BookingController {
             tableData.add(rowData);
         }
 
-        // Sorter tableData i stigende rækkefølge af tid
+   
         tableData.sort(Comparator.comparing(row -> (LocalTime) row[0]));
 
         return tableData;
@@ -151,12 +147,12 @@ public class BookingController {
         LocalTime startTime = LocalTime.of(9, 0);
         LocalTime endTime = LocalTime.of(18, 0);
 
-        List<LocalTime> bookingUnits = new ArrayList<>();
+        List<LocalTime> timeSlots = new ArrayList<>();
         for (LocalTime time = startTime; time.isBefore(endTime); time = time.plusMinutes(30)) {
-        	bookingUnits.add(time);
+        	timeSlots.add(time);
         }
 
-        for (LocalTime time : bookingUnits) {
+        for (LocalTime time : timeSlots) {
             List<BookingType> statuses = new ArrayList<>();
             for (Employee employee : employees) {
                 List<BookingUnit> employeeTimeSlots = findAvailableTimes(employee, date);
@@ -191,14 +187,14 @@ public class BookingController {
         List<Booking> bookings = bookingDB.updateBookingCalender(date);
         List<Object[]> tableData = new ArrayList<>();
         List<LocalTime> bookingUnits = createHalfHourBookingUnits();
-        List<Employee> employees = getAllEmployees(); // Hent alle medarbejdere
+        List<Employee> employees = getAllEmployees(); 
 
         for (LocalTime time : bookingUnits) {
             Object[] rowData = new Object[employees.size() + 1];
-            rowData[0] = time; // Første kolonne er tid
+            rowData[0] = time; 
 
             for (int i = 0; i < employees.size(); i++) {
-                rowData[i + 1] = "Ledig"; // Standard til ledig
+                rowData[i + 1] = "Ledig"; 
             }
 
             for (Booking booking : bookings) {

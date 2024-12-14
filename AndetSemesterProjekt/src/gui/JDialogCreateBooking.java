@@ -47,8 +47,8 @@ public class JDialogCreateBooking extends JDialog {
         getContentPane().add(contentPanel, BorderLayout.CENTER);
         contentPanel.setLayout(null);
 
-        bookingController = new BookingController(); // Initialize bookingController
-        employeeController = new EmployeeController(); // Initialize employeeController
+        bookingController = new BookingController(); 
+        employeeController = new EmployeeController(); 
 
         List<Employee> employees = employeeController.getEmployees();
 
@@ -72,7 +72,7 @@ public class JDialogCreateBooking extends JDialog {
         calendarPanel.setBounds(0, 0, 279, 318);
         contentPanel.add(calendarPanel);
 
-        // Kolonnenavne for alle medarbejdere
+     
         Object[] columnNames = new Object[employees.size() + 1];
         columnNames[0] = "Tid";
         for (int i = 0; i < employees.size(); i++) {
@@ -92,7 +92,7 @@ public class JDialogCreateBooking extends JDialog {
             public void mouseClicked(MouseEvent e) {
                 int row = table.rowAtPoint(e.getPoint());
                 int col = table.columnAtPoint(e.getPoint());
-                if (col > 0) { // Undgå første kolonne
+                if (col > 0) { 
                     Object value = table.getValueAt(row, col);
                     if ("Ledig".equals(value)) {
                         LocalTime time = (LocalTime) table.getValueAt(row, 0);
@@ -121,10 +121,10 @@ public class JDialogCreateBooking extends JDialog {
 
     private void openBookingDialog(Employee employee, LocalTime time, LocalDate date) {
         try {
-            bookingController.createBooking(); // Opret en ny booking
-            bookingController.setEmployee(employee); // Sæt medarbejder
-            bookingController.setStaringTime(time); // Sæt starttidspunkt
-            bookingController.setDate(date); // Sæt dato
+            bookingController.createBooking();
+            bookingController.setEmployee(employee);
+            bookingController.setStaringTime(time);
+            bookingController.setDate(date); 
             BookingDialog bookingDialog = new BookingDialog(bookingController, employee, time, date);
             bookingDialog.setVisible(true);
 

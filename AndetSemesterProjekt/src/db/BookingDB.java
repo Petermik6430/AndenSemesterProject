@@ -110,10 +110,10 @@ public class BookingDB implements BookingDBIF {
 
 	public List<Booking> findBookingByDate(LocalDate date) throws DataAccessException {
 		List<Booking> res = new ArrayList<>();
-		//LocalDate nextDay = date.plus(1, ChronoUnit.DAYS);
+		LocalDate nextDay = date.plus(1, ChronoUnit.DAYS);
 		try {
 			ps_findBookingByDate.setDate(1, Date.valueOf(date));
-			//ps_findBookingByDate.setDate(2, Date.valueOf(nextDay));
+			ps_findBookingByDate.setDate(2, Date.valueOf(nextDay));
 			ResultSet rs = ps_findBookingByDate.executeQuery();
 		res = buildObjects(rs);
 		} catch(SQLException e) {

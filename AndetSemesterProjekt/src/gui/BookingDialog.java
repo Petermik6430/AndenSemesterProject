@@ -17,7 +17,7 @@ import java.util.List;
 public class BookingDialog extends JDialog {
 	private JTextField txtPhone;
     private JComboBox<Service> comboBoxService;
-    private JTextField txtNote;  // Tilføj tekstfelt til noter
+    private JTextField txtNote; 
     private BookingController bookingController;
     private ServiceController serviceController;
     private LocalTime startTime;
@@ -38,15 +38,15 @@ public class BookingDialog extends JDialog {
         serviceController = new ServiceController();
 
         JPanel contentPanel = new JPanel();
-        contentPanel.setLayout(new GridLayout(5, 2)); // Opdater layout til 5 rækker
+        contentPanel.setLayout(new GridLayout(5, 2)); 
 
-        // Kunde telefonnummer
+       
         JLabel lblPhone = new JLabel("Telefonnummer:");
         contentPanel.add(lblPhone);
         txtPhone = new JTextField();
         contentPanel.add(txtPhone);
 
-        // Service
+       
         JLabel lblService = new JLabel("Service:");
         contentPanel.add(lblService);
         comboBoxService = new JComboBox<>();
@@ -56,7 +56,7 @@ public class BookingDialog extends JDialog {
         }
         contentPanel.add(comboBoxService);
 
-        // Note
+        
         JLabel lblNote = new JLabel("Note:");
         contentPanel.add(lblNote);
         txtNote = new JTextField();
@@ -64,7 +64,7 @@ public class BookingDialog extends JDialog {
 
         getContentPane().add(contentPanel, BorderLayout.CENTER);
 
-        // Knapper
+      
         JPanel buttonPane = new JPanel();
         JButton btnOpret = new JButton("Opret");
         btnOpret.addActionListener(new ActionListener() {
@@ -86,16 +86,16 @@ public class BookingDialog extends JDialog {
         Service selectedService = (Service) comboBoxService.getSelectedItem();
         String note = txtNote.getText(); // Hent teksten fra note feltet
 
-        // Sæt kunde, service, medarbejder, dato og tidspunkt i bookingController
+    
         bookingController.createBooking();
         bookingController.selectCustomerByPhoneNo(phoneNo);
         bookingController.setService(selectedService);
         bookingController.setEmployee(employee);
         bookingController.setStaringTime(startTime);
         bookingController.setDate(selectedDate);
-        bookingController.setNote(note); // Sæt noten
+        bookingController.setNote(note); 
 
-        // Gem booking i databasen
+      
         Booking booking = bookingController.completeBooking();
 
         JOptionPane.showMessageDialog(this,"Booking is successfully created");
