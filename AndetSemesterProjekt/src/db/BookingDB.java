@@ -30,8 +30,8 @@ public class BookingDB implements BookingDBIF {
 	private DBConnection dbc;
 	private Connection con;
 	
-	private static final String UPDATE_BOOKINGS = "select * from BookingDate where cast(bookingDate as date) = ?";
-	private static final String SAVE_BOOKING = "insert into BookingDate (bookingDate, type, note,  employeeId, customerId, serviceId) values(?,?,?,?,?,?)";
+	private static final String UPDATE_BOOKINGS = "select * from Booking where cast(bookingDate as date) = ?";
+	private static final String SAVE_BOOKING = "insert into Booking (bookingDate, type, note,  employeeId, customerId, serviceId) values(?,?,?,?,?,?)";
 	private static final String FIND_BOOKING_BY_DATE = "select * from BookingDate where bookingDate >= ? and bookingDate < ?";
 	
 	private PreparedStatement ps_findBookingByDate;

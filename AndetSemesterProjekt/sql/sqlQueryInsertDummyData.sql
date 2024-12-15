@@ -33,7 +33,7 @@ INSERT INTO [Service] ([name], duration) VALUES
 ('Haircut + Shave', 30);
 
 -- Tilføj data til BookingDate tabellen
-INSERT INTO BookingDate (bookingDate, [type], note, employeeId, customerId, serviceId) VALUES 
+INSERT INTO Booking (bookingDate, [type], note, employeeId, customerId, serviceId) VALUES 
 ('2024-12-08 10:00:00', 'booked', 'Regular haircut', 1, 1, 1),
 ('2024-12-08 11:00:00', 'booked', 'Full shave', 2, 2, 2),
 ('2024-12-08 12:00:00', 'booked', 'Deep cleansing facial', 3, 3, 3),
@@ -124,7 +124,7 @@ SELECT * FROM Sale;
 SELECT * FROM Employee;
 
 -- Vis indholdet af tabellen BookingDate
-SELECT * FROM BookingDate;
+SELECT * FROM Booking;
 
 -- Vis indholdet af tabellen Service
 SELECT * FROM [Service];

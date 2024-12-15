@@ -5,7 +5,7 @@ go
 --dropper tabel hvis den eksistere
 drop table if exists Price;
 drop table if exists SaleLine;
-drop table if exists BookingDate;
+drop table if exists Booking;
 drop table if exists [Service];
 drop table if exists Sale;
 drop table if exists Employee;
@@ -161,7 +161,7 @@ create table [Service](
 
 
 
-create table BookingDate (
+create table Booking (
 	id int identity(1,1),
 	bookingDate dateTime,
 	[type] varchar(20),
