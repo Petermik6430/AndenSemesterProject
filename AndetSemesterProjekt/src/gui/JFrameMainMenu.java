@@ -58,12 +58,6 @@ public class JFrameMainMenu extends JFrame {
 		contentPane.add(btnBooking);
 		
 		JButton btnKalender = new JButton("Kalender");
-		btnKalender.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				JDialogCalenderOpen();
-			}
-
-		});
 		btnKalender.setBounds(99, 209, 89, 23);
 		contentPane.add(btnKalender);
 		
@@ -77,12 +71,6 @@ public class JFrameMainMenu extends JFrame {
 		contentPane.add(lblBarberLogo);
 	}
 	
-
-	private void JDialogCalenderOpen() {
-		JDialogCalender jdc = new JDialogCalender();
-		jdc.setVisible(true);
-		
-	}
 	
 	private void opensBooking() {
 		JDialogBooking jdab= new JDialogBooking();

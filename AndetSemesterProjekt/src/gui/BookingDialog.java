@@ -94,10 +94,13 @@ public class BookingDialog extends JDialog {
         bookingController.setStaringTime(startTime);
         bookingController.setDate(selectedDate);
         bookingController.setNote(note); 
-
-      
-        Booking booking = bookingController.completeBooking();
+       bookingController.completeBooking();
 
         JOptionPane.showMessageDialog(this,"Booking is successfully created");
+        dispose();
     }
+
+	public void addWindowListener() {
+				
+	}
 }
