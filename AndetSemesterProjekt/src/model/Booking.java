@@ -84,32 +84,7 @@ public class Booking {
 	public void setBookingType(BookingType type) {
 		this.type = type;
 	}
-/*
-	@Override 
-	public boolean equals(Object o) {
-		if (this == o) return true; 
-		if (o == null || getClass() != o.getClass()) 
-		return false; 
-		Booking booking = (Booking) o;
-		return bookingId == booking.bookingId && 
-				Objects.equals(service, booking.service) && 
-				Objects.equals(bookingDate, booking.bookingDate) && 
-				Objects.equals(customer, booking.customer) && 
-				Objects.equals(employee, booking.employee);
-		} 
-	
-	@Override 
-	public int hashCode() { 
-		return Objects.hash(bookingId, service, bookingDate, customer, employee);
-		}
 
-
-	@Override
-	public String toString() {
-		return "booking{" + "time=" + bookingDate + ", Status" + type + "}";
-		
-	}
-	*/
 }
 
 
