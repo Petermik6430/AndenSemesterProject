@@ -112,7 +112,7 @@ public class EmployeeDB implements EmployeeDBIF {
             dbc.commitTransaction();
         } catch (SQLException e) {
         	dbc.rollbackTransaction();
-            e.printStackTrace();
+            throw new DataAccessException("fejl ved at updater employee på dato", e);
         }
     }
 

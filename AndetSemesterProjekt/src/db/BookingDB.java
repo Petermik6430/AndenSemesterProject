@@ -56,7 +56,7 @@ public class BookingDB implements BookingDBIF {
 			ps_saveBooking = con.prepareStatement(SAVE_BOOKING, Statement.RETURN_GENERATED_KEYS);
 			
 		} catch (DataAccessException | SQLException e) {
-			throw new DataAccessException("",e);
+			throw new DataAccessException(" fejl ved initialisering",e);
 		}
 	}
 	

@@ -69,7 +69,7 @@ public class ServiceDB implements ServiceDBIF {
 			
 			
 		}catch (SQLException e) {
-			throw new DataAccessException("Fejl 101",e);
+			throw new DataAccessException("Fejl ved opbygning af service-objekt ",e);
 		}
 		return service;
 	
@@ -82,7 +82,7 @@ public class ServiceDB implements ServiceDBIF {
 			ResultSet rs = ps_findAllService.executeQuery();
 			res = buildObjects(rs);
 		} catch(SQLException e) {
-			throw new DataAccessException("Fejl",e);
+			throw new DataAccessException("fejl ved at finde servicer",e);
 		}
 		return res;
 		
@@ -97,7 +97,7 @@ public class ServiceDB implements ServiceDBIF {
 					res.add(ser);
 				}
 					} catch(SQLException e) {
-					throw new DataAccessException("fejl",e);
+					throw new DataAccessException("Fejl ved opbygning af service-objekter",e);
 				}
 		return res;
 	}
@@ -117,7 +117,7 @@ public class ServiceDB implements ServiceDBIF {
         dbc.commitTransaction();
         } catch (SQLException e) {
         	dbc.rollbackTransaction();
-            throw new DataAccessException("", e); // TODO lav en beskrivende fejl besked.
+            throw new DataAccessException("Fejl ved oprettelse af service", e);
         }
     
 

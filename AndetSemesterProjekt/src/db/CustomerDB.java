@@ -31,7 +31,7 @@ public class CustomerDB implements CustomerDBIF {
 		ps_findCustomerByPhoneNo = con.prepareStatement(FIND_CUSTOMER_BY_PHONENO);
 		ps_saveCustomer = con.prepareStatement(SAVE_CUSTOMER);
 		} catch (SQLException e) {
-			throw new DataAccessException("", e); //TODO skriv en beskrivende fejlbesked
+			throw new DataAccessException("fejl ved initialisering", e); //TODO skriv en beskrivende fejlbesked
 		}
 	}
 
@@ -46,12 +46,9 @@ public class CustomerDB implements CustomerDBIF {
 			if(rs.next()) {
 				
 			res = buildObject(rs);
-			} else {
-				System.err.println("No customer found with phone number: " + phoneNo);
 			}
 		} catch (SQLException e) {
-			dbc.rollbackTransaction();
-			throw new DataAccessException("fejl", e); //TODO skriv en beskrivende fejlbesked
+			throw new DataAccessException("fejl ved at finde kunden med telefonnummeret" + phoneNo, e); 
 		}
 		return res;
 	}
@@ -67,7 +64,7 @@ public class CustomerDB implements CustomerDBIF {
 			customer.setPhoneNo(rs.getString(4));
 			customer.setEmail(rs.getString(5));
 		}catch(SQLException e) {
-			throw new DataAccessException("fejl",e); //TODO skriv en beskrivende fejlbesked
+			throw new DataAccessException("Fejl ved opbygning af customer-objekt",e); 
 		}
 		return customer;
 	}
@@ -121,7 +118,7 @@ public class CustomerDB implements CustomerDBIF {
 			if(generatedKeys.next()) customerId = generatedKeys.getInt(1);
 			
 		  } catch (SQLException e) {
-			throw new DataAccessException("", e); //TODO skriv en beskrivende fejlbesked
+			throw new DataAccessException("Fejl ved oprettelse af customer", e); 
 		}
 		return customerId;
 
