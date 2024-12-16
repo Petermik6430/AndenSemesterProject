@@ -132,7 +132,6 @@ create table Employee(
 	email varchar(50),
 	cprNo char(10),
 	salary decimal,
-	contactPerson varchar(40),
 	addressId int,
 	zipcode varchar(12),
 	constraint pk_Employee_id Primary key(id),
@@ -144,7 +143,7 @@ create table Employee(
 
 create table Sale(
 	saleNo int identity(1,1),
-	totalPrice money, -- or decimal
+	totalPrice money, 
 	employeeId int,
 	constraint pk_Sale_saleNo Primary key(saleNo),
 	constraint fk_Sale_employeeId Foreign key (employeeId) references Employee(id)
@@ -198,7 +197,7 @@ create table Price(
 	id int identity(1,1),
 	[date] dateTime,
 	price money,
-	discount money, -- hvilken data type skal det v�re n�r vi skal beregne discount
+	discount money,
 	serviceId int,
 	itemId int,
 	constraint pk_Price_id Primary key(id),

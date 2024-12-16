@@ -15,9 +15,13 @@ public class EmployeeDB implements EmployeeDBIF {
     
     private String FIND_EMPLOYEE_BY_ID = "select * from Employee where id = ?";
     private String FIND_ALL_EMPLOYEES = "select  * from Employee";
+    private String UPDATE_EMPLOYEE = "UPDATE Employees SET fName = ?, lName = ?, phoneNo = ?, email = ?, cprNo = ?, salary = ?, address = ? WHERE employeeId = ?";
+    private String DELETE_EMPLOYEE = "DELETE FROM Employees WHERE employeeId = ?";
     
+    private PreparedStatement ps_updateEmployee;
     private PreparedStatement ps_findEmployeeById;
     private PreparedStatement ps_findAllEmployees;
+    private PreparedStatement ps_deleteEmployee;
 
     public EmployeeDB() throws DataAccessException {
         init();
@@ -29,6 +33,8 @@ public class EmployeeDB implements EmployeeDBIF {
         try {
             ps_findAllEmployees = con.prepareStatement(FIND_ALL_EMPLOYEES);
             ps_findEmployeeById = con.prepareStatement(FIND_EMPLOYEE_BY_ID);
+            ps_updateEmployee = con.prepareStatement(UPDATE_EMPLOYEE);
+            ps_deleteEmployee = con.prepareStatement(DELETE_EMPLOYEE);
         } catch (SQLException e) {
             throw new DataAccessException("Failed to prepare statements", e);
         }
@@ -92,30 +98,29 @@ public class EmployeeDB implements EmployeeDBIF {
  
     @Override
     public void updateEmployee(Employee employee) throws DataAccessException {
-        try (Connection c = dbc.getConnection()) {
-            String sql = "UPDATE Employees SET fName = ?, lName = ?, phoneNo = ?, email = ?, cprNo = ?, salary = ?, address = ? WHERE employeeId = ?";
-            PreparedStatement ps = c.prepareStatement(sql);
-            ps.setString(1, employee.getFirstName());
-            ps.setString(2, employee.getLastName());
-            ps.setString(3, employee.getPhoneNo());
-            ps.setString(4, employee.getEmail());
-            ps.setString(5, employee.getCprNo());
-            ps.setDouble(6, employee.getSalary());
-            ps.setString(7, employee.getAddress());
-            ps.setInt(8, employee.getEmployeeId());
-            ps.executeUpdate();
+    		dbc.startTransaction();
+    	try  {
+    		ps_updateEmployee.setString(1, employee.getFirstName());
+    		ps_updateEmployee.setString(2, employee.getLastName());
+    		ps_updateEmployee.setString(3, employee.getPhoneNo());
+    		ps_updateEmployee.setString(4, employee.getEmail());
+    		ps_updateEmployee.setString(5, employee.getCprNo());
+    		ps_updateEmployee.setDouble(6, employee.getSalary());
+    		ps_updateEmployee.setString(7, employee.getAddress());
+    		ps_updateEmployee.setInt(8, employee.getEmployeeId());
+    		ps_updateEmployee.executeUpdate();
+            dbc.commitTransaction();
         } catch (SQLException e) {
+        	dbc.rollbackTransaction();
             e.printStackTrace();
         }
     }
 
     @Override
     public void deleteEmployee(int employeeId) throws DataAccessException {
-        try (Connection c = dbc.getConnection()) {
-            String sql = "DELETE FROM Employees WHERE employeeId = ?";
-            PreparedStatement ps = c.prepareStatement(sql);
-            ps.setInt(1, employeeId);
-            ps.executeUpdate();
+        try  {
+            ps_deleteEmployee.setInt(1, employeeId);
+            ps_deleteEmployee.executeUpdate();
         } catch (SQLException e) {
             throw new DataAccessException("Failed to delete employee", e);
         }

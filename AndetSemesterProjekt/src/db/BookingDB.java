@@ -146,33 +146,20 @@ public class BookingDB implements BookingDBIF {
 	        booking.setBookingId(rs.getInt("id"));
 	        booking.setBookingDate(rs.getTimestamp("bookingDate").toLocalDateTime());
 	        booking.setNote(rs.getString("note"));
-
 	        int serviceId = rs.getInt("serviceId");
-	        if (!rs.wasNull()) {
 	            Service service = serviceDB.findServiceById(serviceId);
 	            booking.setService(service);
-	        }
-
 	        int employeeId = rs.getInt("employeeId");
-	        if (!rs.wasNull()) {
 	            Employee employee = employeeDB.findEmployeeById(employeeId);
 	            booking.setEmployee(employee);
-	        }
-
 	        int customerId = rs.getInt("customerId");
-	        if (!rs.wasNull()) {
 	            Customer customer = customerDB.findCustomerById(customerId);
 	            booking.setCustomer(customer);
-	        }
-	        
 	        String bookingType = rs.getString("type");
-	        if (bookingType !=null) {
 	        	booking.setBookingType(BookingType.valueOf(bookingType));
-	 
-	        }
+
 
 	    } catch (SQLException e) {
-	        System.err.println("SQLException ved opbygning af booking-objekt: " + e.getMessage());
 	        throw new DataAccessException("Fejl ved opbygning af booking-objekt", e);
 	    } 
 	    return booking;

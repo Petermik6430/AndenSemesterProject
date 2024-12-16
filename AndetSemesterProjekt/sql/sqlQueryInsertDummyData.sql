@@ -3,27 +3,27 @@ go
 
 -- Tilføj data til Zipcode tabellen
 INSERT INTO Zipcode (zipcode, city, country) VALUES 
-('1000', 'København', 'DK'),
-('8000', 'Aarhus', 'DK'),
-('5000', 'Odense', 'DK');
+('9000', 'Aalborg', 'DK'),
+('9800', 'Hjørring', 'DK'),
+('9400', 'Nørresundby ', 'DK');
 
 -- Tilføj data til Address tabellen
 INSERT INTO [Address] ([address], zipcode) VALUES 
-('Rådhuspladsen', '1000'),
-('Store Torv', '8000'),
-('H.C. Andersens Boulevard', '5000');
+('Rådhuspladsen', '9000'),
+('Store Torv', '9800'),
+('H.C. Andersens Boulevard', '9400');
 
 -- Tilføj data til Customer tabellen
 INSERT INTO Customer (fName, lName, phoneNo, email) VALUES 
 ('John', 'Doe', '12345678', 'john.doe@example.com'),
-('Jane', 'Smith', '0987654321', 'jane.smith@example.com'),
-('Alice', 'Johnson', '5551234567', 'alice.johnson@example.com');
+('Jane', 'Smith', '87654321', 'jane.smith@example.com'),
+('Alice', 'Johnson', '11223344', 'alice.johnson@example.com');
 
 -- Tilføj data til Employee tabellen
-INSERT INTO Employee (fName, lName, phoneNo, email, cprNo, salary, contactPerson, addressId, zipcode) VALUES 
-('Hans', 'Andersen', '11223344', 'hans.andersen@example.com', '1234567890', 50000, 'Niels Bohr', 1, '1000'),
-('Grethe', 'Sørensen', '22334455', 'grethe.sorensen@example.com', '0987654321', 45000, 'Marie Curie', 2, '8000'),
-('Karl', 'Hansen', '33445566', 'karl.hansen@example.com', '5551234567', 55000, 'Isaac Newton', 3, '5000');
+INSERT INTO Employee (fName, lName, phoneNo, email, cprNo, salary, addressId, zipcode) VALUES 
+('Ali', 'B', '32165487', 'Ali@example.com', '1234567890', 50000, 1, '9000'),
+('Carloz', 'S', '2334455', 'Carloz@example.com', '0987654321', 45000, 2, '9800'),
+('Ahmad', 'A', '33445566', 'Ahmad@example.com', '5551234567', 55000, 3, '9400');
 
 -- Tilføj data til Service tabellen
 INSERT INTO [Service] ([name], duration) VALUES 
@@ -36,8 +36,7 @@ INSERT INTO [Service] ([name], duration) VALUES
 INSERT INTO Booking (bookingDate, [type], note, employeeId, customerId, serviceId) VALUES 
 ('2024-12-08 10:00:00', 'booked', 'Regular haircut', 1, 1, 1),
 ('2024-12-08 11:00:00', 'booked', 'Full shave', 2, 2, 2),
-('2024-12-08 12:00:00', 'booked', 'Deep cleansing facial', 3, 3, 3),
-('2024-12-10 12:00:00', 'booked', 'Deep cleansing facial', 3, 2, 3);
+('2024-12-08 12:00:00', 'booked', 'Deep cleansing facial', 3, 3, 3);
 
 -- Tilføj data til Sale tabellen
 INSERT INTO Sale (totalPrice, employeeId) VALUES 
@@ -51,8 +50,8 @@ INSERT INTO Item (brand, barcode, stockId) VALUES
 
 -- Tilføj data til Shop tabellen
 INSERT INTO Shop ([name], addressId, zipcode) VALUES 
-('ShopA', 1, '1000'),
-('ShopB', 2, '5000');
+('ShopA', 1, '9000'),
+('ShopB', 3, '9400');
 
 
 -- Tilføj data til Stock tabellen
@@ -71,8 +70,8 @@ INSERT INTO ItemType ([name]) VALUES
 
 -- Tilføj data til Supplier tabellen
 INSERT INTO Supplier ([name], phoneNo, email, zipcode, addressId) VALUES 
-('SupplierA', '1112223333', 'supplierA@example.com', '1000', 1),
-('SupplierB', '4445556666', 'supplierB@example.com', '5000', 2);
+('SupplierA', '1112223333', 'supplierA@example.com', '9000', 1),
+('SupplierB', '4445556666', 'supplierB@example.com', '9800', 2);
 
 -- Tilføj data til ItemSupplier tabellen
 INSERT INTO ItemSupplier (supplierId, itemId) VALUES 
@@ -90,47 +89,47 @@ INSERT INTO SaleLine (quantity, saleNo, serviceId, itemId) VALUES
 (1, 1, 1, 1),
 (2, 2, 2, 2);
 
--- Vis indholdet af tabellen Zipcode
+
 SELECT * FROM Zipcode;
 
--- Vis indholdet af tabellen Address
+
 SELECT * FROM [Address];
 
--- Vis indholdet af tabellen Customer
+
 SELECT * FROM Customer;
 
--- Vis indholdet af tabellen Supplier
+
 SELECT * FROM Supplier;
 
--- Vis indholdet af tabellen Item
+
 SELECT * FROM Item;
 
--- Vis indholdet af tabellen ItemSupplier
+
 SELECT * FROM ItemSupplier;
 
--- Vis indholdet af tabellen ItemType
+
 SELECT * FROM ItemType;
 
--- Vis indholdet af tabellen Shop
+
 SELECT * FROM Shop;
 
--- Vis indholdet af tabellen Stock
+
 SELECT * FROM Stock;
 
--- Vis indholdet af tabellen Sale
+
 SELECT * FROM Sale;
 
--- Vis indholdet af tabellen Employee
+
 SELECT * FROM Employee;
 
--- Vis indholdet af tabellen BookingDate
+
 SELECT * FROM Booking;
 
--- Vis indholdet af tabellen Service
+
 SELECT * FROM [Service];
 
--- Vis indholdet af tabellen SaleLine
+
 SELECT * FROM SaleLine;
 
--- Vis indholdet af tabellen Price
+
 SELECT * FROM Price;
