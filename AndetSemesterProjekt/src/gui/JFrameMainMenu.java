@@ -37,7 +37,7 @@ public class JFrameMainMenu extends JFrame {
 	 */
 	public JFrameMainMenu() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 306);
+		setBounds(100, 100, 337, 265);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -45,7 +45,7 @@ public class JFrameMainMenu extends JFrame {
 		contentPane.setLayout(null);
 		
 		JButton btnNewButton = new JButton("Salg");
-		btnNewButton.setBounds(0, 209, 89, 23);
+		btnNewButton.setBounds(106, 59, 89, 23);
 		contentPane.add(btnNewButton);
 		
 		JButton btnBooking = new JButton("Booking");
@@ -54,21 +54,16 @@ public class JFrameMainMenu extends JFrame {
 				opensBooking();
 			}
 		});
-		btnBooking.setBounds(0, 238, 89, 23);
+		btnBooking.setBounds(106, 92, 89, 23);
 		contentPane.add(btnBooking);
 		
 		JButton btnKalender = new JButton("Kalender");
-		btnKalender.setBounds(99, 209, 89, 23);
+		btnKalender.setBounds(106, 126, 89, 23);
 		contentPane.add(btnKalender);
 		
 		JButton btnAdmin = new JButton("admin");
-		btnAdmin.setBounds(345, 238, 89, 23);
+		btnAdmin.setBounds(106, 160, 89, 23);
 		contentPane.add(btnAdmin);
-		
-		JLabel lblBarberLogo = new JLabel("");
-		lblBarberLogo.setIcon(new ImageIcon(JFrameMainMenu.class.getResource("/BarberArkji.jpg")));
-		lblBarberLogo.setBounds(-14, 0, 459, 206);
-		contentPane.add(lblBarberLogo);
 	}
 	
 	
