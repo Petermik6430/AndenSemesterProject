@@ -255,40 +255,5 @@ public class BookingIntegrationTest {
             fail("DataAccessException: " + e.getMessage());
         }
     }
-
-/*
-    @Test
-    public void testCompleteBooking() {
-        try {
-            // Arrange
-            bookingController.createBooking();
-            String phoneNo = "12345678";
-            LocalDate selectedDate = LocalDate.of(2010, 10, 10);
-            LocalTime startTime = LocalTime.of(10, 0);
-            List<Employee> employees = bookingController.getAllEmployees();
-            assertFalse(employees.isEmpty());
-            Employee employee = employees.get(0);
-            List<Service> services = bookingController.getAllServices();
-            assertFalse(services.isEmpty());
-            Service service = services.get(0);
-
-            // Act
-            bookingController.selectCustomerByPhoneNo(phoneNo);
-            bookingController.setService(service);
-            bookingController.setEmployee(employee);
-            bookingController.setStaringTime(startTime);
-            bookingController.setDate(selectedDate);
-            Booking booking = bookingController.completeBooking();
-
-            // Assert
-            assertNotNull(booking);
-            assertNotNull(booking.getBookingId());
-        } catch (DataAccessException e) {
-            fail("DataAccessException: " + e.getMessage());
-        }
-    }
-    
-    
-  */  
 }
 
